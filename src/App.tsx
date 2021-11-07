@@ -37,45 +37,35 @@ function App() {
     (state) => state.navbar
   )
   return (
-    <BrowserRouter basename="/">
-      <ConnectedRouter history={history}>
-        <Switch>
-          {/* 로그인 관련 */}
-          <Route exact path="/auth/login" component={LoginPageContainer} />
-          <Route
-            exact
-            path="/auth/register"
-            component={RegisterPageContainer}
-          />
-          {/* 방목록 */}
-          <Route exact path="/room/create" component={CreateRoomPage} />
-          <Route
-            exact
-            path="/room/create/detail"
-            component={CreateRoomDetailPage}
-          />
-          <Route exact path="/room/filter" component={FilterPage} />
-          <Route
-            exact
-            path="/room/:userid/:roomid"
-            component={CurrentRoomPage}
-          />
-          <Route exact path="/room/:userid" component={MyRoomListPage} />
-          <Route path="/room" component={RoomListPageContainer} />
-          {/* 프로필 수정 */}
-          <Route exact path="/profile/:id" component={ProfileEditPage} />
-          {/* 프로필 보기 */}
-          <Route exact path="/profile" component={ProfilePage} />
-          {/* 관리자 페이지 */}
-          <Route exact path="/adminpage" component={AdminPage} />
-          {/* 튜토리얼 페이지 */}
-          <Route exact path="/tutorial" component={TutorialPage} />
-          {/* 홈페이지 */}
-          <Route exact path="/" component={HomePage} />
-        </Switch>
-        {navbarState.isNavbar && <Navbar />}
-      </ConnectedRouter>
-    </BrowserRouter>
+    <ConnectedRouter history={history}>
+      <Switch>
+        {/* 로그인 관련 */}
+        <Route exact path="/auth/login" component={LoginPageContainer} />
+        <Route exact path="/auth/register" component={RegisterPageContainer} />
+        {/* 방목록 */}
+        <Route exact path="/room/create" component={CreateRoomPage} />
+        <Route
+          exact
+          path="/room/create/detail"
+          component={CreateRoomDetailPage}
+        />
+        <Route exact path="/room/filter" component={FilterPage} />
+        <Route exact path="/room/:userid/:roomid" component={CurrentRoomPage} />
+        <Route exact path="/room/:userid" component={MyRoomListPage} />
+        <Route path="/room" component={RoomListPageContainer} />
+        {/* 프로필 수정 */}
+        <Route exact path="/profile/:id" component={ProfileEditPage} />
+        {/* 프로필 보기 */}
+        <Route exact path="/profile" component={ProfilePage} />
+        {/* 관리자 페이지 */}
+        <Route exact path="/adminpage" component={AdminPage} />
+        {/* 튜토리얼 페이지 */}
+        <Route exact path="/tutorial" component={TutorialPage} />
+        {/* 홈페이지 */}
+        <Route exact path="/" component={HomePage} />
+      </Switch>
+      {navbarState.isNavbar && <Navbar />}
+    </ConnectedRouter>
   )
 }
 
