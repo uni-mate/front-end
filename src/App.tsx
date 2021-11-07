@@ -20,6 +20,7 @@ import FilterPage from "./pages/Filter/FilterPage"
 import HomePage from "./pages/Home/HomePage"
 import LoginPageContainer from "./pages/User/LoginPage/LoginPageContainer"
 import RegisterPageContainer from "./pages/User/RegisterPage/RegisterPageContainer"
+import ProfileCustomPage from "./pages/User/ProfileCustomPage/ProfileCustomPage"
 
 // Admin
 import AdminPage from "./pages/Admin/AdminPage"
@@ -54,6 +55,7 @@ function App() {
         <Route exact path="/room/:userid" component={MyRoomListPage} />
         <Route path="/room" component={RoomListPageContainer} />
         {/* 프로필 수정 */}
+        <Route exact path="/profile/custom" component={ProfileCustomPage} />
         <Route exact path="/profile/:id" component={ProfileEditPage} />
         {/* 프로필 보기 */}
         <Route exact path="/profile" component={ProfilePage} />
