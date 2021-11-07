@@ -1,0 +1,80 @@
+.chatting-room {
+  width: 100%;
+  height: 100vh;
+}
+.chatting-room__header {
+  padding: 20px;
+  padding-right: 0px;
+  background-color: #fff;
+}
+.chatting-room__header--container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.chatting-room__header--title {
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+}
+.chatting-room__prev-icon,
+.chatting-room__prev-icon > img,
+.chatting-room__menu-icon,
+.chatting-room__menu-icon > img {
+  width: 20px;
+  height: 20px;
+}
+.chatting-room__prev-icon {
+  margin-right: 10px;
+}
+.chatting-room__container {
+  padding: 15px;
+}
+.chatting-room__msg {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+.chatting-room__form {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  height: 40px;
+}
+.chatting-room__form > input {
+  height: 100%;
+  border: none;
+}
+.chatting-room__input > input:focus {
+  outline: none;
+}
+
+.chatting-room__form > .camera,
+.chatting-room__form > .promise {
+  position: absolute;
+  color: black;
+}
+.chatting-room__form > .camera {
+  width: 28px;
+  height: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+}
+.chatting-room__form > .promise {
+  width: 20px;
+  height: 26px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+}
+.camera > img,
+.promise > img {
+  width: 100%;
+  height: 100%;
+}
+.chatting-room__form > input {
+  width: 100%;
+  padding: 0px 60px;
+}

@@ -1,0 +1,93 @@
+.roomlist {
+  padding: 10px 5px;
+  margin-bottom: 60px;
+}
+
+.roomlist-header {
+  padding: 10px 5px;
+}
+
+.roomlist-header__title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.filter {
+  position: relative;
+  padding: 10px 5px;
+  margin: 15px 0px;
+}
+.filter__search-icon {
+  position: absolute;
+  font-size: 30px !important;
+  color: gray;
+  font-weight: 100;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+}
+.filter__search-icon > img {
+  width: 19px;
+  height: 19px;
+}
+.filter input {
+  width: 85%;
+  padding: 10px;
+  padding-left: 36px;
+  border: none;
+  background: #fff;
+}
+.filter input:focus {
+  /* focus시 색상 지정 */
+}
+.filter input::placeholder {
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  font-size: 12px;
+}
+
+.filter__search {
+  font-size: 30px !important;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 5%;
+}
+.filter__search > img {
+  width: 19px;
+  height: 19px;
+}
+.recommend-room {
+  padding: 5px;
+  margin: 10px 0px;
+}
+
+.recommend-room__title {
+}
+.recommend-room__list {
+  border-radius: 5px;
+  margin: 10px 0;
+  margin-top: 12px;
+  overflow: auto;
+  white-space: nowrap;
+  height: 265px;
+}
+.rest-room {
+  padding: 10px 5px;
+}
+.rest-room__title {
+}
+.rest-room__list {
+  margin: 10px 0;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+}
+.rest-room__list .list {
+  border: 1px solid red;
+  margin: 10px 0;
+  width: 100%;
+  height: 200px;
+  padding: 10px;
+}

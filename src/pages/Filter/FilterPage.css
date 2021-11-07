@@ -1,0 +1,148 @@
+.filter-container {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+.filter__header {
+  padding: 20px;
+  padding-right: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.filter__header--icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+.filter__header--icon > img {
+  width: 100%;
+  height: 100%;
+}
+.filter__header--title {
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+}
+/* body */
+.filter__body {
+  padding: 20px 10px;
+}
+.room-entity,
+.room-grade,
+.room-user,
+.user-gender,
+.meet-available,
+.user-common,
+.meet-purpose {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.room-entity__title,
+.room-grade__title,
+.room-user__title,
+.user-gender__title,
+.user-common__title,
+.meet-purpose__title,
+.meet-available__title {
+  display: inline-block;
+  width: 60px;
+  height: 20px;
+  margin: 10px 12px auto 12px;
+  font-size: 12px;
+}
+.room-entity__select,
+.room-grade__select,
+.room-user__select,
+.user-gender__select,
+.user-common__select,
+.meet-purpose__select,
+.meet-available__select {
+  margin-bottom: 10px;
+  width: 260px;
+}
+.room-user__select {
+  position: relative;
+  padding: 0 25px;
+}
+
+.room-entity__select > input[type="radio"],
+.room-grade__select > input[type="radio"],
+.user-gender__select > input[type="radio"],
+.meet-available__select > input[type="radio"] {
+  display: none;
+}
+.room-entity__select > input[type="radio"] + label,
+.room-grade__select > input[type="radio"] + label,
+.user-gender__select > input[type="radio"] + label,
+.meet-available__select > input[type="radio"] + label {
+  display: inline-block;
+  border: 1px solid rgba(85, 85, 85, 0.3);
+}
+.room-entity__select > input[type="radio"]:checked + label,
+.room-grade__select > input[type="radio"]:checked + label,
+.user-gender__select > input[type="radio"]:checked + label,
+.meet-available__select > input[type="radio"]:checked + label {
+  border: 1px solid var(--main-color);
+  color: var(--main-color);
+}
+.room-entity__select > label,
+.room-grade__select > label,
+.user-gender__select > label,
+.meet-available__select > label {
+  height: 33px;
+  line-height: 33px;
+  text-align: center;
+  font-size: 13px;
+  margin-right: 10px;
+  border-radius: 4px;
+}
+.room-entity__select > label {
+  width: 63px;
+}
+.room-grade__select > label {
+  width: 58px;
+  margin-bottom: 10px;
+}
+.room-grade__select > label:nth-of-type(5) {
+  width: 88px;
+}
+.room-grade__select > label:nth-of-type(6) {
+  width: 80px;
+}
+.user-gender__select > label:nth-of-type(1),
+.user-gender__select > label:nth-of-type(2) {
+  width: 50px;
+}
+.user-gender__select > label:nth-of-type(3) {
+  width: 80px;
+}
+.meet-available__select > label:nth-of-type(1) {
+  width: 46px;
+}
+.meet-available__select > label:nth-of-type(2) {
+  width: 44px;
+}
+.meet-available__select > label:nth-of-type(3) {
+  width: 63px;
+}
+.room-user__silder {
+  color: var(--main-color) !important;
+  margin-bottom: 14px !important;
+  display: block;
+  padding: 0 10px;
+}
+.room-user__select--min {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-size: 12px;
+}
+.room-user__select--max {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 12px;
+}

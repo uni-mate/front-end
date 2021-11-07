@@ -1,0 +1,29 @@
+.myroom-list {
+  padding-bottom: 10px;
+  margin-bottom: 60px;
+}
+.myroom-list__header {
+  padding: 20px 20px;
+  background-color: #fff;
+  position: relative;
+}
+.myroom-list__header--title {
+  font-size: 20px;
+  font-weight: bold;
+}
+.myroom__search-icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px !important;
+}
+.myroom__search-icon > img {
+  width: 19px;
+  height: 19px;
+}
+.myroom-list__body {
+  margin: 15px auto;
+  text-align: center;
+  width: 90%;
+}

@@ -1,0 +1,12 @@
+.auth-btn__container {
+  width: 100%;
+  background-color: #c4c4c4;
+  border: 1px solid #c4c4c4;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4.06593px;
+}
+.auth-btn__container.inverse {
+  background-color: #fff;
+  border: 1px solid #c4c4c4;
+}

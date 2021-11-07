@@ -1,0 +1,47 @@
+.sk-restroom-preview {
+  background-color: #fff;
+  height: 119px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px rgba(201, 201, 201, 0.4);
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.sk-restroom-preview__header {
+  width: 100%;
+  height: 40px;
+  animation: skeleton-gradient 1.8s infinite ease-in-out;
+}
+.sk-restroom-preview__body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sk-restroom-preview__hash {
+  display: flex;
+  width: 65%;
+  height: 20px;
+  animation: skeleton-gradient 1.8s infinite ease-in-out;
+}
+.sk-restroom-preview__count {
+  width: 12%;
+  height: 20px;
+  font-size: 10px;
+  animation: skeleton-gradient 1.8s infinite ease-in-out;
+}
+
+@keyframes skeleton-gradient {
+  0% {
+    background-color: rgba(165, 165, 165, 0.1);
+  }
+
+  50% {
+    background-color: rgba(165, 165, 165, 0.3);
+  }
+
+  100% {
+    background-color: rgba(165, 165, 165, 0.1);
+  }
+}
