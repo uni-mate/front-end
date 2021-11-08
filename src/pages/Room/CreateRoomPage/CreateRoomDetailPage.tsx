@@ -45,7 +45,10 @@ const CreateRoomDetailPage = () => {
     navbarInside()
   }
   return (
-    <div className="create-detail" style={{ height: `${mobile}` }}>
+    <div
+      className="create-detail"
+      style={{ height: `${mobile === 0 ? "100vh" : mobile}` }}
+    >
       <div className="create-detail__header">
         <div onClick={prevPageHandler}>
           <img src={BackArrow} alt="arrow" />
