@@ -47,7 +47,7 @@ const CreateRoomDetailPage = () => {
   return (
     <div
       className="create-detail"
-      style={{ height: `${mobile === 0 ? "100vh" : mobile}` }}
+      style={{ height: `${mobile === 0 ? "100vh" : `${mobile}px`}` }}
     >
       <div className="create-detail__header">
         <div onClick={prevPageHandler}>
