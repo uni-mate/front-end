@@ -12,7 +12,7 @@
 .restroom-preview__header {
 }
 .restroom-preview__header--title {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   font-weight: bold;
   font-size: 16px;
 }
@@ -22,12 +22,27 @@
 .restroom-preview__body {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
+  font-size: 10px;
 }
-.restroom-preview__hash {
+.restroom-preview__meet-status {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+.restroom-preview__meet-status > img {
+  width: 12px;
+  height: 10px;
+  margin-right: 4px;
 }
 .restroom-preview__count {
-  /* border: 1px solid #000; */
-  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.restroom-preview__count > img {
+  width: 10px;
+  height: 12px;
+  margin-right: 4px;
 }

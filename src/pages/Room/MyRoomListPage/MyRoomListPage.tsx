@@ -1,10 +1,9 @@
-import React, { useCallback, useEffect } from "react"
-import { useDispatch } from "react-redux"
-import { navbarIN } from "../../../redux/modules/navbar"
+import React, { useEffect } from "react"
 import MyRoomPreiview from "../../../components/Room/MyRoomPreview/MyRoomPreiview"
 import SearchIcon from "../../../assets/icons/attr/search.png"
 
 import "./MyRoomListPage.css"
+import useNavbar from "../../../hooks/useNavbar"
 
 const myRoomList = [
   {
@@ -45,13 +44,10 @@ const myRoomList = [
 ]
 
 const MyRoomListPage = () => {
-  const dispatch = useDispatch()
-  const isNavbarIn = useCallback(() => {
-    dispatch(navbarIN())
-  }, [dispatch])
+  const [navbarInside, navbarOutside] = useNavbar()
   useEffect(() => {
-    isNavbarIn()
-  }, [isNavbarIn])
+    navbarInside()
+  }, [navbarInside])
   return (
     <div className="myroom-list">
       <div className="myroom-list__header">

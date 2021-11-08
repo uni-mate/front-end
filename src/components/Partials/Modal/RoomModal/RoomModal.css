@@ -1,0 +1,59 @@
+.allroom-modal {
+  /* border: 1px solid #000; */
+  font-size: 12px;
+  color: #555555;
+}
+.allroom-modal__title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #555555;
+  margin-bottom: 30px;
+  line-height: 25px;
+}
+.allroom-modal__title > span {
+}
+.allroom-modal__body {
+  margin-bottom: 30px;
+}
+.allroom-modal__body--desc {
+  margin-bottom: 15px;
+}
+.allroom-modal__body--desc > span {
+  display: inline-block;
+  width: 60px;
+  /* border: 1px solid #000; */
+  font-weight: bold;
+}
+.allroom-modal__body--desc > div {
+  display: inline-block;
+  border: 2px solid var(--main-color);
+  border-radius: 20px;
+  padding: 8px 10px;
+}
+.allroom-modal__body--desc > div.empty {
+  opacity: 0;
+}
+.allroom-modal__button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 46px;
+}
+.allroom-modal__button > button:nth-of-type(1) {
+  width: 83px;
+  height: 100%;
+  background-color: #fff;
+  color: #555555;
+  font-weight: bold;
+  border: 0.75px solid rgba(85, 85, 85, 0.3);
+  border-radius: 4px;
+}
+.allroom-modal__button > button:nth-of-type(2) {
+  width: 153px;
+  height: 100%;
+  border-radius: 4px;
+  border: 0.75px solid var(--main-color);
+  background-color: var(--main-color);
+  color: #fff;
+  font-weight: bold;
+}

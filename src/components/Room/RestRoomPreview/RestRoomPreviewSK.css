@@ -12,24 +12,19 @@
 .sk-restroom-preview__header {
   width: 100%;
   height: 40px;
-  animation: skeleton-gradient 1.8s infinite ease-in-out;
+  animation: skeleton-gradient 1s infinite ease-in-out;
 }
 .sk-restroom-preview__body {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
-.sk-restroom-preview__hash {
-  display: flex;
-  width: 65%;
+.sk-restroom-preview__meet-status {
+  width: 30%;
   height: 20px;
-  animation: skeleton-gradient 1.8s infinite ease-in-out;
+  animation: skeleton-gradient 1s infinite ease-in-out;
 }
 .sk-restroom-preview__count {
-  width: 12%;
-  height: 20px;
-  font-size: 10px;
-  animation: skeleton-gradient 1.8s infinite ease-in-out;
 }
 
 @keyframes skeleton-gradient {

@@ -7,7 +7,7 @@ const RestRoomPreviewSK = () => {
     <div className="sk-restroom-preview">
       <div className="sk-restroom-preview__header"></div>
       <div className="sk-restroom-preview__body">
-        <div className="sk-restroom-preview__hash"></div>
+        <div className="sk-restroom-preview__meet-status"></div>
         <div className="sk-restroom-preview__count"></div>
       </div>
     </div>

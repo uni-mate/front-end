@@ -45,16 +45,16 @@ const RegisterPage = ({ registerSaga }: Props) => {
     setStartEnter(true)
     e.preventDefault()
     alert("아직 구현되지 않은 화면입니다.")
-    const body = {
-      school,
-      department,
-      userId,
-      email,
-      password,
-      username,
-      introducing,
-    }
-    registerSaga(body)
+    // const body = {
+    //   school,
+    //   department,
+    //   userId,
+    //   email,
+    //   password,
+    //   username,
+    //   introducing,
+    // }
+    // registerSaga(body)
   }
   // 회원가입 유효성 검사
   // useEffect(() => {

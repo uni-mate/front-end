@@ -1,6 +1,10 @@
-import React from "react"
+import React, { Fragment, useState } from "react"
 import { Chat } from "../../../types/types"
-import CustomHash from "../../Partials/CustomHash/CustomHash"
+import MeetStatus from "../../../assets/icons/chat/meet_status.png"
+import PeopleCount from "../../../assets/icons/chat/count_people.png"
+
+import BasicModal from "../../Partials/Modal/BasicModal"
+import RoomModal from "../../Partials/Modal/RoomModal/RoomModal"
 
 import "./RestRoomPreview.css"
 
@@ -9,24 +13,39 @@ interface Props {
 }
 
 const RestRoomPreview = ({ chat }: Props) => {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const openModal = () => setIsModalOpen(true)
+  const closeModal = () => setIsModalOpen(false)
   return (
-    <div className="restroom-preview">
-      <div className="restroom-preview__header">
-        <div className="restroom-preview__header--title">{chat.title}</div>
-        <div className="restroom-preview__header--desc">21학번..?</div>
-      </div>
-      <div className="restroom-preview__body">
-        <div className="restroom-preview__hash">
-          <CustomHash>#약속방</CustomHash>
-          <CustomHash>#저녁 약속</CustomHash>
-          <CustomHash>#MBTI 모임</CustomHash>
+    <Fragment>
+      {isModalOpen && (
+        <BasicModal isModalOpen={isModalOpen} width="300px">
+          <RoomModal chat={chat} closeModal={closeModal} />
+        </BasicModal>
+      )}
+      <div className="restroom-preview" onClick={openModal}>
+        <div className="restroom-preview__header">
+          <div className="restroom-preview__header--title">{chat.title}</div>
+          <div className="restroom-preview__header--desc">
+            {chat.description}
+          </div>
         </div>
-        <div className="restroom-preview__count">
-          <span>아이콘</span>
-          <span>{chat.head_count}</span>
+        <div className="restroom-preview__body">
+          <div className="restroom-preview__meet-status">
+            <img src={MeetStatus} alt="meet_status" />
+            {chat.meet_status ? (
+              <span>약속 확정</span>
+            ) : (
+              <span>약속 미확정</span>
+            )}
+          </div>
+          <div className="restroom-preview__count">
+            <img src={PeopleCount} alt="people_count" />
+            <span>{chat.head_count}명</span>
+          </div>
         </div>
       </div>
-    </div>
+    </Fragment>
   )
 }
 

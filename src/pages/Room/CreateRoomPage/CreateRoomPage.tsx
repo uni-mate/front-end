@@ -1,5 +1,6 @@
 import React, { useEffect } from "react"
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
+import ArrowForward from "../../../assets/icons/createroom/arrow.png"
+import CreateRoomStart from "../../../assets/무단도용2.png"
 import { useHistory } from "react-router"
 import useNavbar from "../../../hooks/useNavbar"
 
@@ -18,12 +19,14 @@ const CreateRoomPage = () => {
         <span className="create-header__title">방 만들기</span>
       </div>
       <div className="create__content">
-        <img src="/images/filter-icon.png" alt="먼지!" />
+        <img src={CreateRoomStart} alt="먼지!" />
         <span>방을 만들러 가볼까요?</span>
-        <ArrowForwardIcon
+        <div
           className="create__content--icon"
           onClick={() => history.push("/room/create/detail")}
-        />
+        >
+          <img src={ArrowForward} alt="arrow" />
+        </div>
       </div>
     </div>
   )

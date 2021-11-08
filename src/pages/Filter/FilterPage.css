@@ -134,6 +134,17 @@
   display: block;
   padding: 0 10px;
 }
+.room-user__silder > span:nth-of-type(3),
+.room-user__silder > span:nth-of-type(4) {
+  border: 1px solid var(--main-color);
+  background-color: #fff;
+}
+.room-user__silder > span:nth-of-type(3)::before,
+.room-user__silder > span:nth-of-type(4)::before {
+  background-color: var(--main-color);
+  width: 12px;
+  height: 12px;
+}
 .room-user__select--min {
   position: absolute;
   left: 0;

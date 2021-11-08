@@ -31,7 +31,9 @@ const LoginPage = ({ loginSaga }: Props) => {
       alert("비밀번호를 입력하세요.")
     } else {
       alert("아직 구현되지 않은 화면입니다.")
+      return
     }
+
     const body = {
       userId,
       password,

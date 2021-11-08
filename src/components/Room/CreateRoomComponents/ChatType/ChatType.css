@@ -1,0 +1,49 @@
+.chattype__container {
+  width: 240px;
+  height: 100%;
+  padding: 10px;
+  text-align: center;
+}
+.cathtype__title {
+  font-size: 18px;
+  color: #555555;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.cathtype__title > div {
+  margin-bottom: 14px;
+}
+.cathtype-input__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.cathtype-input__container > input[type="radio"] {
+  display: none;
+}
+.cathtype-input__container > input[type="radio"] + label {
+  display: inline-block;
+  border: 1px solid rgba(85, 85, 85, 0.3);
+}
+.cathtype-input__container > input[type="radio"]:checked + label {
+  border: 1px solid var(--main-color);
+  color: var(--main-color);
+}
+
+.cathtype-input__container > label {
+  width: 190px;
+  padding: 10px 0px;
+  text-align: center;
+  font-size: 13px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+.cathtype-input__container > label > div {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.cathtype-input__container > label > span {
+  font-weight: 900;
+  font-size: 14px;
+}

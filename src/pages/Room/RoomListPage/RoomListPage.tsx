@@ -63,9 +63,10 @@ const RoomListPage = ({
             new Array(4)
               .fill(1)
               .map((_, idx) => <RecommendRoomPreviewSK key={idx} />)}
-          {allChatList?.map((chat) => (
-            <RecommendRoomPreview key={chat.chat_id} chat={chat} />
-          ))}
+          {!fetchChatLoading &&
+            allChatList?.map((chat) => (
+              <RecommendRoomPreview key={chat.chat_id} chat={chat} />
+            ))}
         </div>
       </div>
       <div className="rest-room">
@@ -75,9 +76,10 @@ const RoomListPage = ({
             new Array(4)
               .fill(1)
               .map((_, idx) => <RestRoomPreviewSK key={idx} />)}
-          {allChatList?.map((chat) => (
-            <RestRoomPreview key={chat.chat_id} chat={chat} />
-          ))}
+          {!fetchChatLoading &&
+            allChatList?.map((chat) => (
+              <RestRoomPreview key={chat.chat_id} chat={chat} />
+            ))}
         </div>
       </div>
 

@@ -7,8 +7,8 @@ const RecommendRoomPreviewSK = () => {
     <div className="sk-recroom-preview">
       <div className="sk-recroom-preview__image">
         <div className="sk-recroom-preview__desc">
-          <div className="sk-recroom-preview__hash"></div>
-          <div className="sk-recroom-preview__count"></div>
+          <div className="recroom-preview__count"></div>
+          <div className="recroom-preview__meet-status"></div>
         </div>
       </div>
       <div className="sk-recroom-preview__line"></div>

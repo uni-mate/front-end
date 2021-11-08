@@ -86,7 +86,7 @@ const MyRoomPreiview = ({ room }: Props) => {
           </div>
         </div>
       </Link>
-      {isModalOpen && <BasicModal children={modalChildren} styles={styles} />}
+      {/* {isModalOpen && <BasicModal children={modalChildren} styles={styles} />} */}
     </Fragment>
   )
 }
