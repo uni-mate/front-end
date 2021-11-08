@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router"
 import useNavbar from "../../../hooks/useNavbar"
 import BackArrow from "../../../assets/icons/attr/goback.png"
@@ -20,7 +20,10 @@ import "./CreateRoomDetailPage.css"
 const CreateRoomDetailPage = () => {
   const history = useHistory()
   const [navbarInside, navbarOutside] = useNavbar()
-
+  const [mobile, setMobile] = useState(0)
+  const handleRedize = () => {
+    setMobile(window.innerHeight)
+  }
   const nextPageHandler = () => {
     history.push("/room/create")
     navbarInside()
@@ -29,12 +32,20 @@ const CreateRoomDetailPage = () => {
     navbarOutside()
   }, [navbarOutside])
 
+  useEffect(() => {
+    window.addEventListener("resize", handleRedize)
+    console.log(mobile)
+    return () => {
+      window.removeEventListener("resize", handleRedize)
+    }
+  }, [mobile])
+
   const prevPageHandler = () => {
     history.goBack()
     navbarInside()
   }
   return (
-    <div className="create-detail">
+    <div className="create-detail" style={{ height: `${mobile}` }}>
       <div className="create-detail__header">
         <div onClick={prevPageHandler}>
           <img src={BackArrow} alt="arrow" />
