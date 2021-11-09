@@ -4,7 +4,7 @@
   padding: 10px;
   padding-bottom: 15px;
   text-align: center;
-  border: 1px solid #000;
+  border: 1px solid red;
 }
 .purpose__title {
   font-size: 18px;
@@ -50,8 +50,6 @@
   border-radius: 4px;
   border: 1px solid rgba(85, 85, 85, 0.3);
   margin-bottom: 12px;
-  position: absolute;
-  bottom: 0;
 }
 .purpose-input__container > input:last-child:focus {
   outline: none;
