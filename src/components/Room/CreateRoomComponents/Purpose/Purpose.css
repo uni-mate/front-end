@@ -1,10 +1,11 @@
 .purpose__container {
   width: 240px;
-  height: 100%;
+  height: 260px;
   padding: 10px;
   padding-bottom: 15px;
   text-align: center;
   border: 1px solid red;
+  position: relative;
 }
 .purpose__title {
   font-size: 18px;
@@ -17,6 +18,12 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  border: 1px solid #000;
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
 }
 .purpose-input__container > input[type="radio"] {
   display: none;
