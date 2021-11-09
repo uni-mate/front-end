@@ -2,8 +2,9 @@
   width: 240px;
   height: 100%;
   padding: 10px;
-  padding-bottom: 0;
+  padding-bottom: 15px;
   text-align: center;
+  border: 1px solid #000;
 }
 .purpose__title {
   font-size: 18px;
