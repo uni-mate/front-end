@@ -44,7 +44,7 @@ const myRoomList = [
 ]
 
 const MyRoomListPage = () => {
-  const [navbarInside, navbarOutside] = useNavbar()
+  const [navbarInside] = useNavbar()
   useEffect(() => {
     navbarInside()
   }, [navbarInside])

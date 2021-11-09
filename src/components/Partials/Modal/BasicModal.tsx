@@ -38,6 +38,7 @@ export default function BasicModal(props: Props) {
         sx={style}
         style={{
           width: width,
+          zIndex: 9999,
         }}
       >
         {children}

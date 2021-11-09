@@ -25,6 +25,22 @@ export interface Chat {
 
 export interface CreateRoomState {
   chat_type: string
+  purpose: string
+  grade: string
+  head_count: number
+  gender: string
+  chat_feature: {
+    mbti: [
+      { first_mbti: string },
+      { second_mbti: string },
+      { third_mbti: string },
+      { fourth_mbti: string }
+    ]
+    interest: {}
+    department: string
+  }
+  title: string
+  desc: string
 }
 
 export interface ChatState {

@@ -8,7 +8,7 @@ import "./CreateRoomPage.css"
 
 const CreateRoomPage = () => {
   const history = useHistory()
-  const [navbarInside, navbarOutside] = useNavbar()
+  const [navbarInside] = useNavbar()
 
   useEffect(() => {
     navbarInside()

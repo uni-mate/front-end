@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react"
-import { useHistory, useParams } from "react-router"
+import React, { useEffect, useState } from "react"
+import { useHistory } from "react-router"
 import SwipeableTemporaryDrawer from "./../../../components/Partials/SideDrawer/SideDrawer"
 import LinesEllipsis from "react-lines-ellipsis"
 import useNavbar from "../../../hooks/useNavbar"
@@ -16,14 +16,14 @@ import Chat from "../../../components/Chat/Chat"
 
 import "./CurrentRoomPage.css"
 
-interface Params {
-  roomid: string
-}
+// interface Params {
+//   roomid: string
+// }
 
 const CurrentRoomPage = () => {
-  const params = useParams<Params>()
+  // const params = useParams<Params>()
   const history = useHistory()
-  const [navbarInside, navbarOutside] = useNavbar()
+  const [, navbarOutside] = useNavbar()
   const [chatMsg, setChatMsg] = useState("")
   const [chatList, setChatList] = useState([
     {

@@ -1,5 +1,5 @@
 import React from "react"
-import { Switch, Route, BrowserRouter } from "react-router-dom"
+import { Switch, Route } from "react-router-dom"
 import { ConnectedRouter } from "connected-react-router"
 import history from "./history"
 
@@ -11,10 +11,10 @@ import TutorialPage from "./pages/Tutorial/TutorialPage"
 // Main
 import RoomListPageContainer from "./pages/Room/RoomListPage/RoomListPageContainer"
 import CreateRoomPage from "./pages/Room/CreateRoomPage/CreateRoomPage"
-import CreateRoomDetailPage from "./pages/Room/CreateRoomPage/CreateRoomDetailPage"
 import MyRoomListPage from "./pages/Room/MyRoomListPage/MyRoomListPage"
 import CurrentRoomPage from "./pages/Room/CurrentRoomPage/CurrentRoomPage"
 import FilterPage from "./pages/Filter/FilterPage"
+import CreateRoomDetailPageContainer from "./pages/Room/CreateRoomPage/CreateRoomDetailPageContainer"
 
 // User
 import HomePage from "./pages/Home/HomePage"
@@ -48,7 +48,7 @@ function App() {
         <Route
           exact
           path="/room/create/detail"
-          component={CreateRoomDetailPage}
+          component={CreateRoomDetailPageContainer}
         />
         <Route exact path="/room/filter" component={FilterPage} />
         <Route exact path="/room/:userid/:roomid" component={CurrentRoomPage} />

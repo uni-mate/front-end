@@ -1,5 +1,4 @@
 import React, { useEffect } from "react"
-import RoomListPreview from "../../../components/Room/RoomListPreview/RoomListPreview"
 import SearchIcon from "../../../assets/icons/attr/search.png"
 import FilterIcon from "../../../assets/icons/attr/filter.png"
 import { useHistory } from "react-router"
@@ -26,11 +25,11 @@ const RoomListPage = ({
   fetchAllChatSaga,
 }: Props) => {
   const history = useHistory()
-  const [navbarInside, navbarOutside] = useNavbar()
+  const [navbarInside] = useNavbar()
 
   useEffect(() => {
-    fetchAllChatSaga()
-  }, [fetchAllChatSaga])
+    !allChatList && fetchAllChatSaga()
+  }, [allChatList, fetchAllChatSaga])
 
   useEffect(() => {
     navbarInside()

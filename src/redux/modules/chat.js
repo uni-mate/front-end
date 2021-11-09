@@ -50,7 +50,7 @@ export const fetchAllChat = createAction(FETCH_ALL_CHAT)
 function* fetchAllChatSaga() {
   try {
     yield put(fetchChatPending())
-    yield delay(1000)
+    yield delay(100)
     const res = yield axios.get(`${API_URL}/api/chat/all`)
     yield put(fetchChatSuccess(res.data.data))
   } catch (error) {

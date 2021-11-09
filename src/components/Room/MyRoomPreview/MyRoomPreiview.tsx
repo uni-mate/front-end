@@ -1,9 +1,7 @@
-import { Typography } from "@mui/material"
 import React, { Fragment, useState } from "react"
 import { useParams } from "react-router"
 import { Link } from "react-router-dom"
 import { useLongPress } from "use-long-press"
-import BasicModal from "../../Partials/Modal/BasicModal"
 import LinesEllipsis from "react-lines-ellipsis"
 
 import user1 from "../../../assets/user/user1.jpg"
@@ -26,22 +24,6 @@ interface Props {
 interface Params {
   userid: string
 }
-
-const styles = {
-  border: "1px solid green",
-}
-
-const modalChildren = (
-  <div>
-    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-      알림 끄기
-    </Typography>
-    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-      방 나가기
-    </Typography>
-  </div>
-)
-
 const MyRoomPreiview = ({ room }: Props) => {
   const params = useParams<Params>()
   const [isModalOpen, setIsModalOpen] = useState(false)

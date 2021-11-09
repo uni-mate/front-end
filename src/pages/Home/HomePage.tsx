@@ -11,7 +11,7 @@ import "./HomePage.css"
 
 const HomePage = () => {
   const history = useHistory()
-  const [navbarInside, navbarOutSide] = useNavbar()
+  const [, navbarOutSide] = useNavbar()
   useEffect(() => {
     navbarOutSide()
   }, [navbarOutSide])

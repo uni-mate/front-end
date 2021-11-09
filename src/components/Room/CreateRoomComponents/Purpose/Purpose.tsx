@@ -1,12 +1,21 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import "./Purpose.css"
 
-const Purpose = () => {
-  const [detPurpose, setDetPurpose] = useState("")
+interface Props {
+  purposeState: string
+  setAtr: (type: string) => void
+}
+
+const Purpose = ({ purposeState, setAtr }: Props) => {
+  const [detPurpose, setDetPurpose] = useState(
+    purposeState === "" ? "" : purposeState
+  )
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDetPurpose(e.target.value)
-    console.log(detPurpose)
   }
+  useEffect(() => {
+    setAtr(detPurpose)
+  }, [setAtr, detPurpose])
   return (
     <div className="purpose__container">
       <div className="purpose__title">

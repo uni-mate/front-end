@@ -2,9 +2,7 @@
   padding-bottom: 10px;
   background-color: #fff;
   height: 100vh;
-  border: 1px solid #000;
 }
-
 .create-detail__header {
   padding: 20px;
 }
@@ -21,6 +19,7 @@
 .create-detail__body {
   margin-top: 10px;
   padding: 30px 20px;
+  position: relative;
 }
 .create-detail__body--img {
   display: flex;
@@ -37,38 +36,61 @@
   overflow: hidden;
 }
 .create-detail__components--carousel {
+  position: static !important;
   text-align: center;
   overflow: visible !important;
   /* border: 1px solid #000; */
 }
 .create-detail__components--carousel > div {
-  z-index: 99999;
+  z-index: 99;
 }
-
+.create-detail__components--carousel > div > button:focus,
+.create-detail__components--carousel > div > button:checked,
+.create-detail__components--carousel > div > button:hover {
+  background-color: transparent !important;
+}
 .create-detail__components--carousel > div > button[aria-label="Previous"],
 .create-detail__components--carousel > div > button[aria-label="Next"] {
-  position: fixed;
-  top: 50%;
+  position: absolute;
+  top: 50px !important;
   background-color: transparent;
   background-image: url("../../../assets/icons/createroom/arrow.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-.create-detail__components--carousel > div > button:focus,
-.create-detail__components--carousel > div > button:checked,
-.create-detail__components--carousel > div > button:hover {
-  /* border: 10px solid red; */
-  background-color: transparent !important;
-}
 .create-detail__components--carousel > div > button[aria-label="Previous"] {
-  left: 10px;
-  transform: translateY(-50%);
+  left: 10px !important;
 }
 .create-detail__components--carousel > div > button[aria-label="Next"] {
-  right: 10px;
-  transform: translateY(-50%) scaleX(-1);
+  right: 10px !important;
+  transform: scaleX(-1);
 }
 .create-detail__components--carousel > div > button > span {
   display: none;
+}
+
+/* modal */
+.stop-modal__title {
+  font-size: 16px;
+  color: #555555;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+.stop-modal__btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.stop-modal__btn-container > button {
+  padding: 10px 8px;
+  padding-bottom: 0;
+  border: none;
+  background-color: #fff;
+  font-size: 13px;
+  color: #8d8d8d;
+}
+.stop-modal__btn-container > button:active {
+  color: var(--main-color);
 }

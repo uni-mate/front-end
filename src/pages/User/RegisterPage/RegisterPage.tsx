@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 
 import GoBackArrow from "../../../assets/icons/attr/goback.png"
 import useInput from "../../../hooks/useInput"
@@ -21,17 +21,17 @@ interface Props {
 
 const RegisterPage = ({ registerSaga }: Props) => {
   const history = useHistory()
-  const [isUsername, setIsUsername] = useState(true)
-  const [isEmail, setIsEmail] = useState(true)
-  const [isPwd, setIsPwd] = useState(true)
-  const [isPwdConfirm, setIsPwdConfirm] = useState(true)
-  const [disable, setDisable] = useState(false)
+  // const [isUsername, setIsUsername] = useState(true)
+  // const [isEmail, setIsEmail] = useState(true)
+  // const [isPwd, setIsPwd] = useState(true)
+  // const [isPwdConfirm, setIsPwdConfirm] = useState(true)
+  // const [disable, setDisable] = useState(false)
   const [startEnter, setStartEnter] = useState(false)
   const [
     { school, department, userId, email, password, username, introducing },
     onChange,
-    emailValid,
-    passwordValid,
+    // emailValid,
+    // passwordValid,
   ] = useInput({
     school: "",
     department: "",
@@ -82,12 +82,12 @@ const RegisterPage = ({ registerSaga }: Props) => {
   //   emailValid,
   //   passwordValid,
   // ])
-  let userHelper = !isUsername ? "이름은 두 글자 이상이어야 합니다." : ""
-  let emailHelper = !isEmail ? "유효한 이메일 형식이 아닙니다." : ""
-  let pwdHelper = !isPwd
-    ? "비밀번호는 숫자와 문자를 조합하여 8자 이상이어야 합니다."
-    : ""
-  let pwdConfirmHelper = !isPwdConfirm ? "비밀번호가 일치하지 않습니다." : ""
+  // let userHelper = !isUsername ? "이름은 두 글자 이상이어야 합니다." : ""
+  // let emailHelper = !isEmail ? "유효한 이메일 형식이 아닙니다." : ""
+  // let pwdHelper = !isPwd
+  //   ? "비밀번호는 숫자와 문자를 조합하여 8자 이상이어야 합니다."
+  //   : ""
+  // let pwdConfirmHelper = !isPwdConfirm ? "비밀번호가 일치하지 않습니다." : ""
   return (
     <div className="register-container">
       <div className="login__header">

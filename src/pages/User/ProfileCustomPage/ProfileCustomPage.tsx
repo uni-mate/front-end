@@ -6,7 +6,7 @@ import ArrowBackIcon from "../../../assets/icons/attr/goback.png"
 import "./ProfileCustomPage.css"
 
 const ProfileCustomPage = () => {
-  const [navbarInside, navbarOutside] = useNavbar()
+  const [, navbarOutside] = useNavbar()
   const [color, setColor] = useState("gray")
   const colorList = [
     "gray",
