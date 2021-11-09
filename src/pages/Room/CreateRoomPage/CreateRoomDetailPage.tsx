@@ -41,6 +41,7 @@ interface Props {
 
 const CreateRoomDetailPage = ({ createState }: Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [height, setHeight] = useState<string | number>(window.innerHeight)
   const openModal = () => setIsModalOpen(true)
   const closeModal = () => setIsModalOpen(false)
   const unblockHandle = useRef<any>()
@@ -76,7 +77,7 @@ const CreateRoomDetailPage = ({ createState }: Props) => {
           <StopModal closeModal={closeModal} handleConfirm={handleConfirm} />
         </BasicModal>
       )}
-      <div className="create-detail">
+      <div className="create-detail" style={{ height: height }}>
         <div className="create-detail__header"></div>
         <div className="create-detail__body">
           {/* <div className="create-detail__body--img">

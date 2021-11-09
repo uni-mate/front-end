@@ -1,5 +1,6 @@
 .create-detail {
   background-color: #fff;
+  width: 100%;
   height: 100vh;
 }
 .create-detail__header {
