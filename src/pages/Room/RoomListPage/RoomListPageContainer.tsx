@@ -12,6 +12,9 @@ const RoomListPageContainer = () => {
   const fetchChatLoading = useSelector<RootState, boolean>(
     (state) => state.chat.chat_loading
   )
+  const createLoading = useSelector<RootState, boolean>(
+    (state) => state.createRoom.createRoom_loading
+  )
   const fetchAllChatSaga = useCallback(() => {
     dispatch(fetchAllChat())
   }, [dispatch])
@@ -19,6 +22,7 @@ const RoomListPageContainer = () => {
     <RoomListPage
       fetchAllChatSaga={fetchAllChatSaga}
       fetchChatLoading={fetchChatLoading}
+      createLoading={createLoading}
       allChatList={allChatList}
     />
   )

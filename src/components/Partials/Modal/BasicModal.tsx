@@ -16,17 +16,20 @@ const style = {
 }
 
 interface Props {
-  styles?: CSS.Properties
   children?: JSX.Element
   isModalOpen: boolean
   closeModal?: () => void
   width?: string
+  height?: string
+  backgroundColor?: string
+  boxShadow?: number
+  padding?: number
+  styles?: CSS.Properties
 }
 
 export default function BasicModal(props: Props) {
   const { children, isModalOpen, closeModal } = props
-  const { width } = props
-
+  const { width, height, backgroundColor, boxShadow, padding, styles } = props
   return (
     <Modal
       open={isModalOpen}
@@ -35,9 +38,16 @@ export default function BasicModal(props: Props) {
       aria-describedby="modal-modal-description"
     >
       <Box
-        sx={style}
+        sx={{
+          ...style,
+          ...styles,
+          backgroundColor,
+          boxShadow,
+          padding,
+        }}
         style={{
           width: width,
+          height: height,
           zIndex: 9999,
         }}
       >

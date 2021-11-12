@@ -6,7 +6,7 @@ import Purpose from "./Purpose"
 
 const PurposeContainer = () => {
   const purposeState = useSelector<RootState, string>(
-    (state) => state.createRoom.purpose
+    (state) => state.createRoom.createRoom_data.purpose
   )
   const dispatch = useDispatch()
   const setAtr = useCallback(

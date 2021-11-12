@@ -6,7 +6,7 @@ import ChatType from "./ChatType"
 
 const ChatTypeContainer = () => {
   const chatTypeState = useSelector<RootState, string>(
-    (state) => state.createRoom.chat_type
+    (state) => state.createRoom.createRoom_data?.chat_type
   )
   const dispatch = useDispatch()
   const setAtr = useCallback(

@@ -26,7 +26,7 @@ const RegisterPage = ({ registerSaga }: Props) => {
   // const [isPwd, setIsPwd] = useState(true)
   // const [isPwdConfirm, setIsPwdConfirm] = useState(true)
   // const [disable, setDisable] = useState(false)
-  const [startEnter, setStartEnter] = useState(false)
+  const [, setStartEnter] = useState(false)
   const [
     { school, department, userId, email, password, username, introducing },
     onChange,
@@ -44,7 +44,7 @@ const RegisterPage = ({ registerSaga }: Props) => {
   const submitHandler = (e: React.FormEvent) => {
     setStartEnter(true)
     e.preventDefault()
-    alert("아직 구현되지 않은 화면입니다.")
+    alert("회원가입에 성공하였지만 아직 사용할 수 없습니다.")
     // const body = {
     //   school,
     //   department,

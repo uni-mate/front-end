@@ -16,7 +16,7 @@ const success = createAction(SUCCESS)
 const loginSuccess = createAction(LOGIN_SUCCESS, (loginInfo) => loginInfo)
 
 const initialState = {
-  user_data: [],
+  user_data: {},
   auth_loading: false,
   auth_error: null,
 }
@@ -38,8 +38,8 @@ const reducer = handleActions(
     }),
     [LOGIN_SUCCESS]: (state, action) => ({
       ...state,
+      user_data: { ...state.user_data, ...action.payload },
       auth_loading: false,
-      user_data: action.payload,
     }),
   },
   initialState
@@ -74,8 +74,9 @@ function* loginSaga(action) {
     const history = yield getContext("history")
     yield put(pending())
     const res = yield axios.post(`${API_URL}/api/auth/login`, action.payload)
-    yield put(loginSuccess(res.data.data.user))
-    yield history.push("/")
+    yield put(loginSuccess(res.data.data))
+    console.log(res.data.data)
+    yield history.push("/room")
   } catch (error) {
     yield put(fail(error))
   }

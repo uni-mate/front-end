@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import ArrowForward from "../../../assets/icons/createroom/arrow.png"
-import CreateRoomStart from "../../../assets/무단도용2.png"
+import CreateRoomStart from "../../../assets/createRoom/ready.png"
 import { useHistory } from "react-router"
 import useNavbar from "../../../hooks/useNavbar"
 
@@ -19,7 +19,7 @@ const CreateRoomPage = () => {
         <span className="create-header__title">방 만들기</span>
       </div>
       <div className="create__content">
-        <img src={CreateRoomStart} alt="먼지!" />
+        <img src={CreateRoomStart} alt="먼지" />
         <span>방을 만들러 가볼까요?</span>
         <div
           className="create__content--icon"

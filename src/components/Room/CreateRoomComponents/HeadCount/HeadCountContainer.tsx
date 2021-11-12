@@ -6,7 +6,7 @@ import HeadCount from "./HeadCount"
 
 const HeadCountContainer = () => {
   const headCountState = useSelector<RootState, number>(
-    (state) => state.createRoom.head_count
+    (state) => state.createRoom.createRoom_data.head_count
   )
   const dispatch = useDispatch()
   const setAtr = useCallback(

@@ -18,6 +18,8 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  width: 240px;
+  margin: 0 auto;
 }
 .grade-input__container > input[type="radio"] {
   display: none;
@@ -45,4 +47,5 @@
 .grade-input__container > label:first-of-type {
   width: 180px;
   border: 1px solid #000;
+  display: block !important;
 }

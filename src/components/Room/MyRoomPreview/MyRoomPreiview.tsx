@@ -26,7 +26,7 @@ interface Params {
 }
 const MyRoomPreiview = ({ room }: Props) => {
   const params = useParams<Params>()
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [, setIsModalOpen] = useState(false)
   const longPress = useLongPress(() => {
     setIsModalOpen(true)
   })

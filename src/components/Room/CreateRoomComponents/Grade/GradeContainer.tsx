@@ -6,7 +6,7 @@ import Grade from "./Grade"
 
 const GradeContainer = () => {
   const gradeState = useSelector<RootState, string>(
-    (state) => state.createRoom.grade
+    (state) => state.createRoom.createRoom_data.grade
   )
   const dispatch = useDispatch()
   const setAtr = useCallback(

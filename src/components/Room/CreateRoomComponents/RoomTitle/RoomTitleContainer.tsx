@@ -6,7 +6,7 @@ import RoomTitle from "./RoomTitle"
 
 const RoomTitleContainer = () => {
   const titleState = useSelector<RootState, string>(
-    (state) => state.createRoom.title
+    (state) => state.createRoom.createRoom_data.title
   )
   const dispatch = useDispatch()
   const setAtr = useCallback(

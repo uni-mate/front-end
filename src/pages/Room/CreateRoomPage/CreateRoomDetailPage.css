@@ -37,17 +37,88 @@
 .create-detail__components--carousel {
   position: static !important;
   text-align: center;
-  overflow: visible !important;
-  /* border: 1px solid #000; */
+  height: 500px;
+  position: relative;
 }
-.create-detail__components--carousel > div {
-  z-index: 99;
+.create-detail__components--carousel > div:nth-of-type(2) > button,
+.create-detail__components--carousel > div:nth-of-type(3) > button,
+.create-detail__components--carousel > div:nth-of-type(2) > button:checked,
+.create-detail__components--carousel > div:nth-of-type(3) > button:checked,
+.create-detail__components--carousel > div:nth-of-type(2) > button:hover,
+.create-detail__components--carousel > div:nth-of-type(3) > button:hover {
+  background-color: transparent;
 }
-.create-detail__components--carousel > div > button:focus,
-.create-detail__components--carousel > div > button:checked,
-.create-detail__components--carousel > div > button:hover {
+.Carousel-indicators-2 {
+  width: 100% !important;
+  position: absolute;
+  bottom: 20px;
+  z-index: 9999;
+}
+.Carousel-indicators-2 > button {
+  width: 30px;
+  height: 20px;
+  border-radius: 0 !important;
+  background-color: var(--main-color);
+  position: relative;
+}
+.Carousel-indicators-2 > button:nth-of-type(1) {
+  border-top-left-radius: 10px !important;
+  border-bottom-left-radius: 10px !important;
+}
+.Carousel-indicators-2 > button:nth-of-type(1).Carousel-active-5::after,
+.Carousel-indicators-2 > button:nth-of-type(2).Carousel-active-5::after,
+.Carousel-indicators-2 > button:nth-of-type(3).Carousel-active-5::after,
+.Carousel-indicators-2 > button:nth-of-type(4).Carousel-active-5::after,
+.Carousel-indicators-2 > button:nth-of-type(5).Carousel-active-5::after,
+.Carousel-indicators-2 > button:nth-of-type(6).Carousel-active-5::after,
+.Carousel-indicators-2 > button:nth-of-type(7).Carousel-active-5::after,
+.Carousel-indicators-2 > button:nth-of-type(8).Carousel-active-5::after {
+  content: "";
+  height: 45px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateY(-50%);
+  animation: animatedBackground 0.8s linear;
+}
+.Carousel-indicators-2 > button:nth-of-type(1).Carousel-active-5::after {
+  background-image: url("../../../assets/createRoom/progress1.png");
+  width: 30px;
+}
+.Carousel-indicators-2 > button:nth-of-type(2).Carousel-active-5::after,
+.Carousel-indicators-2 > button:nth-of-type(4).Carousel-active-5::after,
+.Carousel-indicators-2 > button:nth-of-type(6).Carousel-active-5::after {
+  background-image: url("../../../assets/createRoom/progress2.png");
+  width: 35px;
+}
+.Carousel-indicators-2 > button:nth-of-type(3).Carousel-active-5::after,
+.Carousel-indicators-2 > button:nth-of-type(5).Carousel-active-5::after,
+.Carousel-indicators-2 > button:nth-of-type(7).Carousel-active-5::after {
+  background-image: url("../../../assets/createRoom/progress3.png");
+  width: 30px;
+  height: 44px;
+}
+.Carousel-indicators-2 > button:nth-of-type(8) {
+  border-top-right-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
+}
+.Carousel-indicators-2 > button.Carousel-active-5 {
+  width: 30px;
+  height: 20px;
+  background-color: var(--main-color) !important;
+}
+.Carousel-indicators-2 > button:last-of-type.Carousel-active-5 {
   background-color: transparent !important;
 }
+.Carousel-indicators-2 > button.Carousel-active-5 ~ button {
+  width: 30px;
+  height: 20px;
+  background-color: rgba(42, 227, 38, 0.3) !important;
+}
+
 .create-detail__components--carousel > div > button[aria-label="Previous"],
 .create-detail__components--carousel > div > button[aria-label="Next"] {
   position: absolute;
@@ -67,6 +138,18 @@
 }
 .create-detail__components--carousel > div > button > span {
   display: none;
+}
+
+@keyframes animatedBackground {
+  0% {
+    left: 0px;
+  }
+  50% {
+    left: 5px;
+  }
+  50% {
+    left: 10px;
+  }
 }
 
 /* modal */

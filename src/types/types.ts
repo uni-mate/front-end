@@ -1,8 +1,23 @@
 import { RouterState } from "connected-react-router"
 import { Reducer, AnyAction } from "redux"
 
+export interface UserState {
+  user_id: string
+  userId: string
+  email: string
+  faculty: string
+  department: string
+  interest_list: string[]
+  mbti: {
+    first_mbti: string
+    second_mbti: string
+    third_mbti: string
+    fourth_mbti: string
+  }
+}
+
 export interface AuthState {
-  user_data: []
+  user_data: UserState
   loading: boolean
   error: null | any
 }
@@ -23,24 +38,40 @@ export interface Chat {
   chat_in_out_status: string
 }
 
-export interface CreateRoomState {
+export interface CreateRoomCommonState {
+  mbti: {
+    first_mbti: string
+    second_mbti: string
+    third_mbti: string
+    fourth_mbti: string
+  }
+  interest: string[]
+  faculty: string
+  nomatter: boolean
+}
+
+export interface MBTI {
+  first_mbti: string
+  second_mbti: string
+  third_mbti: string
+  fourth_mbti: string
+}
+
+export interface createRoomData {
   chat_type: string
   purpose: string
   grade: string
   head_count: number
   gender: string
-  chat_feature: {
-    mbti: [
-      { first_mbti: string },
-      { second_mbti: string },
-      { third_mbti: string },
-      { fourth_mbti: string }
-    ]
-    interest: {}
-    department: string
-  }
+  chat_feature: CreateRoomCommonState
   title: string
   desc: string
+}
+
+export interface CreateRoomState {
+  createRoom_data: createRoomData
+  createRoom_loading: boolean
+  createRoom_error: null | any
 }
 
 export interface ChatState {

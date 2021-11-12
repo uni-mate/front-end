@@ -1,16 +1,30 @@
 import React, { useEffect, useState } from "react"
+import { createRoomData, CreateRoomState } from "../../../../types/types"
 
 import "./RoomDesc.css"
 
 interface Props {
+  blockHandler: () => void
   descState: string
+  totalState: CreateRoomState
   setAtr: (type: string) => void
+  setNewRoom: (body: createRoomData) => void
 }
 
-const RoomDesc = ({ descState, setAtr }: Props) => {
+const RoomDesc = ({
+  blockHandler,
+  descState,
+  totalState,
+  setAtr,
+  setNewRoom,
+}: Props) => {
   const [detDesc, setDetDesc] = useState(descState === "" ? "" : descState)
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDetDesc(e.target.value)
+  }
+  const handleCreateRoom = () => {
+    setNewRoom(totalState.createRoom_data)
+    blockHandler()
   }
   useEffect(() => {
     setAtr(detDesc)
@@ -31,9 +45,7 @@ const RoomDesc = ({ descState, setAtr }: Props) => {
         ></input>
       </div>
       <div className="desc__button">
-        <button onClick={() => alert("방 생성이 완료되었습니다.")}>
-          완료하기
-        </button>
+        <button onClick={handleCreateRoom}>완료하기</button>
       </div>
     </div>
   )

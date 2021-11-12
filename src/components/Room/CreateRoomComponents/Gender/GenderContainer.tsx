@@ -6,7 +6,7 @@ import Gender from "./Gender"
 
 const GenderContainer = () => {
   const genderState = useSelector<RootState, string>(
-    (state) => state.createRoom.gender
+    (state) => state.createRoom.createRoom_data.gender
   )
   const dispatch = useDispatch()
   const setAtr = useCallback(

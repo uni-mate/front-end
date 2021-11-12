@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useRef, useState } from "react"
+import React, { Fragment, useEffect, useState } from "react"
 import { useHistory } from "react-router"
 import useNavbar from "../../../hooks/useNavbar"
 // import bgImg from "../../../assets/icons/createroom/빼꼼이.png"
@@ -9,7 +9,7 @@ import PurposeContainer from "../../../components/Room/CreateRoomComponents/Purp
 import GradeContainer from "../../../components/Room/CreateRoomComponents/Grade/GradeContainer"
 import HeadCountContainer from "../../../components/Room/CreateRoomComponents/HeadCount/HeadCountContainer"
 import GenderContainer from "../../../components/Room/CreateRoomComponents/Gender/GenderContainer"
-// import CommonTypeContainer from "../../../components/Room/CreateRoomComponents/CommonType/CommonTypeContainer"
+import CommonTypeContainer from "../../../components/Room/CreateRoomComponents/CommonType/CommonTypeContainer"
 import RoomTitleContainer from "../../../components/Room/CreateRoomComponents/RoomTitle/RoomTitleContainer"
 import RoomDescContainer from "../../../components/Room/CreateRoomComponents/RoomDesc/RoomDescContainer"
 
@@ -20,15 +20,21 @@ import "./CreateRoomDetailPage.css"
 
 interface ModalProps {
   closeModal: () => void
-  handleConfirm?: () => void
+  handleConfirm: () => void
 }
 
 const StopModal = ({ closeModal, handleConfirm }: ModalProps) => {
+  const history = useHistory()
+  const onGoBack = () => {
+    handleConfirm()
+    closeModal()
+    history.goBack()
+  }
   return (
     <div className="stop-modal__container">
       <div className="stop-modal__title">방 만들기를 그만두시겠어요?</div>
       <div className="stop-modal__btn-container">
-        <button onClick={handleConfirm}>네, 나갈래요</button>
+        <button onClick={onGoBack}>네, 나갈래요</button>
         <button onClick={closeModal}>아니요, 계속할래요</button>
       </div>
     </div>
@@ -41,56 +47,50 @@ interface Props {
 
 const CreateRoomDetailPage = ({ createState }: Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [height, setHeight] = useState<string | number>(window.innerHeight)
+  const [blockControll, setBlockControll] = useState(true)
+  const [height] = useState<string | number>(window.innerHeight)
   const openModal = () => setIsModalOpen(true)
   const closeModal = () => setIsModalOpen(false)
-  const unblockHandle = useRef<any>()
 
   const history = useHistory()
   const [, navbarOutside] = useNavbar()
 
-  function handleConfirm() {
-    if (unblockHandle) {
-      unblockHandle.current()
-    }
-    history.goBack()
-  }
+  const blockHandler = () => setBlockControll(false)
 
   useEffect(() => {
     navbarOutside()
   }, [navbarOutside])
 
   useEffect(() => {
-    unblockHandle.current = history.block((location: any) => {
-      openModal()
-      return false
+    const unblock = history.block((location, action) => {
+      if (blockControll && action === "POP") {
+        openModal()
+        console.log("#### blocked ####")
+        return false
+      }
     })
-    return function () {
-      unblockHandle.current.current && unblockHandle.current.current()
-    }
-  }, [history])
+    return () => unblock()
+  }, [history, blockControll])
 
   return (
     <Fragment>
       {isModalOpen && (
         <BasicModal isModalOpen={isModalOpen} width="300px">
-          <StopModal closeModal={closeModal} handleConfirm={handleConfirm} />
+          <StopModal closeModal={closeModal} handleConfirm={blockHandler} />
         </BasicModal>
       )}
       <div className="create-detail" style={{ height: height }}>
         <div className="create-detail__header"></div>
         <div className="create-detail__body">
-          {/* <div className="create-detail__body--img">
-            <img src={bgImg} alt="backimg" />
-          </div> */}
           <div className="create-detail__components">
             <Carousel
               autoPlay={false}
               animation={"fade"}
               cycleNavigation={false}
               swipe={false}
-              indicators={false}
               navButtonsAlwaysVisible={true}
+              timeout={300}
+              indicators={true}
               className="create-detail__components--carousel"
             >
               <ChatTypeContainer />
@@ -98,9 +98,9 @@ const CreateRoomDetailPage = ({ createState }: Props) => {
               <GradeContainer />
               <HeadCountContainer />
               <GenderContainer />
-              {/* <CommonTypeContainer /> */}
+              <CommonTypeContainer />
               <RoomTitleContainer />
-              <RoomDescContainer />
+              <RoomDescContainer blockHandler={blockHandler} />
             </Carousel>
           </div>
         </div>

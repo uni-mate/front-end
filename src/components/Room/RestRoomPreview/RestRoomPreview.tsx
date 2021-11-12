@@ -19,7 +19,12 @@ const RestRoomPreview = ({ chat }: Props) => {
   return (
     <Fragment>
       {isModalOpen && (
-        <BasicModal isModalOpen={isModalOpen} width="300px">
+        <BasicModal
+          isModalOpen={isModalOpen}
+          width="300px"
+          height="500px"
+          styles={{ zIndex: 9999 }}
+        >
           <RoomModal chat={chat} closeModal={closeModal} />
         </BasicModal>
       )}

@@ -30,15 +30,12 @@ const LoginPage = ({ loginSaga }: Props) => {
     } else if (userId.length > 0 && password.length === 0) {
       alert("비밀번호를 입력하세요.")
     } else {
-      alert("아직 구현되지 않은 화면입니다.")
-      return
+      const body = {
+        userId,
+        password,
+      }
+      loginSaga(body)
     }
-
-    const body = {
-      userId,
-      password,
-    }
-    loginSaga(body)
   }
   return (
     <div className="login-container">
