@@ -7,7 +7,10 @@ const CreateRoomDetailPageContainer = () => {
   const createState = useSelector<RootState, CreateRoomState>(
     (state) => state.createRoom
   )
-  return <CreateRoomDetailPage createState={createState} />
+  const page = useSelector<RootState, number>(
+    (state) => state.createRoom.create_page
+  )
+  return <CreateRoomDetailPage createState={createState} page={page} />
 }
 
 export default CreateRoomDetailPageContainer

@@ -24,6 +24,8 @@ const SET_NOMATTER = `${prefix}/SET_NOMATTER`
 const SET_TITLE = `${prefix}/SET_TITLE`
 const SET_DESC = `${prefix}/SET_DESC`
 
+const SET_PAGE = `${prefix}/SET_PAGE`
+
 export const pendingCreateRoom = createAction(PENDING_CREATE_ROOM)
 export const successCreateRoom = createAction(
   SUCCESS_CREATE_ROOM,
@@ -45,6 +47,8 @@ export const setNomatter = createAction(SET_NOMATTER, (det) => det)
 
 export const setTitle = createAction(SET_TITLE, (title) => title)
 export const setDesc = createAction(SET_DESC, (desc) => desc)
+
+export const setPage = createAction(SET_PAGE, (idx) => idx)
 
 const initialState = {
   createRoom_data: {
@@ -69,6 +73,7 @@ const initialState = {
   },
   createRoom_loading: false,
   createRoom_error: null,
+  create_page: 1,
 }
 
 const atr = {
@@ -172,6 +177,10 @@ const reducer = handleActions(
     [SET_DESC]: (state, action) => ({
       ...state,
       createRoom_data: { ...state.createRoom_data, desc: action.payload },
+    }),
+    [SET_PAGE]: (state, action) => ({
+      ...state,
+      create_page: action.payload,
     }),
   },
   initialState

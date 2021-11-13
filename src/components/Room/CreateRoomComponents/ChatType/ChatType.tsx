@@ -4,10 +4,11 @@ import "./ChatType.css"
 
 interface Props {
   setAtr: (type: string) => void
+  setIdx: (idx: number) => void
   chatTypeState: string
 }
 
-const ChatType = ({ setAtr, chatTypeState }: Props) => {
+const ChatType = ({ setAtr, setIdx, chatTypeState }: Props) => {
   const [detChatType, setDetChatType] = useState(
     chatTypeState === "chatting" ? "chatting" : "appointment"
   )
@@ -15,8 +16,9 @@ const ChatType = ({ setAtr, chatTypeState }: Props) => {
     setDetChatType(e.target.value)
   }
   useEffect(() => {
+    setIdx(1)
     setAtr(detChatType)
-  }, [setAtr, detChatType])
+  }, [setIdx, setAtr, detChatType])
   return (
     <div className="chattype__container">
       <div className="cathtype__title">

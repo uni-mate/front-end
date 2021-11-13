@@ -32,7 +32,6 @@
   align-items: center;
   width: 100%;
   margin: 0 auto;
-  /* border: 1px solid #000; */
 }
 .create-detail__components--carousel {
   position: static !important;
@@ -41,117 +40,78 @@
   position: relative;
 }
 /* indicator */
-.Carousel-indicators-2 {
-  width: 100% !important;
+.create-detail__indicator {
+  width: 80%;
+  height: 20px;
+  border-radius: 10px;
+  background-color: rgba(42, 227, 38, 0.3);
   position: absolute;
   bottom: 20px;
   z-index: 999;
 }
-.create-detail__components--carousel > div:nth-of-type(4) > button {
-  width: 30px;
-  height: 20px;
-  border-radius: 0 !important;
+
+.create-detail__indicator > div {
+  height: 100%;
+  border-radius: 10px;
   background-color: var(--main-color);
   position: relative;
 }
-.Carousel-indicators-2 > button {
-  width: 30px;
-  height: 20px;
-  border-radius: 0 !important;
-  background-color: var(--main-color);
-  position: relative;
+.create-detail__indicator > .indicator_1 {
+  width: calc(100% / 8);
 }
-.create-detail__components--carousel > div > button:nth-of-type(1) {
-  border-top-left-radius: 10px !important;
-  border-bottom-left-radius: 10px !important;
-  /* border: 1px solid #000; */
+.create-detail__indicator > .indicator_2 {
+  width: calc(100% / 8 * 2);
 }
-.create-detail__components--carousel
-  > div
-  > button:nth-of-type(1).Carousel-active-5::after,
-.create-detail__components--carousel
-  > div
-  > button:nth-of-type(2).Carousel-active-5::after,
-.create-detail__components--carousel
-  > div
-  > button:nth-of-type(3).Carousel-active-5::after,
-.create-detail__components--carousel
-  > div
-  > button:nth-of-type(4).Carousel-active-5::after,
-.create-detail__components--carousel
-  > div
-  > button:nth-of-type(5).Carousel-active-5::after,
-.create-detail__components--carousel
-  > div
-  > button:nth-of-type(6).Carousel-active-5::after,
-.create-detail__components--carousel
-  > div
-  > button:nth-of-type(7).Carousel-active-5::after,
-.create-detail__components--carousel
-  > div
-  > button:nth-of-type(8).Carousel-active-5::after {
+.create-detail__indicator > .indicator_3 {
+  width: calc(100% / 8 * 3);
+}
+.create-detail__indicator > .indicator_4 {
+  width: calc(100% / 8 * 4);
+}
+.create-detail__indicator > .indicator_5 {
+  width: calc(100% / 8 * 5);
+}
+.create-detail__indicator > .indicator_6 {
+  width: calc(100% / 8 * 6);
+}
+.create-detail__indicator > .indicator_7 {
+  width: calc(100% / 8 * 7);
+}
+.create-detail__indicator > .indicator_8 {
+  width: 100%;
+  height: 100px;
+  background-color: #fff;
+  z-index: 9998;
+}
+.create-detail__indicator > div::after {
   content: "";
   height: 45px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
-  top: -30px;
-  left: 50%;
-  transform: translateY(-50%);
-  animation: animatedBackground 0.8s linear;
+  top: -50px;
+  left: 100%;
+  transform: translateX(-50%);
 }
-.create-detail__components--carousel
-  > div
-  > button:nth-of-type(1).Carousel-active-5::after {
+.create-detail__indicator > .indicator_1::after {
   background-image: url("../../../assets/createRoom/progress1.png");
   width: 30px;
 }
-.create-detail__components--carousel
-  > div
-  > button:nth-of-type(2).Carousel-active-5::after,
-.create-detail__components--carousel
-  > div
-  > button:nth-of-type(4).Carousel-active-5::after,
-.create-detail__components--carousel
-  > div
-  > button:nth-of-type(6).Carousel-active-5::after {
+.create-detail__indicator > .indicator_2::after,
+.create-detail__indicator > .indicator_4::after,
+.create-detail__indicator > .indicator_6::after {
   background-image: url("../../../assets/createRoom/progress2.png");
   width: 35px;
 }
-.create-detail__components--carousel
-  > div
-  > button:nth-of-type(3).Carousel-active-5::after,
-.create-detail__components--carousel
-  > div
-  > button:nth-of-type(5).Carousel-active-5::after,
-.create-detail__components--carousel
-  > div
-  > button:nth-of-type(7).Carousel-active-5::after {
+.create-detail__indicator > .indicator_3::after,
+.create-detail__indicator > .indicator_5::after,
+.create-detail__indicator > .indicator_7::after {
   background-image: url("../../../assets/createRoom/progress3.png");
   width: 30px;
   height: 44px;
 }
-.create-detail__components--carousel > div > button:nth-of-type(8) {
-  border-top-right-radius: 10px !important;
-  border-bottom-right-radius: 10px !important;
-}
-.create-detail__components--carousel > div > button.Carousel-active-5 {
-  width: 30px;
-  height: 20px;
-  background-color: var(--main-color) !important;
-}
-.create-detail__components--carousel
-  > div
-  > button:last-of-type.Carousel-active-5 {
-  background-color: transparent !important;
-}
-.create-detail__components--carousel > div > button.Carousel-active-5 ~ button {
-  width: 30px;
-  height: 20px;
-  background-color: rgba(42, 227, 38, 0.3) !important;
-}
-
+/* button */
 .create-detail__components--carousel > div > button[aria-label="Previous"],
 .create-detail__components--carousel > div > button[aria-label="Next"],
 .create-detail__components--carousel
@@ -183,18 +143,6 @@
 }
 .create-detail__components--carousel > div > button > span {
   display: none;
-}
-
-@keyframes animatedBackground {
-  0% {
-    left: 0px;
-  }
-  50% {
-    left: 5px;
-  }
-  50% {
-    left: 10px;
-  }
 }
 
 /* modal */

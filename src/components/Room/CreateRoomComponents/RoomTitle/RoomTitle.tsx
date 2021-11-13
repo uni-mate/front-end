@@ -5,16 +5,18 @@ import "./RoomTitle.css"
 interface Props {
   titleState: string
   setAtr: (type: string) => void
+  setIdx: (idx: number) => void
 }
 
-const RoomTitle = ({ titleState, setAtr }: Props) => {
+const RoomTitle = ({ titleState, setAtr, setIdx }: Props) => {
   const [detTitle, setDetTitle] = useState(titleState === "" ? "" : titleState)
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDetTitle(e.target.value)
   }
   useEffect(() => {
+    setIdx(7)
     setAtr(detTitle)
-  }, [setAtr, detTitle])
+  }, [setIdx, setAtr, detTitle])
   return (
     <div className="title__container">
       <div className="title__title">

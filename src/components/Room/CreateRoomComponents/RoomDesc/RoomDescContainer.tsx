@@ -1,6 +1,10 @@
 import React, { useCallback } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { createRoom, setDesc } from "../../../../redux/modules/createRoom"
+import {
+  createRoom,
+  setDesc,
+  setPage,
+} from "../../../../redux/modules/createRoom"
 import { CreateRoomState, RootState } from "../../../../types/types"
 
 import RoomDesc from "./RoomDesc"
@@ -17,6 +21,12 @@ const RoomDescContainer = ({ blockHandler }: Props) => {
     (state) => state.createRoom
   )
   const dispatch = useDispatch()
+  const setIdx = useCallback(
+    (idx) => {
+      dispatch(setPage(idx))
+    },
+    [dispatch]
+  )
   const setAtr = useCallback(
     (type) => {
       dispatch(setDesc(type))
@@ -35,6 +45,7 @@ const RoomDescContainer = ({ blockHandler }: Props) => {
       descState={descState}
       totalState={totalState}
       setAtr={setAtr}
+      setIdx={setIdx}
       setNewRoom={setNewRoom}
     />
   )

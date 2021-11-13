@@ -73,6 +73,7 @@ export interface CreateRoomState {
   createRoom_data: createRoomData
   createRoom_loading: boolean
   createRoom_error: null | any
+  create_page: number
 }
 
 export interface ChatState {

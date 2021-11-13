@@ -6,9 +6,10 @@ import "./HeadCount.css"
 interface Props {
   headCountState: number
   setAtr: (type: number) => void
+  setIdx: (idx: number) => void
 }
 
-const HeadCount = ({ headCountState, setAtr }: Props) => {
+const HeadCount = ({ headCountState, setAtr, setIdx }: Props) => {
   const [detHeadCount, setDetHeadCount] = useState<number>(
     headCountState === 3 ? 3 : headCountState
   )
@@ -16,8 +17,9 @@ const HeadCount = ({ headCountState, setAtr }: Props) => {
     setDetHeadCount((prev) => newValue as number)
   }
   useEffect(() => {
+    setIdx(4)
     setAtr(detHeadCount)
-  }, [setAtr, detHeadCount])
+  }, [setIdx, setAtr, detHeadCount])
   return (
     <div className="head-count__container">
       <div className="head-count__title">

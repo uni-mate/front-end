@@ -5,9 +5,10 @@ import "./Grade.css"
 interface Props {
   gradeState: string
   setAtr: (type: string) => void
+  setIdx: (idx: number) => void
 }
 
-const Grade = ({ gradeState, setAtr }: Props) => {
+const Grade = ({ gradeState, setAtr, setIdx }: Props) => {
   const [detGrade, setDetGrade] = useState<string>(
     gradeState === "" ? "" : gradeState
   )
@@ -15,8 +16,9 @@ const Grade = ({ gradeState, setAtr }: Props) => {
     setDetGrade(e.target.value)
   }
   useEffect(() => {
+    setIdx(3)
     setAtr(detGrade)
-  }, [setAtr, detGrade])
+  }, [setIdx, setAtr, detGrade])
   return (
     <div className="grade__container">
       <div className="grade__title">

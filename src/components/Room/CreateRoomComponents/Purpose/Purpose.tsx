@@ -4,9 +4,10 @@ import "./Purpose.css"
 interface Props {
   purposeState: string
   setAtr: (type: string) => void
+  setIdx: (idx: number) => void
 }
 
-const Purpose = ({ purposeState, setAtr }: Props) => {
+const Purpose = ({ purposeState, setAtr, setIdx }: Props) => {
   const [detPurpose, setDetPurpose] = useState(
     purposeState === "" ? "" : purposeState
   )
@@ -14,8 +15,9 @@ const Purpose = ({ purposeState, setAtr }: Props) => {
     setDetPurpose(e.target.value)
   }
   useEffect(() => {
+    setIdx(2)
     setAtr(detPurpose)
-  }, [setAtr, detPurpose])
+  }, [setIdx, setAtr, detPurpose])
   return (
     <div className="purpose__container">
       <div className="purpose__title">

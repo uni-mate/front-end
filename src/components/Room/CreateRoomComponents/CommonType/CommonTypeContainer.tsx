@@ -5,6 +5,7 @@ import {
   setInterest,
   setMBTI,
   setNomatter,
+  setPage,
 } from "../../../../redux/modules/createRoom"
 import {
   CreateRoomCommonState,
@@ -21,6 +22,12 @@ const CommonTypeContainer = () => {
     (state) => state.auth.user_data
   )
   const dispatch = useDispatch()
+  const setIdx = useCallback(
+    (idx) => {
+      dispatch(setPage(idx))
+    },
+    [dispatch]
+  )
   const setAtrMBTI = useCallback(
     (mbti) => {
       dispatch(setMBTI(mbti))
@@ -53,6 +60,7 @@ const CommonTypeContainer = () => {
       setAtrInterest={setAtrInterest}
       setAtrFaculty={setAtrFaculty}
       setAtrNoMatter={setAtrNoMatter}
+      setIdx={setIdx}
     />
   )
 }

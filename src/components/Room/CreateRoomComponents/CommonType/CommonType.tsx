@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react"
+import React, { Fragment, useEffect, useState } from "react"
 import { CreateRoomCommonState, MBTI, UserState } from "../../../../types/types"
 import BasicModal from "../../../Partials/Modal/BasicModal"
 import MBTIModal from "../../../Partials/Modal/MBTIModal/MBTIModal"
@@ -12,6 +12,7 @@ interface Props {
   setAtrInterest: (interest: string[]) => void
   setAtrFaculty: (faculty: string) => void
   setAtrNoMatter: (det: boolean) => void
+  setIdx: (idx: number) => void
 }
 
 const CommonType = ({
@@ -21,6 +22,7 @@ const CommonType = ({
   setAtrInterest,
   setAtrFaculty,
   setAtrNoMatter,
+  setIdx,
 }: Props) => {
   const resetMBTI = {
     first_mbti: "",
@@ -76,6 +78,9 @@ const CommonType = ({
   const handleMBTI = (mbtiProps: MBTI) => {
     setAtrMBTI(mbtiProps)
   }
+  useEffect(() => {
+    setIdx(6)
+  }, [setIdx])
   return (
     <Fragment>
       {isModalOpen && (

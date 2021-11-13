@@ -42,9 +42,10 @@ const StopModal = ({ closeModal, handleConfirm }: ModalProps) => {
 
 interface Props {
   createState: CreateRoomState
+  page: number
 }
 
-const CreateRoomDetailPage = ({ createState }: Props) => {
+const CreateRoomDetailPage = ({ createState, page }: Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [blockControll, setBlockControll] = useState(true)
   const [height] = useState<string | number>(window.innerHeight)
@@ -107,7 +108,16 @@ const CreateRoomDetailPage = ({ createState }: Props) => {
               <RoomTitleContainer />
               <RoomDescContainer blockHandler={blockHandler} />
             </Carousel>
-            <div className="create-detail__indicator"></div>
+            <div className="create-detail__indicator">
+              {page === 1 && <div className="indicator_1"></div>}
+              {page === 2 && <div className="indicator_2"></div>}
+              {page === 3 && <div className="indicator_3"></div>}
+              {page === 4 && <div className="indicator_4"></div>}
+              {page === 5 && <div className="indicator_5"></div>}
+              {page === 6 && <div className="indicator_6"></div>}
+              {page === 7 && <div className="indicator_7"></div>}
+              {page === 8 && <div className="indicator_8"></div>}
+            </div>
           </div>
         </div>
       </div>

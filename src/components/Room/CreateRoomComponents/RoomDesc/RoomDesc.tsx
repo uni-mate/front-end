@@ -8,6 +8,7 @@ interface Props {
   descState: string
   totalState: CreateRoomState
   setAtr: (type: string) => void
+  setIdx: (idx: number) => void
   setNewRoom: (body: createRoomData) => void
 }
 
@@ -16,6 +17,7 @@ const RoomDesc = ({
   descState,
   totalState,
   setAtr,
+  setIdx,
   setNewRoom,
 }: Props) => {
   const [detDesc, setDetDesc] = useState(descState === "" ? "" : descState)
@@ -28,8 +30,9 @@ const RoomDesc = ({
     blockHandler()
   }
   useEffect(() => {
+    setIdx(8)
     setAtr(detDesc)
-  }, [setAtr, detDesc])
+  }, [setIdx, setAtr, detDesc])
   return (
     <div className="desc__container">
       <div className="desc__title">

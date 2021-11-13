@@ -4,10 +4,11 @@ import "./Gender.css"
 
 interface Props {
   setAtr: (type: string) => void
+  setIdx: (idx: number) => void
   genderState: string
 }
 
-const Gender = ({ setAtr, genderState }: Props) => {
+const Gender = ({ setAtr, setIdx, genderState }: Props) => {
   const [detGender, setDetGender] = useState(
     genderState === "" ? "" : genderState
   )
@@ -15,8 +16,9 @@ const Gender = ({ setAtr, genderState }: Props) => {
     setDetGender(e.target.value)
   }
   useEffect(() => {
+    setIdx(5)
     setAtr(detGender)
-  }, [setAtr, detGender])
+  }, [setIdx, setAtr, detGender])
   return (
     <div className="gender__container">
       <div className="gender__title">
