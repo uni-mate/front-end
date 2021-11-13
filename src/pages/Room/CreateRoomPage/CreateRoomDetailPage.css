@@ -47,7 +47,7 @@
 .create-detail__components--carousel > div:nth-of-type(3) > button:hover {
   background-color: transparent;
 }
-.Carousel-indicators-2 {
+.create-detail__components--carousel > div:nth-of-type(4) {
   width: 100% !important;
   position: absolute;
   bottom: 20px;
@@ -60,26 +60,38 @@
   background-color: var(--main-color);
   position: relative;
 }
-.Carousel-indicators-2 > button {
-  width: 30px;
-  height: 20px;
-  border-radius: 0 !important;
-  background-color: var(--main-color);
-  position: relative;
-}
-.Carousel-indicators-2 > button:nth-of-type(1) {
+
+.create-detail__components--carousel
+  > div:nth-of-type(4)
+  > button:nth-of-type(1) {
   border-top-left-radius: 10px !important;
   border-bottom-left-radius: 10px !important;
   border: 1px solid #000;
 }
-.Carousel-indicators-2 > button:nth-of-type(1).Carousel-active-5::after,
-.Carousel-indicators-2 > button:nth-of-type(2).Carousel-active-5::after,
-.Carousel-indicators-2 > button:nth-of-type(3).Carousel-active-5::after,
-.Carousel-indicators-2 > button:nth-of-type(4).Carousel-active-5::after,
-.Carousel-indicators-2 > button:nth-of-type(5).Carousel-active-5::after,
-.Carousel-indicators-2 > button:nth-of-type(6).Carousel-active-5::after,
-.Carousel-indicators-2 > button:nth-of-type(7).Carousel-active-5::after,
-.Carousel-indicators-2 > button:nth-of-type(8).Carousel-active-5::after {
+.create-detail__components--carousel
+  > div:nth-of-type(4)
+  > button:nth-of-type(1).Carousel-active-5::after,
+.create-detail__components--carousel
+  > div:nth-of-type(4)
+  > button:nth-of-type(2).Carousel-active-5::after,
+.create-detail__components--carousel
+  > div:nth-of-type(4)
+  > button:nth-of-type(3).Carousel-active-5::after,
+.create-detail__components--carousel
+  > div:nth-of-type(4)
+  > button:nth-of-type(4).Carousel-active-5::after,
+.create-detail__components--carousel
+  > div:nth-of-type(4)
+  > button:nth-of-type(5).Carousel-active-5::after,
+.create-detail__components--carousel
+  > div:nth-of-type(4)
+  > button:nth-of-type(6).Carousel-active-5::after,
+.create-detail__components--carousel
+  > div:nth-of-type(4)
+  > button:nth-of-type(7).Carousel-active-5::after,
+.create-detail__components--carousel
+  > div:nth-of-type(4)
+  > button:nth-of-type(8).Carousel-active-5::after {
   content: "";
   height: 45px;
   background-position: center;
@@ -91,36 +103,59 @@
   transform: translateY(-50%);
   animation: animatedBackground 0.8s linear;
 }
-.Carousel-indicators-2 > button:nth-of-type(1).Carousel-active-5::after {
+.create-detail__components--carousel
+  > div:nth-of-type(4)
+  > button:nth-of-type(1).Carousel-active-5::after {
   background-image: url("../../../assets/createRoom/progress1.png");
   width: 30px;
 }
-.Carousel-indicators-2 > button:nth-of-type(2).Carousel-active-5::after,
-.Carousel-indicators-2 > button:nth-of-type(4).Carousel-active-5::after,
-.Carousel-indicators-2 > button:nth-of-type(6).Carousel-active-5::after {
+.create-detail__components--carousel
+  > div:nth-of-type(4)
+  > button:nth-of-type(2).Carousel-active-5::after,
+.create-detail__components--carousel
+  > div:nth-of-type(4)
+  > button:nth-of-type(4).Carousel-active-5::after,
+.create-detail__components--carousel
+  > div:nth-of-type(4)
+  > button:nth-of-type(6).Carousel-active-5::after {
   background-image: url("../../../assets/createRoom/progress2.png");
   width: 35px;
 }
-.Carousel-indicators-2 > button:nth-of-type(3).Carousel-active-5::after,
-.Carousel-indicators-2 > button:nth-of-type(5).Carousel-active-5::after,
-.Carousel-indicators-2 > button:nth-of-type(7).Carousel-active-5::after {
+.create-detail__components--carousel
+  > div:nth-of-type(4)
+  > button:nth-of-type(3).Carousel-active-5::after,
+.create-detail__components--carousel
+  > div:nth-of-type(4)
+  > button:nth-of-type(5).Carousel-active-5::after,
+.create-detail__components--carousel
+  > div:nth-of-type(4)
+  > button:nth-of-type(7).Carousel-active-5::after {
   background-image: url("../../../assets/createRoom/progress3.png");
   width: 30px;
   height: 44px;
 }
-.Carousel-indicators-2 > button:nth-of-type(8) {
+.create-detail__components--carousel
+  > div:nth-of-type(4)
+  > button:nth-of-type(8) {
   border-top-right-radius: 10px !important;
   border-bottom-right-radius: 10px !important;
 }
-.Carousel-indicators-2 > button.Carousel-active-5 {
+.create-detail__components--carousel
+  > div:nth-of-type(4)
+  > button.Carousel-active-5 {
   width: 30px;
   height: 20px;
   background-color: var(--main-color) !important;
 }
-.Carousel-indicators-2 > button:last-of-type.Carousel-active-5 {
+.create-detail__components--carousel
+  > div:nth-of-type(4)
+  > button:last-of-type.Carousel-active-5 {
   background-color: transparent !important;
 }
-.Carousel-indicators-2 > button.Carousel-active-5 ~ button {
+.create-detail__components--carousel
+  > div:nth-of-type(4)
+  > button.Carousel-active-5
+  ~ button {
   width: 30px;
   height: 20px;
   background-color: rgba(42, 227, 38, 0.3) !important;
