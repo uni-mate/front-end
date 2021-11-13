@@ -53,6 +53,13 @@
   bottom: 20px;
   z-index: 999;
 }
+.create-detail__components--carousel > div:nth-of-type(4) > button {
+  width: 30px;
+  height: 20px;
+  border-radius: 0 !important;
+  background-color: var(--main-color);
+  position: relative;
+}
 .Carousel-indicators-2 > button {
   width: 30px;
   height: 20px;
@@ -63,6 +70,7 @@
 .Carousel-indicators-2 > button:nth-of-type(1) {
   border-top-left-radius: 10px !important;
   border-bottom-left-radius: 10px !important;
+  border: 1px solid #000;
 }
 .Carousel-indicators-2 > button:nth-of-type(1).Carousel-active-5::after,
 .Carousel-indicators-2 > button:nth-of-type(2).Carousel-active-5::after,
