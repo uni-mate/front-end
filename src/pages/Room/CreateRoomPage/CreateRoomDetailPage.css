@@ -52,7 +52,7 @@
   width: 100% !important;
   position: absolute;
   bottom: 20px;
-  z-index: 9999;
+  z-index: 999;
 }
 .Carousel-indicators-2 > button {
   width: 30px;

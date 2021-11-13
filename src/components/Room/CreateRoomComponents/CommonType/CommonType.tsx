@@ -32,10 +32,10 @@ const CommonType = ({
   const closeModal = () => setIsModalOpen(false)
   const openModal = () => setIsModalOpen(true)
   const [checkAtr, setCheckAtr] = useState({
-    check_mbti: commonState?.mbti !== resetMBTI ? true : false,
-    check_interest: commonState?.interest !== [] ? true : false,
+    check_mbti: commonState?.mbti === resetMBTI ? true : false,
+    check_interest: commonState?.interest === [] ? true : false,
     check_faculty: commonState?.faculty !== "" ? true : false,
-    check_noMatter: commonState?.nomatter !== true ? true : false,
+    check_noMatter: commonState?.nomatter === true ? true : false,
   })
   // mbti 체크 여부
   const selectMBTIOn = () =>
@@ -82,7 +82,9 @@ const CommonType = ({
         <BasicModal
           isModalOpen={isModalOpen}
           width="300px"
-          styles={{ zIndex: 9999 }}
+          backgroundColor="#fff"
+          boxShadow={24}
+          padding="30px 20px"
         >
           <MBTIModal
             closeModal={closeModal}

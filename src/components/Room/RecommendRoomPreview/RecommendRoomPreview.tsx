@@ -22,7 +22,14 @@ const RecommendRoomPreview = ({ chat }: Props) => {
   return (
     <Fragment>
       {isModalOpen && (
-        <BasicModal isModalOpen={isModalOpen} width="300px">
+        <BasicModal
+          isModalOpen={isModalOpen}
+          width="300px"
+          height="500px"
+          backgroundColor="#fff"
+          boxShadow={24}
+          padding="30px 20px"
+        >
           <RoomModal chat={chat} closeModal={closeModal} />
         </BasicModal>
       )}

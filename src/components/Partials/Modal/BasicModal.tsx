@@ -8,11 +8,10 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  boxShadow: 24,
   borderRadius: "4.5px",
   p: 4,
   padding: "30px 20px",
-  backgroundColor: "#fff",
+  zIndex: 9999,
 }
 
 interface Props {
@@ -23,13 +22,12 @@ interface Props {
   height?: string
   backgroundColor?: string
   boxShadow?: number
-  padding?: number
-  styles?: CSS.Properties
+  padding?: string
 }
 
 export default function BasicModal(props: Props) {
   const { children, isModalOpen, closeModal } = props
-  const { width, height, backgroundColor, boxShadow, padding, styles } = props
+  const { width, height, backgroundColor, boxShadow, padding } = props
   return (
     <Modal
       open={isModalOpen}
@@ -40,7 +38,6 @@ export default function BasicModal(props: Props) {
       <Box
         sx={{
           ...style,
-          ...styles,
           backgroundColor,
           boxShadow,
           padding,

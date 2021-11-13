@@ -23,7 +23,9 @@ const RestRoomPreview = ({ chat }: Props) => {
           isModalOpen={isModalOpen}
           width="300px"
           height="500px"
-          styles={{ zIndex: 9999 }}
+          backgroundColor="#fff"
+          boxShadow={24}
+          padding="30px 20px"
         >
           <RoomModal chat={chat} closeModal={closeModal} />
         </BasicModal>

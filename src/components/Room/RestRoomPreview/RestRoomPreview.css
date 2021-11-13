@@ -9,8 +9,6 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.restroom-preview__header {
-}
 .restroom-preview__header--title {
   margin-bottom: 12px;
   font-weight: bold;

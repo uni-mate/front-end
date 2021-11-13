@@ -46,8 +46,7 @@ const RoomListPage = ({
         height="0px"
         backgroundColor="transparent"
         boxShadow={0}
-        padding={0}
-        styles={{ zIndex: 9999 }}
+        padding="0px"
       >
         <CreateRoomModal />
       </BasicModal>
