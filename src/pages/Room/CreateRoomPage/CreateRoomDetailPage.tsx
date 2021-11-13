@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react"
 import { useHistory } from "react-router"
 import useNavbar from "../../../hooks/useNavbar"
-// import bgImg from "../../../assets/icons/createroom/빼꼼이.png"
 import Carousel from "react-material-ui-carousel"
 
 import ChatTypeContainer from "./../../../components/Room/CreateRoomComponents/ChatType/ChatTypeContainer"
