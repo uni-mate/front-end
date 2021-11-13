@@ -41,7 +41,7 @@ const RoomListPage = ({
   return (
     <Fragment>
       <BasicModal
-        isModalOpen={!createLoading}
+        isModalOpen={createLoading}
         width="0px"
         height="0px"
         backgroundColor="transparent"

@@ -37,7 +37,7 @@
 .create-detail__components--carousel {
   position: static !important;
   text-align: center;
-  height: 500px;
+  height: 400px;
   position: relative;
 }
 .create-detail__components--carousel > div:nth-of-type(2) > button,

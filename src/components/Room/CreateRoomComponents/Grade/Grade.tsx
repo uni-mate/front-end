@@ -8,7 +8,9 @@ interface Props {
 }
 
 const Grade = ({ gradeState, setAtr }: Props) => {
-  const [detGrade, setDetGrade] = useState(gradeState === "" ? "" : gradeState)
+  const [detGrade, setDetGrade] = useState<string>(
+    gradeState === "" ? "" : gradeState
+  )
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDetGrade(e.target.value)
   }
@@ -30,10 +32,7 @@ const Grade = ({ gradeState, setAtr }: Props) => {
           onChange={handleChange}
           checked={detGrade === "no"}
         ></input>
-        <label
-          htmlFor="no"
-          // onClick={handleSet}
-        >
+        <label htmlFor="no">
           <span>학년은 상관 없어요!</span>
         </label>
         <input
@@ -44,10 +43,7 @@ const Grade = ({ gradeState, setAtr }: Props) => {
           onChange={handleChange}
           checked={detGrade === "1"}
         ></input>
-        <label
-          htmlFor="1"
-          // onClick={handleSet}
-        >
+        <label htmlFor="1">
           <span>1학년</span>
         </label>
         <input
