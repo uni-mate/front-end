@@ -75,7 +75,13 @@ const CreateRoomDetailPage = ({ createState }: Props) => {
   return (
     <Fragment>
       {isModalOpen && (
-        <BasicModal isModalOpen={isModalOpen} width="300px">
+        <BasicModal
+          isModalOpen={isModalOpen}
+          width="300px"
+          backgroundColor="#fff"
+          boxShadow={24}
+          padding="30px 20px"
+        >
           <StopModal closeModal={closeModal} handleConfirm={blockHandler} />
         </BasicModal>
       )}

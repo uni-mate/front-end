@@ -4,7 +4,7 @@ import { ConnectedRouter } from "connected-react-router"
 import history from "./history"
 
 // User
-import ProfilePage from "./pages/User/ProfilePage/ProfilePage"
+import ProfilePageContainer from "./pages/User/ProfilePage/ProfilePageContainer"
 import ProfileEditPage from "./pages/User/ProfileEditPage/ProfileEditPage"
 import TutorialPage from "./pages/Tutorial/TutorialPage"
 
@@ -29,8 +29,8 @@ import AdminPage from "./pages/Admin/AdminPage"
 import Navbar from "./components/Partials/Navbar/Navbar"
 
 import { useSelector } from "react-redux"
-import { NavBarState, RootState } from "./types/types"
 
+import { NavBarState, RootState } from "./types/types"
 import "./App.css"
 
 function App() {
@@ -58,7 +58,7 @@ function App() {
         <Route exact path="/profile/custom" component={ProfileCustomPage} />
         <Route exact path="/profile/:id" component={ProfileEditPage} />
         {/* 프로필 보기 */}
-        <Route exact path="/profile" component={ProfilePage} />
+        <Route exact path="/profile" component={ProfilePageContainer} />
         {/* 관리자 페이지 */}
         <Route exact path="/adminpage" component={AdminPage} />
         {/* 튜토리얼 페이지 */}

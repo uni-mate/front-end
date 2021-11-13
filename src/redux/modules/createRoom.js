@@ -49,7 +49,7 @@ export const setDesc = createAction(SET_DESC, (desc) => desc)
 const initialState = {
   createRoom_data: {
     chat_type: "appointment",
-    cat_purpose: "",
+    chat_purpose: "",
     grade: [],
     head_count: 3,
     gender: "",
@@ -114,7 +114,7 @@ const reducer = handleActions(
     }),
     [SET_GRADE]: (state, action) => ({
       ...state,
-      createRoom_data: { ...state.createRoom_data, grade: [...action.payload] },
+      createRoom_data: { ...state.createRoom_data, grade: action.payload },
     }),
     [SET_HEAD_COUNT]: (state, action) => ({
       ...state,
@@ -193,7 +193,7 @@ function* createRoomSaga(action) {
     const res = yield axios.post(`${API_URL}/all/chat/create`, action.payload)
     console.log(res.data.message)
     yield delay(2000)
-    yield put(successCreateRoom(res.data.message))
+    yield put(successCreateRoom(res.data))
   } catch (error) {
     yield put(failCreateRoom(error))
   }

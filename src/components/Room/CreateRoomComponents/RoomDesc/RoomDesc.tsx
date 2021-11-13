@@ -24,6 +24,7 @@ const RoomDesc = ({
   }
   const handleCreateRoom = () => {
     setNewRoom(totalState.createRoom_data)
+    // alert(JSON.stringify(totalState.createRoom_data))
     blockHandler()
   }
   useEffect(() => {

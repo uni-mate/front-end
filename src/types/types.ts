@@ -3,7 +3,8 @@ import { Reducer, AnyAction } from "redux"
 
 export interface UserState {
   user_id: string
-  userId: string
+  nickname: string
+  username: string
   email: string
   faculty: string
   department: string

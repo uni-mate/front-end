@@ -1,8 +1,13 @@
 import React from "react"
+import { UserState } from "../../../types/types"
 
 import "./ProfilePage.css"
 
-const ProfilePage = () => {
+interface Props {
+  currentUser: UserState
+}
+
+const ProfilePage = ({ currentUser }: Props) => {
   return (
     <div className="profile-container">
       <div className="profile__header">
@@ -15,9 +20,11 @@ const ProfilePage = () => {
           {/* <img src="" alt="" /> */}
         </div>
         <div className="profile__info--desc">
-          <span className="profile__info--username">개구리님</span>
+          <span className="profile__info--username">
+            {currentUser.nickname}님
+          </span>
           <span className="profile__info--department">컴퓨터 공학과</span>
-          <span className="profile__info--name">김지수</span>
+          <span className="profile__info--name">{currentUser.username}</span>
         </div>
       </div>
       <div className="profile__body">
