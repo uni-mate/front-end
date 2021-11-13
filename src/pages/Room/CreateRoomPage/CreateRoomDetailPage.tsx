@@ -107,6 +107,7 @@ const CreateRoomDetailPage = ({ createState }: Props) => {
               <RoomTitleContainer />
               <RoomDescContainer blockHandler={blockHandler} />
             </Carousel>
+            <div className="create-detail__indicator"></div>
           </div>
         </div>
       </div>
