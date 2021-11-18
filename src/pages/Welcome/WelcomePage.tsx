@@ -1,13 +1,18 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Carousel from "react-material-ui-carousel"
 import { useHistory } from "react-router"
 
 import hello from "../../assets/createRoom/ready.png"
+import useNavbar from "./../../hooks/useNavbar"
 
 import "./WelcomePage.css"
 
 const WelcomePage = () => {
+  const [, navbarOutside] = useNavbar()
   const history = useHistory()
+  useEffect(() => {
+    navbarOutside()
+  }, [navbarOutside])
   return (
     <div className="welcome__container">
       <div className="welcome__img">
@@ -32,6 +37,7 @@ const WelcomePage = () => {
           style: {
             color: "rgba(220,220,220)",
             pointerEvents: "none",
+            padding: "0px 5px",
           },
         }}
         activeIndicatorIconButtonProps={{
