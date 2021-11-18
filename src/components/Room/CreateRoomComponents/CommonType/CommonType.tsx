@@ -3,6 +3,8 @@ import { CreateRoomCommonState, MBTI, UserState } from "../../../../types/types"
 import BasicModal from "../../../Partials/Modal/BasicModal"
 import MBTIModal from "../../../Partials/Modal/MBTIModal/MBTIModal"
 
+import _ from "lodash"
+
 import "./CommonType.css"
 
 interface Props {
@@ -24,37 +26,21 @@ const CommonType = ({
   setAtrNoMatter,
   setIdx,
 }: Props) => {
-  const resetMBTI = {
-    first_mbti: "",
-    second_mbti: "",
-    third_mbti: "",
-    fourth_mbti: "",
-  }
   const [isModalOpen, setIsModalOpen] = useState(false)
   const closeModal = () => setIsModalOpen(false)
   const openModal = () => setIsModalOpen(true)
   const [checkAtr, setCheckAtr] = useState({
-    check_mbti: commonState?.mbti === resetMBTI ? true : false,
-    check_interest: commonState?.interest === [] ? true : false,
-    check_faculty: commonState?.faculty !== "" ? true : false,
+    check_mbti:
+      _.includes("_", commonState?.mbti.first_mbti) &&
+      _.includes("_", commonState?.mbti.second_mbti) &&
+      _.includes("_", commonState?.mbti.third_mbti) &&
+      _.includes("_", commonState?.mbti.fourth_mbti)
+        ? false
+        : true,
+    check_interest: _.size(commonState?.interest) === 0 ? false : true,
+    check_faculty: _.size(commonState?.faculty) === 0 ? false : true,
     check_noMatter: commonState?.nomatter === true ? true : false,
   })
-  // mbti 체크 여부
-  const selectMBTIOn = () =>
-    setCheckAtr({
-      check_interest: false,
-      check_faculty: false,
-      check_noMatter: false,
-      check_mbti: true,
-    })
-  const selectMBTIOff = () => {
-    setCheckAtr((prev) => {
-      return {
-        ...prev,
-        check_mbti: true,
-      }
-    })
-  }
 
   const checkedHandler = (checked: boolean, checked_id: string) => {
     if (checked) {
@@ -96,8 +82,6 @@ const CommonType = ({
             handleMBTI={handleMBTI}
             commonState={commonState}
             userMBTI={currentUserState.mbti}
-            selectMBTIOn={selectMBTIOn}
-            selectMBTIOff={selectMBTIOff}
           />
         </BasicModal>
       )}

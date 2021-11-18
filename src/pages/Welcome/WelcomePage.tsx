@@ -30,7 +30,7 @@ const WelcomePage = () => {
         indicatorContainerProps={{
           style: {
             position: "absolute",
-            bottom: "20px",
+            bottom: "0",
           },
         }}
         indicatorIconButtonProps={{

@@ -12,7 +12,7 @@
   width: 150px;
   height: 180px;
   margin-top: 140px;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
 }
 .welcome__img > img {
   width: 100%;
@@ -45,8 +45,6 @@
 .welcome__carousel > span:first-of-type {
   margin-bottom: 10px;
 }
-.welcome__carousel.last {
-}
 .welcome__carousel.last > .app__start {
   position: fixed !important;
   width: 80%;
@@ -55,7 +53,7 @@
   transform: translateX(-50%);
   background-color: var(--main-color);
   border-radius: 10px;
-  padding: 10px 20px;
+  padding: 15px 20px;
   z-index: 999;
   color: #fff;
   animation: startup 0.4s;
@@ -69,6 +67,6 @@
     bottom: -100px;
   }
   100% {
-    bottom: 80px;
+    bottom: 0;
   }
 }

@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import { CreateRoomCommonState } from "../../../../types/types"
 
+import _ from "lodash"
+
 import "./MBTIModal.css"
 
 interface MBTI {
@@ -15,8 +17,6 @@ interface Props {
   handleMBTI: (mbtiProps: MBTI) => void
   commonState: CreateRoomCommonState
   userMBTI: MBTI
-  selectMBTIOn: () => void
-  selectMBTIOff: () => void
 }
 
 const MBTIModal = ({
@@ -24,23 +24,26 @@ const MBTIModal = ({
   handleMBTI,
   commonState,
   userMBTI,
-  selectMBTIOn,
-  selectMBTIOff,
 }: Props) => {
   const [checkedInputs, setCheckedInputs] = useState({
-    first_mbti: commonState?.mbti.first_mbti
-      ? commonState?.mbti.first_mbti
-      : "_",
-    second_mbti: commonState?.mbti.second_mbti
-      ? commonState?.mbti.second_mbti
-      : "_",
-    third_mbti: commonState?.mbti.third_mbti
-      ? commonState?.mbti.third_mbti
-      : "_",
-    fourth_mbti: commonState?.mbti.fourth_mbti
-      ? commonState?.mbti.fourth_mbti
-      : "_",
+    first_mbti:
+      _.size(commonState?.mbti.first_mbti) !== 0
+        ? commonState?.mbti.first_mbti
+        : "_",
+    second_mbti:
+      _.size(commonState?.mbti.second_mbti) !== 0
+        ? commonState?.mbti.second_mbti
+        : "_",
+    third_mbti:
+      _.size(commonState?.mbti.third_mbti) !== 0
+        ? commonState?.mbti.third_mbti
+        : "_",
+    fourth_mbti:
+      _.size(commonState?.mbti.fourth_mbti) !== 0
+        ? commonState?.mbti.fourth_mbti
+        : "_",
   })
+
   const changeHandler = (value: string, checked: boolean, order: string) => {
     if (checked) {
       setCheckedInputs((prev) => ({
@@ -56,13 +59,11 @@ const MBTIModal = ({
   }
 
   const offMBTI = () => {
-    selectMBTIOff()
     closeModal()
   }
 
   const onMBTI = () => {
     handleMBTI(checkedInputs)
-    selectMBTIOn()
     closeModal()
   }
 
