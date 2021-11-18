@@ -2,10 +2,9 @@ import React, { useEffect } from "react"
 import useNavbar from "../../hooks/useNavbar"
 import { useHistory } from "react-router"
 
-import moodan from "../../assets/무단복사.png"
+import hello from "../../assets/createRoom/ready.png"
 
 import CustomButton from "../../components/Partials/CustomButton/CustomButton"
-import { Link } from "react-router-dom"
 
 import "./HomePage.css"
 
@@ -16,9 +15,9 @@ const HomePage = () => {
     navbarOutSide()
   }, [navbarOutSide])
   return (
-    <div className="home-container">
+    <div className="home__container">
       <div className="home__image">
-        <img src={moodan} alt="이미지" />
+        <img src={hello} alt="이미지" />
       </div>
       <div className="home__title">
         <span>안녕하세요!</span>
@@ -43,20 +42,21 @@ const HomePage = () => {
           회원가입
         </CustomButton>
       </div>
-      <Link
-        to="/room"
+      <div
         style={{
           display: "block",
           width: "100%",
-          height: "20px",
           textAlign: "center",
-          border: "1px solid black",
           marginTop: "20px",
-          backgroundColor: "gray",
+          padding: "20px",
+          backgroundColor: "rgb(210,210,210)",
         }}
       >
-        건너뛰기(임시)
-      </Link>
+        <div style={{ marginBottom: "20px" }}>
+          아이디 비밀번호 아무거나 눌러도{" "}
+        </div>
+        <div>로그인 됩니다.</div>
+      </div>
     </div>
   )
 }

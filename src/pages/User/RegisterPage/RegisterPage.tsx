@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 
 import GoBackArrow from "../../../assets/icons/attr/goback.png"
 import useInput from "../../../hooks/useInput"
@@ -6,8 +6,11 @@ import { useHistory } from "react-router"
 
 import CustomButton from "../../../components/Partials/CustomButton/CustomButton"
 import CustomInput from "../../../components/Partials/CustomInput/CustomInput"
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff"
+import VisibilityIcon from "@mui/icons-material/Visibility"
 
 import "./RegisterPage.css"
+import useNavbar from "../../../hooks/useNavbar"
 
 interface RegisterReq {
   username: string
@@ -20,6 +23,8 @@ interface Props {
 }
 
 const RegisterPage = ({ registerSaga }: Props) => {
+  const [pwdShow, setPwdShow] = useState(false)
+  const [, navbarOutside] = useNavbar()
   const history = useHistory()
   // const [isUsername, setIsUsername] = useState(true)
   // const [isEmail, setIsEmail] = useState(true)
@@ -88,6 +93,9 @@ const RegisterPage = ({ registerSaga }: Props) => {
   //   ? "비밀번호는 숫자와 문자를 조합하여 8자 이상이어야 합니다."
   //   : ""
   // let pwdConfirmHelper = !isPwdConfirm ? "비밀번호가 일치하지 않습니다." : ""
+  useEffect(() => {
+    navbarOutside()
+  }, [navbarOutside])
   return (
     <div className="register-container">
       <div className="login__header">
@@ -130,14 +138,26 @@ const RegisterPage = ({ registerSaga }: Props) => {
             onChange={onChange}
             placeholder="이메일을 입력해주세요."
           />
-          <CustomInput
-            type="password"
-            id="password"
-            name="password"
-            value={password}
-            onChange={onChange}
-            placeholder="비밀번호를 입력해주세요."
-          />
+          <div className="register-form__pwd">
+            <CustomInput
+              type={pwdShow ? "text" : "password"}
+              id="password"
+              name="password"
+              value={password}
+              onChange={onChange}
+              placeholder="비밀번호를 입력해주세요."
+            />
+            <div
+              className="eye-icon"
+              onClick={() => setPwdShow((prev) => !prev)}
+            >
+              {!pwdShow ? (
+                <VisibilityIcon fontSize="small" />
+              ) : (
+                <VisibilityOffIcon fontSize="small" />
+              )}
+            </div>
+          </div>
           <CustomInput
             type="username"
             id="username"
@@ -146,6 +166,41 @@ const RegisterPage = ({ registerSaga }: Props) => {
             onChange={onChange}
             placeholder="닉네임을 입력해주세요."
           />
+          {/* <div className="gender-input__container">
+            <input
+              type="radio"
+              name="gender"
+              id="no"
+              value="no"
+              onChange={handleChange}
+              checked={detGender === "no" ? true : false}
+            ></input>
+            <label htmlFor="no">
+              <div>상관없어요</div>
+            </label>
+            <input
+              type="radio"
+              name="gender"
+              id="women"
+              value="women"
+              onChange={handleChange}
+              checked={detGender === "women" ? true : false}
+            ></input>
+            <label htmlFor="women">
+              <div>여자끼리</div>
+            </label>
+            <input
+              type="radio"
+              name="gender"
+              id="men"
+              value="men"
+              onChange={handleChange}
+              checked={detGender === "men" ? true : false}
+            ></input>
+            <label htmlFor="men">
+              <div>남자끼리</div>
+            </label>
+          </div> */}
           <CustomInput
             type="usernamintroducing"
             id="introducing"

@@ -1,0 +1,80 @@
+.signout-container {
+  background-color: #ffffff;
+  width: 100%;
+  height: 100vh;
+  margin-top: auto;
+  margin-bottom: 0px;
+}
+.signout-container {
+}
+.signout__header {
+  padding: 20px;
+  padding-right: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.signout__header--icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+.signout__header--icon > img {
+  width: 100%;
+  height: 100%;
+}
+.signout__header--title {
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  color: #555555;
+}
+.signout__image {
+  width: 160px;
+  height: 180px;
+  margin: 0 auto;
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+.signout__image > img {
+  width: 100%;
+  height: 100%;
+}
+.signout__title {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 0px;
+  margin-bottom: 30px;
+}
+.signout__title > span {
+  color: var(--main-text-color);
+}
+.signout__title > span:nth-of-type(1) {
+  font-weight: 600;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+.signout__title > span:nth-of-type(2),
+.signout__title > span:nth-of-type(3) {
+  font-size: 14px;
+}
+.signout__title > span:nth-of-type(2) {
+  margin-bottom: 10px;
+}
+.signout_user {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.signout_user > button {
+  width: 155px;
+  height: 33px;
+  background: #c4c4c4;
+  border-radius: 4.06593px;
+  border: none;
+  font-size: 14px;
+  color: var(--main-text-color);
+}

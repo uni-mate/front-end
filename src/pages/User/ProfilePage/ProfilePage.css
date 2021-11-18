@@ -81,4 +81,13 @@
 }
 .profile__button--arrow {
   padding-right: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile__button--arrow > img {
+  width: 15px;
+  height: 20px;
+  transform: scaleX(-1);
+  cursor: pointer;
 }

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 
 import GoBackArrow from "../../../assets/icons/attr/goback.png"
 import useInput from "../../../hooks/useInput"
@@ -6,7 +6,11 @@ import CustomInput from "../../../components/Partials/CustomInput/CustomInput"
 import CustomButton from "../../../components/Partials/CustomButton/CustomButton"
 import { useHistory } from "react-router"
 
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff"
+import VisibilityIcon from "@mui/icons-material/Visibility"
+
 import "./LoginPage.css"
+import useNavbar from "../../../hooks/useNavbar"
 
 interface LoginReq {
   userId: string
@@ -23,12 +27,14 @@ const LoginPage = ({ loginSaga }: Props) => {
     userId: "",
     password: "",
   })
+  const [pwdShow, setPwdShow] = useState(false)
+  const [, navbarOutside] = useNavbar()
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault()
     if (userId.length === 0) {
-      alert("사용자 이메일을 입력하세요.")
+      alert("아이디를 입력해 주세요.")
     } else if (userId.length > 0 && password.length === 0) {
-      alert("비밀번호를 입력하세요.")
+      alert("비밀번호를 입력해 주세요.")
     } else {
       const body = {
         userId,
@@ -37,6 +43,9 @@ const LoginPage = ({ loginSaga }: Props) => {
       loginSaga(body)
     }
   }
+  useEffect(() => {
+    navbarOutside()
+  }, [navbarOutside])
   return (
     <div className="login-container">
       <div className="login__header">
@@ -55,14 +64,26 @@ const LoginPage = ({ loginSaga }: Props) => {
             onChange={onChange}
             placeholder="아이디를 입력해 주세요."
           />
-          <CustomInput
-            type="password"
-            id="password"
-            name="password"
-            value={password}
-            onChange={onChange}
-            placeholder="비밀번호를 입력해 주세요."
-          />
+          <div className="login-form__pwd">
+            <CustomInput
+              type={pwdShow ? "text" : "password"}
+              id="password"
+              name="password"
+              value={password}
+              onChange={onChange}
+              placeholder="비밀번호를 입력해 주세요."
+            />
+            <div
+              className="eye-icon"
+              onClick={() => setPwdShow((prev) => !prev)}
+            >
+              {!pwdShow ? (
+                <VisibilityIcon fontSize="small" />
+              ) : (
+                <VisibilityOffIcon fontSize="small" />
+              )}
+            </div>
+          </div>
           <CustomButton width="210px" height="33px" color="#fff" type="submit">
             로그인
           </CustomButton>

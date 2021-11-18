@@ -9,7 +9,6 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  /* border: 1px solid #000; */
 }
 .register__header--icon {
   width: 20px;
@@ -32,13 +31,23 @@
   margin-top: 20px;
   margin-bottom: 10px;
 }
-.register-form__container {
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
 .register-form__container > input {
   margin-bottom: 15px;
 }
 .register-form__container > input:last-of-type {
   margin-bottom: 30px;
+}
+.register-form__pwd {
+  width: 100%;
+  margin-bottom: 15px;
+  position: relative;
+}
+.register-form__pwd > input {
+  padding-right: 40px;
+}
+.register-form__pwd > .eye-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
 }

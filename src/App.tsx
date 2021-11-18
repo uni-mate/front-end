@@ -1,7 +1,6 @@
 import React from "react"
-import { Switch, Route } from "react-router-dom"
+import { Switch, Route, useHistory } from "react-router-dom"
 import { ConnectedRouter } from "connected-react-router"
-import history from "./history"
 
 // User
 import ProfilePageContainer from "./pages/User/ProfilePage/ProfilePageContainer"
@@ -16,11 +15,13 @@ import CurrentRoomPage from "./pages/Room/CurrentRoomPage/CurrentRoomPage"
 import FilterPage from "./pages/Filter/FilterPage"
 import CreateRoomDetailPageContainer from "./pages/Room/CreateRoomPage/CreateRoomDetailPageContainer"
 
-// User
+// Auth
 import HomePage from "./pages/Home/HomePage"
 import LoginPageContainer from "./pages/User/LoginPage/LoginPageContainer"
 import RegisterPageContainer from "./pages/User/RegisterPage/RegisterPageContainer"
+import SignOutPage from "./pages/User/SignOutPage/SignOutPage"
 import ProfileCustomPage from "./pages/User/ProfileCustomPage/ProfileCustomPage"
+import WelcomePage from "./pages/Welcome/WelcomePage"
 
 // Admin
 import AdminPage from "./pages/Admin/AdminPage"
@@ -31,6 +32,12 @@ import Navbar from "./components/Partials/Navbar/Navbar"
 import { useSelector } from "react-redux"
 
 import { NavBarState, RootState } from "./types/types"
+import AuthRoute from "./hoc/AuthRoute"
+import UnAuthRoute from "./hoc/UnAuthRoute"
+import history from "./history"
+
+import Error404 from "./pages/Error/Error404"
+
 import "./App.css"
 
 function App() {
@@ -40,31 +47,61 @@ function App() {
   return (
     <ConnectedRouter history={history}>
       <Switch>
-        {/* 로그인 관련 */}
-        <Route exact path="/auth/login" component={LoginPageContainer} />
-        <Route exact path="/auth/register" component={RegisterPageContainer} />
+        {/* 로그인 */}
+        <UnAuthRoute
+          exact
+          path="/auth/login"
+          RenderComponent={LoginPageContainer}
+        />
+        <UnAuthRoute
+          exact
+          path="/auth/register"
+          RenderComponent={RegisterPageContainer}
+        />
+        <AuthRoute exact path="/welcome" RenderComponent={WelcomePage} />
+        <AuthRoute exact path="/signout" RenderComponent={SignOutPage} />
         {/* 방목록 */}
-        <Route exact path="/room/create" component={CreateRoomPage} />
-        <Route
+        <AuthRoute exact path="/room/create" RenderComponent={CreateRoomPage} />
+        <AuthRoute
           exact
           path="/room/create/detail"
-          component={CreateRoomDetailPageContainer}
+          RenderComponent={CreateRoomDetailPageContainer}
         />
-        <Route exact path="/room/filter" component={FilterPage} />
-        <Route exact path="/room/:userid/:roomid" component={CurrentRoomPage} />
-        <Route exact path="/room/:userid" component={MyRoomListPage} />
-        <Route path="/room" component={RoomListPageContainer} />
+        {/* <AuthRoute /> */}
+        <AuthRoute exact path="/room/filter" RenderComponent={FilterPage} />
+        <AuthRoute
+          exact
+          path="/room/:userid/:roomid"
+          RenderComponent={CurrentRoomPage}
+        />
+        <AuthRoute
+          exact
+          path="/room/:userid"
+          RenderComponent={MyRoomListPage}
+        />
+        <AuthRoute path="/room" RenderComponent={RoomListPageContainer} />
         {/* 프로필 수정 */}
-        <Route exact path="/profile/custom" component={ProfileCustomPage} />
-        <Route exact path="/profile/:id" component={ProfileEditPage} />
+        <AuthRoute
+          exact
+          path="/profile/custom"
+          RenderComponent={ProfileCustomPage}
+        />
+        <AuthRoute
+          exact
+          path="/profile/:id"
+          RenderComponent={ProfileEditPage}
+        />
         {/* 프로필 보기 */}
-        <Route exact path="/profile" component={ProfilePageContainer} />
+        <AuthRoute
+          exact
+          path="/profile"
+          RenderComponent={ProfilePageContainer}
+        />
         {/* 관리자 페이지 */}
         <Route exact path="/adminpage" component={AdminPage} />
-        {/* 튜토리얼 페이지 */}
-        <Route exact path="/tutorial" component={TutorialPage} />
         {/* 홈페이지 */}
-        <Route exact path="/" component={HomePage} />
+        <UnAuthRoute exact path="/" RenderComponent={HomePage} />
+        <Route component={Error404} />
       </Switch>
       {navbarState.isNavbar && <Navbar />}
     </ConnectedRouter>

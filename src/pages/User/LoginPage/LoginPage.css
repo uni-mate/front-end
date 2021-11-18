@@ -36,7 +36,22 @@
   margin-bottom: 15px;
 }
 .login-form__container > input:nth-of-type(2) {
+  padding-right: 40px;
+}
+.login-form__pwd {
   margin-bottom: 30px;
+  position: relative;
+}
+.login-form__pwd > input {
+  padding-right: 40px;
+}
+.eye-icon {
+  color: gray;
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  top: 46%;
+  transform: translateY(-50%);
 }
 .login__etc {
   width: 100%;
