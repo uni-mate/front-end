@@ -1,3 +1,4 @@
+import { useState } from "react"
 import * as React from "react"
 import Box from "@mui/material/Box"
 import SwipeableDrawer from "@mui/material/SwipeableDrawer"
@@ -5,11 +6,20 @@ import Button from "@mui/material/Button"
 import Divider from "@mui/material/Divider"
 
 import "./SideDrawer.css"
+import { TestUserState } from "../../../types/ChatTypes"
 
 type Anchor = "right"
 
-function SwipeableTemporaryDrawer({ children }: any) {
-  const [state, setState] = React.useState({
+interface Props {
+  children: any
+  userList?: TestUserState[]
+}
+
+function SwipeableTemporaryDrawer({ children, userList }: Props) {
+  React.useEffect(() => {
+    console.log(userList)
+  }, [userList])
+  const [state, setState] = useState({
     right: false,
   })
 

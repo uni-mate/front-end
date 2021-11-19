@@ -14,7 +14,7 @@ import storage from "redux-persist/lib/storage"
 const persistConfig = {
   key: "root",
   storage,
-  whilelist: ["auth"],
+  whilelist: ["auth", "chat", "mychat"],
   blacklist: ["createRoom"],
 }
 

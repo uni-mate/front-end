@@ -1,6 +1,6 @@
 .roomlist {
   padding: 10px;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
 }
 
 .roomlist-header {
@@ -64,8 +64,6 @@
   margin: 10px 0px;
 }
 
-.recommend-room__title {
-}
 .recommend-room__list {
   border-radius: 5px;
   margin: 10px 0;
@@ -77,18 +75,9 @@
 .rest-room {
   padding: 10px 5px;
 }
-.rest-room__title {
-}
 .rest-room__list {
   margin: 10px 0;
   margin-top: 12px;
   display: flex;
   flex-direction: column;
-}
-.rest-room__list .list {
-  border: 1px solid red;
-  margin: 10px 0;
-  width: 100%;
-  height: 200px;
-  padding: 10px;
 }

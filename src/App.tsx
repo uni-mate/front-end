@@ -1,19 +1,18 @@
 import React from "react"
-import { Switch, Route, useHistory } from "react-router-dom"
+import { Switch, Route } from "react-router-dom"
 import { ConnectedRouter } from "connected-react-router"
 
 // User
 import ProfilePageContainer from "./pages/User/ProfilePage/ProfilePageContainer"
 import ProfileEditPage from "./pages/User/ProfileEditPage/ProfileEditPage"
-import TutorialPage from "./pages/Tutorial/TutorialPage"
 
 // Main
 import RoomListPageContainer from "./pages/Room/RoomListPage/RoomListPageContainer"
 import CreateRoomPage from "./pages/Room/CreateRoomPage/CreateRoomPage"
-import MyRoomListPage from "./pages/Room/MyRoomListPage/MyRoomListPage"
-import CurrentRoomPage from "./pages/Room/CurrentRoomPage/CurrentRoomPage"
+import MyRoomListPageContainer from "./pages/Room/MyRoomListPage/MyRoomListPageContainer"
 import FilterPage from "./pages/Filter/FilterPage"
 import CreateRoomDetailPageContainer from "./pages/Room/CreateRoomPage/CreateRoomDetailPageContainer"
+import CurrentRoomPageContainer from "./pages/Room/CurrentRoomPage/CurrentRoomPageContainer"
 
 // Auth
 import HomePage from "./pages/Home/HomePage"
@@ -63,23 +62,23 @@ function App() {
         <AuthRoute exact path="/welcome" RenderComponent={WelcomePage} />
         <AuthRoute exact path="/signout" RenderComponent={SignOutPage} />
         {/* 방목록 */}
-        <AuthRoute exact path="/room/create" RenderComponent={CreateRoomPage} />
         <AuthRoute
           exact
           path="/room/create/detail"
           RenderComponent={CreateRoomDetailPageContainer}
         />
+        <AuthRoute exact path="/room/create" RenderComponent={CreateRoomPage} />
         {/* <AuthRoute /> */}
         <AuthRoute exact path="/room/filter" RenderComponent={FilterPage} />
         <AuthRoute
           exact
           path="/room/:userid/:roomid"
-          RenderComponent={CurrentRoomPage}
+          RenderComponent={CurrentRoomPageContainer}
         />
         <AuthRoute
           exact
           path="/room/:userid"
-          RenderComponent={MyRoomListPage}
+          RenderComponent={MyRoomListPageContainer}
         />
         <AuthRoute path="/room" RenderComponent={RoomListPageContainer} />
         {/* 프로필 수정 */}

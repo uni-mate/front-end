@@ -1,7 +1,7 @@
 .hashtag {
   border: 1px solid var(--main-color);
   border-radius: 15px;
-  padding: 4px 6px;
+  padding: 6px 8px;
   margin-right: 4px;
   font-size: 10px;
 }

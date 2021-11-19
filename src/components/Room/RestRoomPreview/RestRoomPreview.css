@@ -1,27 +1,43 @@
 .restroom-preview {
   background-color: #fff;
-  height: 119px;
+  height: 110px;
   margin-bottom: 15px;
   border-radius: 5px;
   box-shadow: 1px 1px 1px rgba(201, 201, 201, 0.4);
-  padding: 20px 15px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 .restroom-preview__header--title {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   font-weight: bold;
   font-size: 16px;
+  color: #555555;
 }
 .restroom-preview__header--desc {
   font-size: 12px;
+  color: #555555;
 }
 .restroom-preview__body {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   font-size: 10px;
+  /* border: 1px solid #000; */
+}
+.restroom-preview__hash {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.restroom-preview__hash > div {
+  margin-right: 5px;
+}
+.restroom-preview__meet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .restroom-preview__meet-status {
   display: flex;

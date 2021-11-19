@@ -9,41 +9,47 @@ import MenuIcon from "../../../assets/icons/attr/menu.png"
 import SubmitIcon from "../../../assets/icons/attr/chatting_submit.png"
 import Camera from "../../../assets/icons/attr/camera.png"
 import MakePromise from "../../../assets/icons/attr/make_promise.png"
-import ChatBot from "../../../assets/icons/chat/chatbot.png"
-import User from "../../../assets/icons/chat/temp.png"
-
 import Chat from "../../../components/Chat/Chat"
+import ChatBot from "../../../assets/chatBot/chatBot.png"
+import { ChatType } from "../../../types/ChatTypes"
+import { useAdddProfileImages } from "../../../hooks/useAddProfileImage"
 
 import "./CurrentRoomPage.css"
 
-// interface Params {
-//   roomid: string
-// }
+interface Props {
+  currentChatPage?: ChatType
+}
 
-const CurrentRoomPage = () => {
-  // const params = useParams<Params>()
+interface ChatInputType {
+  chatid: string
+  profileImg: string
+  name: string
+  desc: string
+}
+
+const CurrentRoomPage = ({ currentChatPage }: Props) => {
   const history = useHistory()
   const [, navbarOutside] = useNavbar()
   const [chatMsg, setChatMsg] = useState("")
-  const [chatList, setChatList] = useState([
-    {
-      chatid: "123",
-      profileImg: User,
-      name: "너구리",
-      desc: "말씀을 해 보시라구요.",
-    },
-  ])
-  const chatBot = {
-    chatid: Math.floor(Math.random() * 5000).toString(),
+  const [chatList, setChatList] = useState<ChatInputType[]>([])
+  const [userProfileList] = useState(currentChatPage?.user_list)
+  const [newProfileList] = useAdddProfileImages(userProfileList)
+  useEffect(() => {
+    console.log("newProfileList: ", newProfileList)
+    console.log("userProfileList: ", userProfileList)
+  }, [newProfileList, userProfileList])
+  // 입장 알림
+  const [enterMessage] = useState({
+    chatid: "chatNotice",
     profileImg: ChatBot,
-    name: "챗봇",
-    desc: "나는 챗봇이다~~!!",
-  }
+    name: "뭉지",
+    desc: "채팅방에 오신 것을 환영합니다!",
+  })
   const onSubmitHandler = (e: React.FormEvent) => {
     e.preventDefault()
     const body = {
       chatid: Math.floor(Math.random() * 10000).toString(),
-      profileImg: User,
+      profileImg: ChatBot,
       name: "너구리",
       desc: chatMsg,
     }
@@ -66,14 +72,14 @@ const CurrentRoomPage = () => {
           </div>
 
           <LinesEllipsis
-            text=" 29일 저녁 맘스터치 같이 드실 분"
+            text={currentChatPage?.title}
             maxLine="1"
             ellipsis="..."
             trimRight
             basedOn="letters"
             className="chatting-room__header--title"
           ></LinesEllipsis>
-          <SwipeableTemporaryDrawer>
+          <SwipeableTemporaryDrawer userList={newProfileList}>
             <div className="chatting-room__menu-icon">
               <img src={MenuIcon} alt="menu" />
             </div>
@@ -81,11 +87,11 @@ const CurrentRoomPage = () => {
         </div>
       </div>
       <div className="chatting-room__container">
-        {chatList.map((chat) => (
+        <Chat {...enterMessage} admin={true} />
+        {chatList?.map((chat) => (
           <div>
             <div className="chatting-room__msg">
               <Chat key={chat.chatid} {...chat} />
-              <Chat key={chatBot.chatid} {...chatBot} admin={true} />
             </div>
           </div>
         ))}

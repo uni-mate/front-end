@@ -3,11 +3,11 @@ import RoomListPage from "./RoomListPage"
 import { useDispatch, useSelector } from "react-redux"
 import { fetchAllChat } from "../../../redux/modules/chat"
 import { RootState } from "./../../../types/types"
-import { Chat } from "../../../types/ChatTypes"
+import { ChatType } from "../../../types/ChatTypes"
 
 const RoomListPageContainer = () => {
   const dispatch = useDispatch()
-  const allChatList = useSelector<RootState, Chat[] | undefined>(
+  const allChatList = useSelector<RootState, ChatType[] | undefined>(
     (state) => state.chat.chat_data
   )
   const fetchChatLoading = useSelector<RootState, boolean>(

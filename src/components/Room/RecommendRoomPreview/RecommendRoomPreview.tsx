@@ -1,17 +1,20 @@
 import React, { Fragment, useState } from "react"
 import LinesEllipsis from "react-lines-ellipsis"
-import { Chat } from "../../../types/ChatTypes"
+import { ChatType } from "../../../types/ChatTypes"
 
 import MeetStatus from "../../../assets/icons/chat/meet_status.png"
 import PeopleCount from "../../../assets/icons/chat/count_people.png"
 
 import BasicModal from "../../Partials/Modal/BasicModal"
 import RoomModal from "./../../Partials/Modal/RoomModal/RoomModal"
+import CustomHash from "../../Partials/CustomHash/CustomHash"
+
+import CardView from "../../../assets/room/cardView.png"
 
 import "./RecommendRoomPreview.css"
 
 interface Props {
-  chat: Chat
+  chat: ChatType
 }
 
 const RecommendRoomPreview = ({ chat }: Props) => {
@@ -35,11 +38,15 @@ const RecommendRoomPreview = ({ chat }: Props) => {
       )}
       <div className="recroom-preview" onClick={openModal}>
         <div className="recroom-preview__image">
-          <div></div>
+          <div>
+            <img src={CardView} alt="방" />
+          </div>
           <div className="recroom-preview__desc">
             <div className="recroom-preview__count">
               <img src={PeopleCount} alt="people_count" />
-              <span>{chat.head_count}명</span>
+              <span>
+                {chat.head_count}/{chat.max_head_count}
+              </span>
             </div>
             <div className="recroom-preview__meet-status">
               <img src={MeetStatus} alt="meet_status" />
@@ -50,13 +57,20 @@ const RecommendRoomPreview = ({ chat }: Props) => {
               )}
             </div>
           </div>
+          <div className="recroom-preview__hash">
+            <CustomHash>
+              {chat.chat_type === "promise" ? "약속방" : "채팅방"}
+            </CustomHash>
+            <CustomHash>{chat.chat_purpose}</CustomHash>
+            <CustomHash>MBTI</CustomHash>
+          </div>
         </div>
         <div className="recroom-preview__body">
           <LinesEllipsis
             text={chat.title}
             maxLine="1"
             ellipsis="..."
-            // trimRight
+            trimRight
             basedOn="letters"
             className="recroom-preview__body--title"
           ></LinesEllipsis>

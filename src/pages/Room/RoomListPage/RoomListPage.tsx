@@ -6,7 +6,7 @@ import useNavbar from "../../../hooks/useNavbar"
 import RecommendRoomPreview from "./../../../components/Room/RecommendRoomPreview/RecommendRoomPreview"
 import RestRoomPreview from "../../../components/Room/RestRoomPreview/RestRoomPreview"
 
-import { Chat } from "../../../types/ChatTypes"
+import { ChatType } from "../../../types/ChatTypes"
 
 import RecommendRoomPreviewSK from "./../../../components/Room/RecommendRoomPreview/RecommendRoomPreviewSK"
 import RestRoomPreviewSK from "../../../components/Room/RestRoomPreview/RestRoomPreviewSK"
@@ -19,7 +19,7 @@ import _ from "lodash"
 import "./RoomListPage.css"
 
 interface Props {
-  allChatList?: Chat[] | undefined
+  allChatList?: ChatType[] | undefined
   fetchChatLoading: boolean
   createLoading: boolean
   fetchAllChatSaga: () => void
@@ -35,10 +35,10 @@ const RoomListPage = ({
   const [navbarInside] = useNavbar()
   const [searchText, setSearchText] = useState<string>("")
   const [allChatListFilter, setAllChatListFilter] = useState<
-    Chat[] | undefined
+    ChatType[] | undefined
   >(allChatList ? allChatList : undefined)
   useEffect(() => {
-    fetchAllChatSaga()
+    // fetchAllChatSaga()
     navbarInside()
   }, [fetchAllChatSaga, navbarInside])
 

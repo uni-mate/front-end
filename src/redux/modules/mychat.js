@@ -1,4 +1,4 @@
-import { delay, put, takeEvery } from "@redux-saga/core/effects"
+import { put, takeEvery } from "@redux-saga/core/effects"
 import { createAction, handleActions } from "redux-actions"
 import axios from "axios"
 
@@ -51,6 +51,7 @@ function* fetchMyChatSaga() {
   try {
     yield put(fetchMyChatPending())
     const res = yield axios.get(`${API_URL}/api/chat/mychat`)
+    console.log("res: ", res)
     yield put(fetchMyChatSuccess(res.data.data))
   } catch (error) {
     yield put(fetchMyChatFail(error))

@@ -22,6 +22,7 @@ interface Props {
   backgroundColor?: string
   boxShadow?: number
   padding?: string
+  borderRadius?: string
 }
 
 export default function BasicModal(props: Props) {

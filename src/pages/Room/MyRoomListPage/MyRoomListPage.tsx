@@ -1,53 +1,22 @@
 import React, { useEffect } from "react"
 import MyRoomPreiview from "../../../components/Room/MyRoomPreview/MyRoomPreiview"
 import SearchIcon from "../../../assets/icons/attr/search.png"
+import useNavbar from "../../../hooks/useNavbar"
+import { ChatType } from "../../../types/ChatTypes"
 
 import "./MyRoomListPage.css"
-import useNavbar from "../../../hooks/useNavbar"
 
-const myRoomList = [
-  {
-    roomid: "r1",
-    title: "29일 저녁 맘스터치 같이 드실분!",
-    userList: [],
-  },
-  {
-    roomid: "r2",
-    title: "29일 저녁 맘스터치 같이 드실분!",
-    userList: [],
-  },
-  {
-    roomid: "r3",
-    title: "29일 저녁 맘스터치 같이 드실분!",
-    userList: [],
-  },
-  {
-    roomid: "r4",
-    title: "29일 저녁 맘스터치 같이 드실분!",
-    userList: [],
-  },
-  {
-    roomid: "r5",
-    title: "29일 저녁 맘스터치 같이 드실분!",
-    userList: [],
-  },
-  {
-    roomid: "r6",
-    title: "29일 저녁 맘스터치 같이 드실분!",
-    userList: [],
-  },
-  {
-    roomid: "r7",
-    title: "29일 저녁 맘스터치 같이 드실분!",
-    userList: [],
-  },
-]
+interface Props {
+  myChatList: ChatType[]
+  fetchMyChatHandler: () => void
+}
 
-const MyRoomListPage = () => {
+const MyRoomListPage = ({ myChatList, fetchMyChatHandler }: Props) => {
   const [navbarInside] = useNavbar()
   useEffect(() => {
+    // fetchMyChatHandler()
     navbarInside()
-  }, [navbarInside])
+  }, [fetchMyChatHandler, navbarInside])
   return (
     <div className="myroom-list">
       <div className="myroom-list__header">
@@ -57,8 +26,8 @@ const MyRoomListPage = () => {
         </div>
       </div>
       <div className="myroom-list__body">
-        {myRoomList.map((room) => (
-          <MyRoomPreiview key={room.roomid} room={room} />
+        {myChatList?.map((room) => (
+          <MyRoomPreiview key={room.chat_id} room={room} />
         ))}
       </div>
     </div>
