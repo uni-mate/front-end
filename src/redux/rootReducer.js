@@ -4,6 +4,7 @@ import history from "../history"
 import auth from "./modules/auth"
 import navbar from "./modules/navbar"
 import chat from "./modules/chat"
+import mychat from "./modules/mychat"
 import createRoom from "./modules/createRoom"
 import user from "./modules/user"
 
@@ -21,6 +22,7 @@ const reducer = combineReducers({
   auth,
   navbar,
   chat,
+  mychat,
   createRoom,
   user,
   router: connectRouter(history),

@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { CreateRoomCommonState } from "../../../../types/types"
+import { CreateRoomCommonState } from "../../../../types/CreateRoomTypes"
 
 import _ from "lodash"
 

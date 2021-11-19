@@ -1,5 +1,5 @@
 import React from "react"
-import { Chat } from "./../../../../types/types"
+import { Chat } from "../../../../types/ChatTypes"
 
 import "./RoomModal.css"
 

@@ -19,31 +19,33 @@
 }
 .filter__search-icon {
   position: absolute;
-  font-size: 30px !important;
+  font-size: 22px !important;
   color: gray;
   font-weight: 100;
   top: 50%;
   left: 18px;
   transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
 }
 .filter__search-icon > img {
-  width: 19px;
-  height: 19px;
+  width: 100%;
+  height: 100%;
 }
 .filter input {
   width: 85%;
   padding: 10px;
-  padding-left: 40px;
+  padding-left: 50px;
   border: none;
   background: #fff;
 }
 .filter input:focus {
-  /* focus시 색상 지정 */
+  outline: none;
 }
 .filter input::placeholder {
   text-align: left;
-  line-height: 12px;
-  font-size: 12px;
+  margin: auto 0;
+  font-size: 14px;
 }
 
 .filter__search {
@@ -54,8 +56,8 @@
   right: 5%;
 }
 .filter__search > img {
-  width: 19px;
-  height: 19px;
+  width: 24px;
+  height: 24px;
 }
 .recommend-room {
   padding: 5px;

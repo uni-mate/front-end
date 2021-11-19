@@ -5,7 +5,8 @@ import {
   setDesc,
   setPage,
 } from "../../../../redux/modules/createRoom"
-import { CreateRoomState, RootState } from "../../../../types/types"
+import { RootState } from "../../../../types/types"
+import { CreateRoomState } from "./../../../../types/CreateRoomTypes"
 
 import RoomDesc from "./RoomDesc"
 

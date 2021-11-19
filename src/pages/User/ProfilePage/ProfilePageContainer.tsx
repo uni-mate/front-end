@@ -1,7 +1,9 @@
 import React, { useCallback } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { logout } from "../../../redux/modules/auth"
-import { RootState, UserState } from "../../../types/types"
+import { RootState } from "../../../types/types"
+import { UserState } from "./../../../types/UserTypes"
+
 import ProfilePage from "./ProfilePage"
 
 const ProfilePageContainer = () => {

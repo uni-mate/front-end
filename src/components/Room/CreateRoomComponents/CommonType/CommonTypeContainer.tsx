@@ -7,11 +7,10 @@ import {
   setNomatter,
   setPage,
 } from "../../../../redux/modules/createRoom"
-import {
-  CreateRoomCommonState,
-  RootState,
-  UserState,
-} from "../../../../types/types"
+import { CreateRoomCommonState } from "../../../../types/CreateRoomTypes"
+import { RootState } from "./../../../../types/types"
+import { UserState } from "./../../../../types/UserTypes"
+
 import CommonType from "./CommonType"
 
 const CommonTypeContainer = () => {

@@ -13,7 +13,7 @@ import RoomTitleContainer from "../../../components/Room/CreateRoomComponents/Ro
 import RoomDescContainer from "../../../components/Room/CreateRoomComponents/RoomDesc/RoomDescContainer"
 
 import BasicModal from "../../../components/Partials/Modal/BasicModal"
-import { CreateRoomState } from "../../../types/types"
+import { CreateRoomState } from "../../../types/CreateRoomTypes"
 
 import "./CreateRoomDetailPage.css"
 

@@ -31,7 +31,9 @@ import Navbar from "./components/Partials/Navbar/Navbar"
 
 import { useSelector } from "react-redux"
 
-import { NavBarState, RootState } from "./types/types"
+import { RootState } from "./types/types"
+import { NavBarState } from "./types/NavbarTypes"
+
 import AuthRoute from "./hoc/AuthRoute"
 import UnAuthRoute from "./hoc/UnAuthRoute"
 import history from "./history"

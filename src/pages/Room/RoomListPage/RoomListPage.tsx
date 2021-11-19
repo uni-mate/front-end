@@ -6,7 +6,7 @@ import useNavbar from "../../../hooks/useNavbar"
 import RecommendRoomPreview from "./../../../components/Room/RecommendRoomPreview/RecommendRoomPreview"
 import RestRoomPreview from "../../../components/Room/RestRoomPreview/RestRoomPreview"
 
-import { Chat } from "../../../types/types"
+import { Chat } from "../../../types/ChatTypes"
 
 import RecommendRoomPreviewSK from "./../../../components/Room/RecommendRoomPreview/RecommendRoomPreviewSK"
 import RestRoomPreviewSK from "../../../components/Room/RestRoomPreview/RestRoomPreviewSK"

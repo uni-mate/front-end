@@ -1,7 +1,8 @@
 import React from "react"
 import { useSelector } from "react-redux"
 import { Redirect, Route } from "react-router-dom"
-import { RootState, UserState } from "../types/types"
+import { RootState } from "../types/types"
+import { UserState } from "./../types/UserTypes"
 
 import _ from "lodash"
 

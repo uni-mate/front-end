@@ -60,11 +60,7 @@ const MyRoomPreiview = ({ room }: Props) => {
                 <span>원숭이? </span>
               </div>
             </div>
-            <div className="myroom-preview__desc">
-              <CustomHash>#방탈출</CustomHash>
-              <CustomHash>#술마시기</CustomHash>
-              <CustomHash>#MBTI 모임</CustomHash>
-            </div>
+            <div className="myroom-preview__desc"></div>
           </div>
         </div>
       </Link>

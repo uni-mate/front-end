@@ -2,7 +2,8 @@ import React, { useCallback } from "react"
 import RoomListPage from "./RoomListPage"
 import { useDispatch, useSelector } from "react-redux"
 import { fetchAllChat } from "../../../redux/modules/chat"
-import { Chat, RootState } from "./../../../types/types"
+import { RootState } from "./../../../types/types"
+import { Chat } from "../../../types/ChatTypes"
 
 const RoomListPageContainer = () => {
   const dispatch = useDispatch()

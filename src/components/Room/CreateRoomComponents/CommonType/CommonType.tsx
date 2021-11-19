@@ -1,5 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react"
-import { CreateRoomCommonState, MBTI, UserState } from "../../../../types/types"
+import { CreateRoomCommonState, MBTI } from "../../../../types/CreateRoomTypes"
+import { UserState } from "./../../../../types/UserTypes"
+
 import BasicModal from "../../../Partials/Modal/BasicModal"
 import MBTIModal from "../../../Partials/Modal/MBTIModal/MBTIModal"
 

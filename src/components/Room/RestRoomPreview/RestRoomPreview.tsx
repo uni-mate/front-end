@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react"
-import { Chat } from "../../../types/types"
+import { Chat } from "../../../types/ChatTypes"
 import MeetStatus from "../../../assets/icons/chat/meet_status.png"
 import PeopleCount from "../../../assets/icons/chat/count_people.png"
 

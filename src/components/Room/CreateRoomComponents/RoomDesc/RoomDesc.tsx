@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react"
-import { createRoomData, CreateRoomState } from "../../../../types/types"
+import {
+  CreateRoomData,
+  CreateRoomState,
+} from "../../../../types/CreateRoomTypes"
 
 import "./RoomDesc.css"
 
@@ -9,7 +12,7 @@ interface Props {
   totalState: CreateRoomState
   setAtr: (type: string) => void
   setIdx: (idx: number) => void
-  setNewRoom: (body: createRoomData) => void
+  setNewRoom: (body: CreateRoomData) => void
 }
 
 const RoomDesc = ({

@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from "react"
-import { UserState } from "../../../types/types"
+import { UserState } from "../../../types/UserTypes"
 import { Link } from "react-router-dom"
 
 import Menu from "../../../assets/icons/createroom/arrow.png"
