@@ -2,7 +2,8 @@ import axios from "axios"
 import { createAction, handleActions } from "redux-actions"
 import { takeEvery, put, getContext, delay } from "@redux-saga/core/effects"
 
-const API_URL = process.env.REACT_APP_API_URL
+// const API_URL = process.env.REACT_APP_API_URL
+const API_URL = "https://7754e9b5-770f-4cb8-add4-b4c511913669.mock.pstmn.io"
 
 const prefix = "front/createRoom"
 
