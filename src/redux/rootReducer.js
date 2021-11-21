@@ -6,7 +6,6 @@ import navbar from "./modules/navbar"
 import chat from "./modules/chat"
 import mychat from "./modules/mychat"
 import createRoom from "./modules/createRoom"
-import user from "./modules/user"
 
 import { persistReducer } from "redux-persist"
 import storage from "redux-persist/lib/storage"
@@ -24,7 +23,6 @@ const reducer = combineReducers({
   chat,
   mychat,
   createRoom,
-  user,
   router: connectRouter(history),
 })
 

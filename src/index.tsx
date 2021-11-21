@@ -11,6 +11,8 @@ import "./index.css"
 import { persistStore } from "redux-persist"
 import { PersistGate } from "redux-persist/integration/react"
 
+require("dotenv").config()
+
 const persistor = persistStore(store)
 
 ReactDOM.render(

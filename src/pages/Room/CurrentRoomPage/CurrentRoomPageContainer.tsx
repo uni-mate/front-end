@@ -10,16 +10,17 @@ interface Params {
 }
 
 const CurrentRoomPageContainer = () => {
-  const [currentChatPage, setCurrentChatPage] = useState<ChatType>()
   const params = useParams<Params>()
   const myChatList = useSelector<RootState, ChatType[]>(
     (state) => state.mychat.myChat_data
   )
+  const [currentChatPage, setCurrentChatPage] = useState<ChatType>()
   useEffect(() => {
-    setCurrentChatPage((prev) =>
-      myChatList?.find((chat) => chat.chat_id === params.roomid)
+    setCurrentChatPage(
+      (prev) =>
+        myChatList && myChatList.find((chat) => chat.chat_id === params.roomid)
     )
-  }, [myChatList, params.roomid])
+  }, [myChatList, params.roomid, currentChatPage])
   return <CurrentRoomPage currentChatPage={currentChatPage} />
 }
 

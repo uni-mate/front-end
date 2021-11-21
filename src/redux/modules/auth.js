@@ -28,10 +28,12 @@ const reducer = handleActions(
     [PENDING]: (state) => ({
       ...state,
       auth_loading: true,
+      auth_error: null,
     }),
     [SUCCESS]: (state) => ({
       ...state,
       auth_loading: false,
+      auth_error: null,
     }),
     [FAIL]: (state, action) => ({
       ...state,

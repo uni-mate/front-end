@@ -14,7 +14,7 @@ interface Props {
 const MyRoomListPage = ({ myChatList, fetchMyChatHandler }: Props) => {
   const [navbarInside] = useNavbar()
   useEffect(() => {
-    fetchMyChatHandler()
+    // fetchMyChatHandler()
     navbarInside()
   }, [fetchMyChatHandler, navbarInside])
   return (

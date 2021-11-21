@@ -15,30 +15,91 @@
   display: block;
   width: 202px;
   padding: 20px;
+  padding-bottom: 12px;
   font-weight: bold;
-  border: 1px solid #000;
+  color: #555555;
 }
 .side-drawer__user {
   display: flex;
   flex-direction: column;
   width: 202px;
-  padding: 10px 20px;
-  border: 1px solid #000;
+  padding: 0px 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(85, 85, 85, 0.3);
 }
-.side-drawer__content {
-  display: block;
-  width: 202px;
-  padding: 10px 20px;
+.side-drawer__user-info > img {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.side-drawer__user-info {
+  font-size: 14px;
+  margin-top: 8px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.side-drawer__promiseInfo {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  padding-left: 20px;
+  border-bottom: 1px solid rgba(85, 85, 85, 0.3);
+}
+.side-drawer__roomInfo {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  padding-left: 20px;
+  border-bottom: 1px solid rgba(85, 85, 85, 0.3);
+}
+.side-drawer__promiseInfo,
+.side-drawer__roomInfo {
+  justify-content: space-between;
+}
+.side-drawer__promiseInfo > div,
+.side-drawer__roomInfo > div {
+  font-size: 14px;
   font-weight: bold;
-  border: 1px solid #000;
+  width: 80%;
+}
+.side-drawer__promiseInfo > img,
+.side-drawer__roomInfo > img {
+  margin-right: 10px;
+}
+.side-drawer__promiseInfo > img {
+  width: 18px;
+  height: 21px;
+}
+.side-drawer__roomInfo > img {
+  width: 21px;
+  height: 17px;
 }
 .side-drawer__door {
   width: 202px;
-  padding: 10px 20px;
+  padding: 15px 20px;
+  padding-right: 0;
   display: flex;
   flex-direction: column;
+  z-index: 9999;
+}
+.side-drawer__door > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.side-drawer__door > div > img {
+  width: 15px;
+  height: 20px;
+  margin-right: 10px;
+}
+.side-drawer__door > div > div {
 }
 .side-drawer__door--open,
 .side-drawer__door--close {
-  padding: 5px 0px;
+  font-size: 14px;
+  font-weight: bold;
+  width: 80%;
 }

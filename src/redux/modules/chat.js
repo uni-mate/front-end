@@ -2,7 +2,7 @@ import { delay, put, takeEvery } from "@redux-saga/core/effects"
 import { createAction, handleActions } from "redux-actions"
 import axios from "axios"
 
-const API_URL = "https://63f16ec6-55a8-43d0-829b-53e727e16944.mock.pstmn.io"
+const API_URL = process.env.REACT_APP_API_URL
 
 const prefix = "front/chat"
 const FETCH_CHAT_PENDING = `${prefix}/FETCH_CHAT_PENDING`
@@ -24,6 +24,7 @@ const reducer = handleActions(
     [FETCH_CHAT_PENDING]: (state) => ({
       ...state,
       chat_loading: true,
+      chat_error: null,
     }),
     [FETCH_CHAT_FAIL]: (state, action) => ({
       ...state,
@@ -34,6 +35,7 @@ const reducer = handleActions(
       ...state,
       chat_loading: false,
       chat_data: action.payload,
+      chat_error: null,
     }),
   },
   initialState

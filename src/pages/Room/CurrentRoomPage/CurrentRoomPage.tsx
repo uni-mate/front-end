@@ -12,7 +12,6 @@ import MakePromise from "../../../assets/icons/attr/make_promise.png"
 import Chat from "../../../components/Chat/Chat"
 import ChatBot from "../../../assets/chatBot/chatBot.png"
 import { ChatType } from "../../../types/ChatTypes"
-import { useAdddProfileImages } from "../../../hooks/useAddProfileImage"
 
 import "./CurrentRoomPage.css"
 
@@ -32,12 +31,12 @@ const CurrentRoomPage = ({ currentChatPage }: Props) => {
   const [, navbarOutside] = useNavbar()
   const [chatMsg, setChatMsg] = useState("")
   const [chatList, setChatList] = useState<ChatInputType[]>([])
-  const [userProfileList] = useState(currentChatPage?.user_list)
-  const [newProfileList] = useAdddProfileImages(userProfileList)
+  const [userList, setUserList] = useState(currentChatPage?.user_list)
+
   useEffect(() => {
-    console.log("newProfileList: ", newProfileList)
-    console.log("userProfileList: ", userProfileList)
-  }, [newProfileList, userProfileList])
+    setUserList(currentChatPage?.user_list)
+  }, [currentChatPage])
+
   // 입장 알림
   const [enterMessage] = useState({
     chatid: "chatNotice",
@@ -79,7 +78,10 @@ const CurrentRoomPage = ({ currentChatPage }: Props) => {
             basedOn="letters"
             className="chatting-room__header--title"
           ></LinesEllipsis>
-          <SwipeableTemporaryDrawer userList={newProfileList}>
+          <SwipeableTemporaryDrawer
+            userList={userList}
+            currentChatPage={currentChatPage}
+          >
             <div className="chatting-room__menu-icon">
               <img src={MenuIcon} alt="menu" />
             </div>
