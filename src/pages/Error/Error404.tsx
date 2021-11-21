@@ -10,7 +10,7 @@ const Error404 = () => {
   }, [navbarOutside])
   return (
     <div className="error__conatiner">
-      <div className="error__title">페이지를 찾을 수 없습니다!</div>
+      <div className="error__title">페이지를 찾을 수 없습니다/</div>
     </div>
   )
 }
