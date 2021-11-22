@@ -7,6 +7,7 @@ import user3 from "../assets/user/user3.png"
 import user4 from "../assets/user/user4.png"
 import user5 from "../assets/user/user5.jpg"
 import user6 from "../assets/user/user6.jpeg"
+import me from "../assets/me/me.jpg"
 
 export const useAdddProfileImages = (defaultArray?: TestUserState[]) => {
   const [newArray, setNewArray] = useState<TestUserState[]>()
@@ -16,6 +17,9 @@ export const useAdddProfileImages = (defaultArray?: TestUserState[]) => {
       defaultArray?.map((userInfo) => {
         let image
         switch (userInfo.name) {
+          case "고니":
+            image = me
+            break
           case "아이유":
             image = user1
             break

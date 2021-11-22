@@ -14,8 +14,8 @@ export interface CreateRoomCommonState {
 
 export interface CreateRoomData {
   chat_type: string
-  purpose: string
-  grade: string
+  chat_purpose: string
+  grade: string[]
   head_count: number
   gender: string
   chat_feature: CreateRoomCommonState

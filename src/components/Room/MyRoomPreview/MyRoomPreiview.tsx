@@ -45,6 +45,7 @@ const MyRoomPreiview = ({ room }: Props) => {
   const [userNameList, setUserNameList] = useState("")
   const [userProfileList] = useState(room.user_list ? room.user_list : [])
   const [newProfileList] = useAdddProfileImages(userProfileList)
+
   const longPress = useLongPress(() => {
     setIsModalOpen(true)
   })

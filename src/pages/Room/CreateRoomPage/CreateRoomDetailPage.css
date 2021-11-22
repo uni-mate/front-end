@@ -169,3 +169,15 @@
 .stop-modal__btn-container > button:active {
   color: var(--main-color);
 }
+.temp-page {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #555555;
+  text-align: center;
+}
+.temp-page > div:first-of-type {
+  margin-bottom: 40px;
+}
+.temp-page > div:nth-child(2) {
+  margin-bottom: 10px;
+}

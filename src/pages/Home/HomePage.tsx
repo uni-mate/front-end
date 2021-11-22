@@ -26,36 +26,19 @@ const HomePage = () => {
       <div className="home_user">
         <CustomButton
           onClick={() => history.push("/auth/login")}
-          width="155px"
-          height="33px"
-          color="#fff"
+          width="70%"
+          height="41px"
+          inverse={true}
         >
           로그인
         </CustomButton>
         <CustomButton
           onClick={() => history.push("/auth/register")}
-          width="155px"
-          height="33px"
-          color="var(--main-text-color)"
-          inverse={true}
+          width="70%"
+          height="41px"
         >
           회원가입
         </CustomButton>
-      </div>
-      <div
-        style={{
-          display: "block",
-          width: "100%",
-          textAlign: "center",
-          marginTop: "20px",
-          padding: "20px",
-          backgroundColor: "rgb(210,210,210)",
-        }}
-      >
-        <div style={{ marginBottom: "20px" }}>
-          아이디 비밀번호 아무거나 눌러도{" "}
-        </div>
-        <div>로그인 됩니다.</div>
       </div>
     </div>
   )

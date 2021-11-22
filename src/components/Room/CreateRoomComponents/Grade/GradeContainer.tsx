@@ -5,7 +5,7 @@ import { RootState } from "../../../../types/types"
 import Grade from "./Grade"
 
 const GradeContainer = () => {
-  const gradeState = useSelector<RootState, string>(
+  const gradeState = useSelector<RootState, string[]>(
     (state) => state.createRoom.createRoom_data.grade
   )
   const dispatch = useDispatch()

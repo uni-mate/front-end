@@ -7,14 +7,12 @@ const API_URL = "https://7754e9b5-770f-4cb8-add4-b4c511913669.mock.pstmn.io"
 
 const prefix = "front/auth"
 const PENDING = `${prefix}/PENDING`
-const SUCCESS = `${prefix}/SUCCESS`
 const FAIL = `${prefix}/FAIL`
 const LOGIN_SUCCESS = `${prefix}/LOGIN_SUCCESS`
 const LOGOUT_SUCCESS = `${prefix}/LOGOUT_SUCCESS`
 
 const pending = createAction(PENDING)
 const fail = createAction(FAIL, (err) => err)
-const success = createAction(SUCCESS)
 const loginSuccess = createAction(LOGIN_SUCCESS, (loginInfo) => loginInfo)
 const logoutSuccess = createAction(LOGOUT_SUCCESS)
 
@@ -29,11 +27,6 @@ const reducer = handleActions(
     [PENDING]: (state) => ({
       ...state,
       auth_loading: true,
-      auth_error: null,
-    }),
-    [SUCCESS]: (state) => ({
-      ...state,
-      auth_loading: false,
       auth_error: null,
     }),
     [FAIL]: (state, action) => ({
@@ -59,26 +52,12 @@ export default reducer
 
 // Saga
 
-const REGISTER = `${prefix}/REGISTER`
 const LOGIN = `${prefix}/LOGIN`
 const LOGOUT = `${prefix}/LOGOUT`
 
-export const register = createAction(REGISTER, (registerInfo) => registerInfo)
 export const login = createAction(LOGIN, (loginInfo) => loginInfo)
 export const logout = createAction(LOGOUT)
 
-function* registerSaga(action) {
-  try {
-    const history = yield getContext("history")
-    yield put(pending())
-    const res = yield axios.post(`${API_URL}/api/auth/register`, action.payload)
-    console.log(res)
-    yield put(success())
-    yield history.push("/auth/login")
-  } catch (error) {
-    yield put(fail(error))
-  }
-}
 function* loginSaga(action) {
   try {
     const history = yield getContext("history")
@@ -105,6 +84,5 @@ function* logoutSaga(action) {
 
 export function* authSaga() {
   yield takeEvery(LOGIN, loginSaga)
-  yield takeEvery(REGISTER, registerSaga)
   yield takeEvery(LOGOUT, logoutSaga)
 }

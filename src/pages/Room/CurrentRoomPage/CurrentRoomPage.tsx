@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { useHistory } from "react-router"
 import SwipeableTemporaryDrawer from "./../../../components/Partials/SideDrawer/SideDrawer"
 import LinesEllipsis from "react-lines-ellipsis"
@@ -12,11 +12,15 @@ import MakePromise from "../../../assets/icons/attr/make_promise.png"
 import Chat from "../../../components/Chat/Chat"
 import ChatBot from "../../../assets/chatBot/chatBot.png"
 import { ChatType } from "../../../types/ChatTypes"
+import me from "../../../assets/me/me.jpg"
+
+import { io, Socket } from "socket.io-client"
 
 import "./CurrentRoomPage.css"
 
 interface Props {
   currentChatPage?: ChatType
+  userId: string
 }
 
 interface ChatInputType {
@@ -26,31 +30,59 @@ interface ChatInputType {
   desc: string
 }
 
-const CurrentRoomPage = ({ currentChatPage }: Props) => {
+export const getTime = (hour: number, minute: number) => {
+  let isAMPM = "오전"
+  let myHour = hour
+  let myMinute = minute
+  if (hour > 12) {
+    myHour = 13 % 12
+    isAMPM = "오후"
+  }
+  if (myMinute < 10) {
+    myMinute = parseInt(`0${minute}`)
+  }
+  return `${isAMPM} ${myHour} ${myMinute}`
+}
+
+const CurrentRoomPage = ({ currentChatPage, userId }: Props) => {
   const history = useHistory()
   const [, navbarOutside] = useNavbar()
   const [chatMsg, setChatMsg] = useState("")
   const [chatList, setChatList] = useState<ChatInputType[]>([])
   const [userList, setUserList] = useState(currentChatPage?.user_list)
+  const socket = useRef<Socket>()
 
   useEffect(() => {
     setUserList(currentChatPage?.user_list)
   }, [currentChatPage])
+
+  // socket
+  // useEffect(() => {
+  //   socket.current = io("http://localhost:8900")
+  // }, [])
+  // useEffect(() => {
+  //   socket.current.emit("addUser", userId)
+  //   socket.current.on("getUsers", (users) => console.log(users))
+  // }, [userId])
 
   // 입장 알림
   const [enterMessage] = useState({
     chatid: "chatNotice",
     profileImg: ChatBot,
     name: "뭉지",
-    desc: "채팅방에 오신 것을 환영합니다!",
+    desc: "환영합니다!",
+    time: getTime(new Date().getHours(), new Date().getMinutes()),
+    not_me: true,
   })
   const onSubmitHandler = (e: React.FormEvent) => {
     e.preventDefault()
     const body = {
       chatid: Math.floor(Math.random() * 10000).toString(),
-      profileImg: ChatBot,
-      name: "너구리",
+      profileImg: me,
+      name: "고니",
       desc: chatMsg,
+      time: getTime(new Date().getHours(), new Date().getMinutes()),
+      not_me: false,
     }
     setChatList((prev) => [...prev, body])
     setChatMsg("")
@@ -91,10 +123,8 @@ const CurrentRoomPage = ({ currentChatPage }: Props) => {
       <div className="chatting-room__container">
         <Chat {...enterMessage} admin={true} />
         {chatList?.map((chat) => (
-          <div>
-            <div className="chatting-room__msg">
-              <Chat key={chat.chatid} {...chat} />
-            </div>
+          <div className="chatting-room__msg">
+            <Chat key={chat.chatid} {...chat} />
           </div>
         ))}
       </div>

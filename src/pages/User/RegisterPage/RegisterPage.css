@@ -10,9 +10,16 @@
   justify-content: flex-start;
   align-items: center;
 }
+.register__header > span {
+  font-size: 16px;
+  font-weight: bold;
+  color: #555555;
+  width: 100%;
+}
 .register__header--icon {
   width: 20px;
   height: 20px;
+  margin-right: 10px;
 }
 .register__header--icon > img {
   width: 100%;
@@ -22,32 +29,30 @@
   padding: 0px 75px;
   padding-top: 10px;
 }
-.register__title {
-  font-size: 48px;
-  line-height: 60px;
-  text-align: center;
+.register__components--carousel {
+  /* border: 1px solid #000; */
 }
-.register-form__container {
-  margin-top: 20px;
-  margin-bottom: 10px;
+.register-indicator__container {
+  padding: 10px;
+  /* border: 1px solid #000; */
 }
-.register-form__container > input {
-  margin-bottom: 15px;
+.register-indicator__button svg {
+  opacity: 0;
 }
-.register-form__container > input:last-of-type {
-  margin-bottom: 30px;
+.register-indicator__button span {
+  border-radius: 50%;
+  background-color: rgba(85, 85, 85, 0.3);
+  width: 8px;
+  height: 8px;
+  margin: 0 2px;
 }
-.register-form__pwd {
-  width: 100%;
-  margin-bottom: 15px;
-  position: relative;
+.register-indicator__button-active {
+  border: 1px solid yellow;
 }
-.register-form__pwd > input {
-  padding-right: 40px;
-}
-.register-form__pwd > .eye-icon {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
+.register-indicator__button-active span {
+  background-color: var(--main-color);
+  width: 16px;
+  height: 8px;
+  border-radius: 4.07px;
+  /* border: 1px solid red; */
 }

@@ -2,6 +2,7 @@ import { connectRouter } from "connected-react-router"
 import { combineReducers } from "redux"
 import history from "../history"
 import auth from "./modules/auth"
+import signIn from "./modules/signIn"
 import navbar from "./modules/navbar"
 import chat from "./modules/chat"
 import mychat from "./modules/mychat"
@@ -14,11 +15,11 @@ const persistConfig = {
   key: "root",
   storage,
   whilelist: ["auth", "chat", "mychat"],
-  blacklist: ["createRoom"],
 }
 
 const reducer = combineReducers({
   auth,
+  signIn,
   navbar,
   chat,
   mychat,

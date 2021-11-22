@@ -35,6 +35,21 @@ const HeadCount = ({ headCountState, setAtr, setIdx }: Props) => {
             step={1}
             min={3}
             max={15}
+            sx={{
+              "& .MuiSlider-track": {
+                backgroundColor: "var(--main-color)",
+                border: "var(--main-color)",
+              },
+              "& .MuiSlider-valueLabelOpen": {
+                backgroundColor: "var(--main-color)",
+              },
+              "& .MuiSlider-valueLabel": {
+                backgroundColor: "var(--main-color)",
+              },
+              "& .MuiSlider-valueLabelLabel": {
+                color: "#fff",
+              },
+            }}
             valueLabelDisplay="auto"
             name="head_count"
             onChange={handleCountChange}

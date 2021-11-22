@@ -9,7 +9,6 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  /* border: 1px solid #000; */
 }
 .login__header--icon {
   width: 20px;
@@ -29,7 +28,7 @@
   text-align: center;
 }
 .login-form__container {
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 .login-form__container > input:nth-of-type(1) {
@@ -37,6 +36,10 @@
 }
 .login-form__container > input:nth-of-type(2) {
   padding-right: 40px;
+}
+.login-form__container > button {
+  color: var(--main-color);
+  font-weight: bold;
 }
 .login-form__pwd {
   margin-bottom: 30px;
@@ -46,12 +49,14 @@
   padding-right: 40px;
 }
 .eye-icon {
-  color: gray;
   display: inline-block;
   position: absolute;
   right: 10px;
-  top: 46%;
+  top: 50%;
   transform: translateY(-50%);
+}
+.eye-color > * {
+  color: rgba(128, 128, 128, 0.6);
 }
 .login__etc {
   width: 100%;
@@ -64,4 +69,22 @@
   line-height: 16px;
   color: #8d8d8d;
   margin: 5px;
+}
+.login-to-register {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.login-to-register > div {
+  margin-bottom: 12px;
+  color: #8d8d8d;
+  font-size: 12px;
+  color: #8d8d8d;
+}
+.login-to-register > span {
+  color: var(--main-color);
+  font-size: 12px;
 }

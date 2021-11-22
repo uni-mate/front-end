@@ -115,7 +115,7 @@ const reducer = handleActions(
       ...state,
       createRoom_data: {
         ...state.createRoom_data,
-        cat_purpose: action.payload,
+        chat_purpose: action.payload,
       },
     }),
     [SET_GRADE]: (state, action) => ({

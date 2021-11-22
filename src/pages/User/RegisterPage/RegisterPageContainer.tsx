@@ -1,6 +1,6 @@
 import React, { useCallback } from "react"
 import { useDispatch } from "react-redux"
-import { register } from "../../../redux/modules/auth"
+import { register } from "../../../redux/modules/signIn"
 import RegisterPage from "./RegisterPage"
 
 const RegisterPageContainer = () => {

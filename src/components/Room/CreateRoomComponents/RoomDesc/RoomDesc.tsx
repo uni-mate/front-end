@@ -3,6 +3,9 @@ import {
   CreateRoomData,
   CreateRoomState,
 } from "../../../../types/CreateRoomTypes"
+import CustomButton from "../../../Partials/CustomButton/CustomButton"
+
+import _ from "lodash"
 
 import "./RoomDesc.css"
 
@@ -15,6 +18,13 @@ interface Props {
   setNewRoom: (body: CreateRoomData) => void
 }
 
+const mbtiSt = {
+  first_mbti: "",
+  second_mbti: "",
+  third_mbti: "",
+  fourth_mbti: "",
+}
+
 const RoomDesc = ({
   blockHandler,
   descState,
@@ -23,13 +33,40 @@ const RoomDesc = ({
   setIdx,
   setNewRoom,
 }: Props) => {
+  const { chat_type, chat_purpose, grade, gender, title, desc, chat_feature } =
+    totalState.createRoom_data
+  const [submitValid, setSubmitValid] = useState(false)
+  const [chatFeatureValid, setChatFeatureValid] = useState(false)
+  const [purposValid, setPurposValid] = useState(false)
+  useEffect(() => {
+    chat_type === "appointment" && _.size(chat_purpose) === 0
+      ? setPurposValid(false)
+      : setPurposValid(true)
+  }, [chat_type, chat_purpose])
+  useEffect(() => {
+    purposValid &&
+    _.size(grade) > 0 &&
+    _.size(gender) > 0 &&
+    _.size(title) > 0 &&
+    _.size(desc) > 0 &&
+    chatFeatureValid
+      ? setSubmitValid(true)
+      : setSubmitValid(false)
+  }, [purposValid, grade, gender, title, desc, chatFeatureValid, submitValid])
+  useEffect(() => {
+    _.size(chat_feature.faculty) === 0 &&
+    chat_feature.nomatter === false &&
+    _.size(chat_feature.interest) === 0 &&
+    chat_feature.mbti === mbtiSt
+      ? setChatFeatureValid(false)
+      : setChatFeatureValid(true)
+  }, [chat_feature])
   const [detDesc, setDetDesc] = useState(descState === "" ? "" : descState)
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDetDesc(e.target.value)
   }
   const handleCreateRoom = () => {
     setNewRoom(totalState.createRoom_data)
-    // alert(JSON.stringify(totalState.createRoom_data))
     blockHandler()
   }
   useEffect(() => {
@@ -52,7 +89,14 @@ const RoomDesc = ({
         ></input>
       </div>
       <div className="desc__button">
-        <button onClick={handleCreateRoom}>완료하기</button>
+        <CustomButton
+          width="85%"
+          onClick={handleCreateRoom}
+          inverse={submitValid}
+          isDisabled={!submitValid}
+        >
+          완료하기
+        </CustomButton>
       </div>
     </div>
   )

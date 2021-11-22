@@ -33,9 +33,11 @@
 .chatting-room__container {
   padding: 15px;
 }
+.chatting-room__container > div:first-of-type {
+  margin-bottom: 20px;
+}
 .chatting-room__msg {
-  padding: 10px;
-  margin-bottom: 2px;
+  margin-bottom: 20px;
 }
 .chatting-room__form {
   position: fixed;

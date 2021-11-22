@@ -14,6 +14,9 @@ const CurrentRoomPageContainer = () => {
   const myChatList = useSelector<RootState, ChatType[]>(
     (state) => state.mychat.myChat_data
   )
+  const userId = useSelector<RootState, string>(
+    (state) => state.auth.user_data.user_id
+  )
   const [currentChatPage, setCurrentChatPage] = useState<ChatType>()
   useEffect(() => {
     setCurrentChatPage(
@@ -21,7 +24,7 @@ const CurrentRoomPageContainer = () => {
         myChatList && myChatList.find((chat) => chat.chat_id === params.roomid)
     )
   }, [myChatList, params.roomid, currentChatPage])
-  return <CurrentRoomPage currentChatPage={currentChatPage} />
+  return <CurrentRoomPage currentChatPage={currentChatPage} userId={userId} />
 }
 
 export default CurrentRoomPageContainer

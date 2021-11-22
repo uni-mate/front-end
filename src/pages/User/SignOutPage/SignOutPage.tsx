@@ -37,7 +37,6 @@ const SignOutPage = () => {
           onClick={() => history.push("/auth/login")}
           width="155px"
           height="33px"
-          color="#fff"
         >
           로그인
         </CustomButton>
@@ -45,7 +44,6 @@ const SignOutPage = () => {
           onClick={() => history.push("/auth/register")}
           width="155px"
           height="33px"
-          color="var(--main-text-color)"
           inverse={true}
         >
           회원가입

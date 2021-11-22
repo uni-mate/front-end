@@ -1,0 +1,27 @@
+.auth-modal__container {
+  /* border: 1px solid #000; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.auth-modal__title {
+  color: #555555;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.auth-modal__title > div {
+  margin-bottom: 15px;
+}
+.auth-modal__btn-container {
+  width: 100%;
+}
+.auth-modal__btn-container > button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #fff;
+  font-size: 14px;
+  color: var(--main-color);
+}

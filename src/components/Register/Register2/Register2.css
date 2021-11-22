@@ -1,0 +1,10 @@
+.register2__container > input {
+  margin-bottom: 12px;
+}
+.register2__container > input:last-of-type {
+  margin-bottom: 30px;
+}
+.register2__container > button {
+  color: var(--main-color);
+  padding: 10px 0px;
+}

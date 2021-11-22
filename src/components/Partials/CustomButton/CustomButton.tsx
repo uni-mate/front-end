@@ -9,7 +9,7 @@ interface Props {
   className?: string
   width?: string
   height?: string
-  color?: string
+  isDisabled?: boolean
   onClick?: () => void
 }
 
@@ -19,14 +19,15 @@ const CustomButton = ({
   className,
   width,
   height,
-  color,
+  isDisabled,
   ...props
 }: Props) => {
   return (
     <button
       className={`auth-btn__container ${inverse ? "inverse" : ""}`}
-      style={{ width: width, height: height, color: color }}
+      style={{ width: width, height: height }}
       {...props}
+      disabled={isDisabled ? true : false}
     >
       {children}
     </button>

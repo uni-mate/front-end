@@ -8,7 +8,7 @@
   width: 150px;
   height: 180px;
   margin: 0 auto;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 .home__image > img {
   width: 100%;
@@ -28,7 +28,7 @@
 }
 .home__title > span:nth-of-type(1) {
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   font-size: 18px;
   color: #555555;
 }
@@ -37,15 +37,12 @@
 }
 .home_user {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 .home_user > button {
   width: 155px;
   height: 33px;
-  background: #c4c4c4;
-  border-radius: 4.06593px;
-  border: none;
-  font-size: 14px;
-  color: var(--main-text-color);
+  margin-bottom: 10px;
 }

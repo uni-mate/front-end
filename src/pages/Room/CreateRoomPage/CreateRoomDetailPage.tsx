@@ -100,7 +100,15 @@ const CreateRoomDetailPage = ({ createState, page }: Props) => {
               className="create-detail__components--carousel"
             >
               <ChatTypeContainer />
-              <PurposeContainer />
+              {createState.createRoom_data.chat_type === "appointment" ? (
+                <PurposeContainer />
+              ) : (
+                <div className="temp-page">
+                  <div>채팅방을 개설합니다</div>
+                  <div>채팅방 개설 후</div>
+                  <div>약속을 설정할 수 있습니다</div>
+                </div>
+              )}
               <GradeContainer />
               <HeadCountContainer />
               <GenderContainer />

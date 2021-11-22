@@ -21,14 +21,17 @@
   width: 240px;
   margin: 0 auto;
 }
-.grade-input__container > input[type="radio"] {
+.grade-input__container > input[type="radio"],
+.grade-input__container > input[type="checkbox"] {
   display: none;
 }
-.grade-input__container > input[type="radio"] + label {
+.grade-input__container > input[type="radio"] + label,
+.grade-input__container > input[type="checkbox"] + label {
   display: inline-block;
   border: 1px solid rgba(85, 85, 85, 0.3);
 }
-.grade-input__container > input[type="radio"]:checked + label {
+.grade-input__container > input[type="radio"]:checked + label,
+.grade-input__container > input[type="checkbox"]:checked + label {
   border: 1px solid var(--main-color);
   color: var(--main-color);
 }
