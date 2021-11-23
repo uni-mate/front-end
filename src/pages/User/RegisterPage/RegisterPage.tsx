@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 
-import GoBackArrow from "../../../assets/icons/attr/goback.png"
-import { useHistory } from "react-router"
+// import GoBackArrow from "../../../assets/icons/attr/goback.png"
+// import { useHistory } from "react-router"
 // import VisibilityOffIcon from "@mui/icons-material/VisibilityOff"
 // import VisibilityIcon from "@mui/icons-material/Visibility"
 
@@ -28,14 +28,14 @@ interface Props {
 const RegisterPage = ({ registerSaga }: Props) => {
   // const [pwdShow, setPwdShow] = useState(false)
   const [, navbarOutside] = useNavbar()
-  const history = useHistory()
+  // const history = useHistory()
 
   useEffect(() => {
     navbarOutside()
   }, [navbarOutside])
   return (
     <div className="register-container">
-      <div className="register__header">
+      {/* <div className="register__header">
         <div
           className="register__header--icon"
           onClick={() => history.push("/")}
@@ -43,7 +43,7 @@ const RegisterPage = ({ registerSaga }: Props) => {
           <img src={GoBackArrow} alt="뒤로가기" />
         </div>
         <span>회원가입</span>
-      </div>
+      </div> */}
       <div className="register__body">
         <Carousel
           autoPlay={false}

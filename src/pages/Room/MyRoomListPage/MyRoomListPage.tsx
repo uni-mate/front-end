@@ -7,16 +7,40 @@ import { ChatType } from "../../../types/ChatTypes"
 import "./MyRoomListPage.css"
 
 interface Props {
+  userName: string
   myChatList: ChatType[]
   fetchMyChatHandler: () => void
+  fetchMyChatHandler2: () => void
+  fetchMyChatHandler3: () => void
 }
 
-const MyRoomListPage = ({ myChatList, fetchMyChatHandler }: Props) => {
+const MyRoomListPage = ({
+  userName,
+  myChatList,
+  fetchMyChatHandler,
+  fetchMyChatHandler2,
+  fetchMyChatHandler3,
+}: Props) => {
+  // useEffect(() => {
+  //   console.log("userName: ", userName)
+  // }, [userName])
   const [navbarInside] = useNavbar()
   useEffect(() => {
-    // fetchMyChatHandler()
+    if (userName === "고니") {
+      fetchMyChatHandler()
+    } else if (userName === "조이") {
+      fetchMyChatHandler2()
+    } else if (userName === "아이유") {
+      fetchMyChatHandler3()
+    }
     navbarInside()
-  }, [fetchMyChatHandler, navbarInside])
+  }, [
+    fetchMyChatHandler,
+    fetchMyChatHandler2,
+    fetchMyChatHandler3,
+    navbarInside,
+    userName,
+  ])
   return (
     <div className="myroom-list">
       <div className="myroom-list__header">

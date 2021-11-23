@@ -38,7 +38,7 @@ const RoomListPage = ({
     ChatType[] | undefined
   >(allChatList ? allChatList : undefined)
   useEffect(() => {
-    // fetchAllChatSaga()
+    fetchAllChatSaga()
     navbarInside()
   }, [fetchAllChatSaga, navbarInside])
 

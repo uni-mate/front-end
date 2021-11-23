@@ -3,7 +3,7 @@
 }
 .chatting-room {
   width: 100%;
-  height: 100vh;
+  margin-bottom: 20px;
 }
 .chatting-room__header {
   padding: 10px;
@@ -56,7 +56,8 @@
 }
 
 .chatting-room__form > .camera,
-.chatting-room__form > .promise {
+.chatting-room__form > .promise,
+.chatting-room__form > .submit {
   position: absolute;
   color: black;
 }
@@ -74,12 +75,23 @@
   transform: translateY(-50%);
   right: 10px;
 }
+.chatting-room__form > .submit {
+  width: 24px;
+  height: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 40px;
+}
 .camera > img,
-.promise > img {
+.promise > img,
+.submit > img {
   width: 100%;
   height: 100%;
 }
 .chatting-room__form > input {
   width: 100%;
-  padding: 0px 60px;
+  padding: 0px 70px;
+}
+.chatting-room__form > input:focus {
+  outline: none;
 }

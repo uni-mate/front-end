@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect } from "react"
 import { UserState } from "../../../types/UserTypes"
-import { Link } from "react-router-dom"
 
 import Menu from "../../../assets/icons/createroom/arrow.png"
 
@@ -84,9 +83,12 @@ const ProfilePage = ({ currentUser, logouthandler }: Props) => {
           </div>
           <div className="profile__button">
             <div className="profile__button--title">회원탈퇴</div>
-            <Link to="/signout" className="profile__button--arrow">
+            <div className="profile__button--arrow">
               <img src={Menu} alt="" />
-            </Link>
+            </div>
+            {/* <Link to="/signout" className="profile__button--arrow">
+              <img src={Menu} alt="" />
+            </Link> */}
           </div>
         </div>
       </div>

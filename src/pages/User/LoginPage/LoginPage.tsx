@@ -23,10 +23,12 @@ interface LoginReq {
 
 interface Props {
   loginSaga: (req: LoginReq) => void
+  loginSaga2: (req: LoginReq) => void
+  loginSaga3: (req: LoginReq) => void
   error: any
 }
 
-const LoginPage = ({ loginSaga, error }: Props) => {
+const LoginPage = ({ loginSaga, loginSaga2, loginSaga3, error }: Props) => {
   const history = useHistory()
   const [{ userId, password }, onChange] = useInput({
     userId: "",
@@ -34,7 +36,7 @@ const LoginPage = ({ loginSaga, error }: Props) => {
   })
   const [pwdShow, setPwdShow] = useState(false)
   const [isDisabled, setIsDisabled] = useState(true)
-  const [isModalOpen, setIsModalOpen] = useState(true)
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const [, navbarOutside] = useNavbar()
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault()
@@ -42,7 +44,16 @@ const LoginPage = ({ loginSaga, error }: Props) => {
       userId,
       password,
     }
-    !error ? loginSaga(body) : setIsModalOpen(true)
+    if (userId === "gon123") {
+      loginSaga(body)
+    } else if (userId === "j123") {
+      loginSaga2(body)
+    } else if (userId === "iu123") {
+      loginSaga3(body)
+    } else {
+      setIsModalOpen(true)
+    }
+    // !error ? loginSaga(body) : setIsModalOpen(true)
   }
   useEffect(() => {
     userId.length > 2 && password.length > 2

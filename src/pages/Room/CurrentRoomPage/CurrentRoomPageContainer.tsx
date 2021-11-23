@@ -4,6 +4,7 @@ import { useParams } from "react-router"
 import { ChatType } from "./../../../types/ChatTypes"
 import { RootState } from "./../../../types/types"
 import CurrentRoomPage from "./CurrentRoomPage"
+import { UserState } from "./../../../types/UserTypes"
 
 interface Params {
   roomid: string
@@ -14,8 +15,8 @@ const CurrentRoomPageContainer = () => {
   const myChatList = useSelector<RootState, ChatType[]>(
     (state) => state.mychat.myChat_data
   )
-  const userId = useSelector<RootState, string>(
-    (state) => state.auth.user_data.user_id
+  const userInfo = useSelector<RootState, UserState>(
+    (state) => state.auth.user_data
   )
   const [currentChatPage, setCurrentChatPage] = useState<ChatType>()
   useEffect(() => {
@@ -24,7 +25,9 @@ const CurrentRoomPageContainer = () => {
         myChatList && myChatList.find((chat) => chat.chat_id === params.roomid)
     )
   }, [myChatList, params.roomid, currentChatPage])
-  return <CurrentRoomPage currentChatPage={currentChatPage} userId={userId} />
+  return (
+    <CurrentRoomPage currentChatPage={currentChatPage} userInfo={userInfo} />
+  )
 }
 
 export default CurrentRoomPageContainer

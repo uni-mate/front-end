@@ -3,7 +3,7 @@
   height: 100vh;
   width: 100%;
 }
-.register__header {
+/* .register__header {
   padding: 20px;
   padding-right: 0px;
   display: flex;
@@ -20,21 +20,19 @@
   width: 20px;
   height: 20px;
   margin-right: 10px;
-}
-.register__header--icon > img {
+} */
+/* .register__header--icon > img {
   width: 100%;
   height: 100%;
-}
+} */
 .register__body {
   padding: 0px 75px;
-  padding-top: 10px;
+  padding-top: 100px;
 }
 .register__components--carousel {
-  /* border: 1px solid #000; */
 }
 .register-indicator__container {
   padding: 10px;
-  /* border: 1px solid #000; */
 }
 .register-indicator__button svg {
   opacity: 0;

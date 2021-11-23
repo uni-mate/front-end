@@ -1,6 +1,7 @@
 import React, { useState } from "react"
-
 import CustomButton from "../../Partials/CustomButton/CustomButton"
+
+import CustomInput from "../../Partials/CustomInput/CustomInput"
 
 import "./Register1.css"
 
@@ -29,8 +30,12 @@ const Register1 = () => {
   const toggleHandler = () => setIsOpen((prev) => !prev)
   return (
     <div className="register1__container">
-      <div className="school-select">학교를 선택해주세요</div>
-      <div className="depart-select">학과를 선택해주세요</div>
+      <div>
+        <CustomInput placeholder="학교를 선택해주세요" />
+      </div>
+      <div>
+        <CustomInput placeholder="학과를 선택해주세요" />
+      </div>
       <div className="grade-select">
         <div className="grade-select__container">
           <div className="grade-select__header" onClick={toggleHandler}>
