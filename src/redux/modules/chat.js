@@ -2,8 +2,7 @@ import { put, takeEvery } from "@redux-saga/core/effects"
 import { createAction, handleActions } from "redux-actions"
 import axios from "axios"
 
-// const API_URL = process.env.REACT_APP_API_URL
-const API_URL = "https://7754e9b5-770f-4cb8-add4-b4c511913669.mock.pstmn.io"
+const API_URL = process.env.REACT_APP_API_URL
 
 const prefix = "front/chat"
 const FETCH_CHAT_PENDING = `${prefix}/FETCH_CHAT_PENDING`

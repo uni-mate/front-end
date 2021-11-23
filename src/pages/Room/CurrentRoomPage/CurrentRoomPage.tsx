@@ -90,7 +90,7 @@ const CurrentRoomPage = ({ currentChatPage, userInfo }: Props) => {
 
   // socket
   useEffect(() => {
-    socket.current = io("http://localhost:8900")
+    socket.current = io(process.env.REACT_APP_SOCKET_URL)
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         chatid: Math.floor(Math.random() * 10000).toString(),
