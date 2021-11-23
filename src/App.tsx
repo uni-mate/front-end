@@ -10,7 +10,7 @@ import ProfileEditPage from "./pages/User/ProfileEditPage/ProfileEditPage"
 import RoomListPageContainer from "./pages/Room/RoomListPage/RoomListPageContainer"
 import CreateRoomPage from "./pages/Room/CreateRoomPage/CreateRoomPage"
 import MyRoomListPageContainer from "./pages/Room/MyRoomListPage/MyRoomListPageContainer"
-import FilterPage from "./pages/Filter/FilterPage"
+import FilterPageContainer from "./pages/Filter/FilterPageContainer"
 import CreateRoomDetailPageContainer from "./pages/Room/CreateRoomPage/CreateRoomDetailPageContainer"
 import CurrentRoomPageContainer from "./pages/Room/CurrentRoomPage/CurrentRoomPageContainer"
 
@@ -69,7 +69,11 @@ function App() {
         />
         <AuthRoute exact path="/room/create" RenderComponent={CreateRoomPage} />
         {/* <AuthRoute /> */}
-        <AuthRoute exact path="/room/filter" RenderComponent={FilterPage} />
+        <AuthRoute
+          exact
+          path="/room/filter"
+          RenderComponent={FilterPageContainer}
+        />
         <AuthRoute
           exact
           path="/room/:userid/:roomid"

@@ -1,14 +1,4 @@
-// export interface ChatType {
-//   chat_id: string
-//   chat_type: string
-//   title: string
-//   description: string
-//   max_head_count: number
-//   head_count: number
-//   grade: number
-//   select_gender: string
-//   user_list: TestUserState[]
-// }
+import { CreateRoomCommonState } from "./CreateRoomTypes"
 
 export interface ChatState {
   chat_data?: ChatType[]
@@ -30,9 +20,10 @@ export interface ChatType {
   meet_status: boolean
   max_head_count: number
   head_count: number
-  grade: number
+  grade: string[]
   select_gender: string
   user_list: TestUserState[]
+  chat_feature: CreateRoomCommonState
 }
 
 export interface MyChatState {

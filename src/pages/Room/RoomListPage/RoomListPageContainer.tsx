@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { fetchAllChat } from "../../../redux/modules/chat"
 import { RootState } from "./../../../types/types"
 import { ChatType } from "../../../types/ChatTypes"
+import { FilterData } from "./../../../types/FilterTypes"
+import { filterFinish } from "../../../redux/modules/filter"
 
 const RoomListPageContainer = () => {
   const dispatch = useDispatch()
@@ -16,8 +18,17 @@ const RoomListPageContainer = () => {
   const createLoading = useSelector<RootState, boolean>(
     (state) => state.createRoom.createRoom_loading
   )
+  const isFilter = useSelector<RootState, boolean>(
+    (state) => state.filter.isfilter
+  )
+  const filterInfo = useSelector<RootState, FilterData>(
+    (state) => state.filter.filter_data
+  )
   const fetchAllChatSaga = useCallback(() => {
     dispatch(fetchAllChat())
+  }, [dispatch])
+  const filterFinishHandler = useCallback(() => {
+    dispatch(filterFinish())
   }, [dispatch])
   return (
     <RoomListPage
@@ -25,6 +36,9 @@ const RoomListPageContainer = () => {
       fetchChatLoading={fetchChatLoading}
       createLoading={createLoading}
       allChatList={allChatList}
+      isFilter={isFilter}
+      filterInfo={filterInfo}
+      filterFinishHandler={filterFinishHandler}
     />
   )
 }

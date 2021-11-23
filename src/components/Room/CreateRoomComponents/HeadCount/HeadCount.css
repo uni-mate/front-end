@@ -45,8 +45,9 @@
   border: 1px solid #000;
 }
 .room-user__silder {
+  width: 200px !important;
   margin-bottom: 14px !important;
-  display: block;
+  display: block !important;
   padding: 0 10px;
 }
 .room-user__silder > span:nth-of-type(3),
@@ -55,8 +56,9 @@
 }
 .room-user__silder > span:nth-of-type(3)::before,
 .room-user__silder > span:nth-of-type(4)::before {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
+  background-color: var(--main-color);
 }
 
 .room-user__select--min {

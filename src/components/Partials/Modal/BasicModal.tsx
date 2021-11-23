@@ -2,6 +2,8 @@ import * as React from "react"
 import Box from "@mui/material/Box"
 import Modal from "@mui/material/Modal"
 
+import "./BasicModal.css"
+
 const style = {
   position: "absolute" as "absolute",
   top: "50%",
@@ -23,11 +25,12 @@ interface Props {
   boxShadow?: number
   padding?: string
   borderRadius?: string
+  ani?: boolean
 }
 
 export default function BasicModal(props: Props) {
   const { children, isModalOpen, closeModal } = props
-  const { width, height, backgroundColor, boxShadow, padding } = props
+  const { width, height, backgroundColor, boxShadow, padding, ani } = props
   return (
     <Modal
       open={isModalOpen}
@@ -46,6 +49,7 @@ export default function BasicModal(props: Props) {
           width: width,
           height: height,
           zIndex: 9999,
+          animation: `${ani ? "ModalUp 0.3s forwards ease-in-out" : ""}`,
         }}
       >
         {children}

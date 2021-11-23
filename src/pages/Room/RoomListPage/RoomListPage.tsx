@@ -7,6 +7,7 @@ import RecommendRoomPreview from "./../../../components/Room/RecommendRoomPrevie
 import RestRoomPreview from "../../../components/Room/RestRoomPreview/RestRoomPreview"
 
 import { ChatType } from "../../../types/ChatTypes"
+import { FilterData } from "./../../../types/FilterTypes"
 
 import RecommendRoomPreviewSK from "./../../../components/Room/RecommendRoomPreview/RecommendRoomPreviewSK"
 import RestRoomPreviewSK from "../../../components/Room/RestRoomPreview/RestRoomPreviewSK"
@@ -23,6 +24,9 @@ interface Props {
   fetchChatLoading: boolean
   createLoading: boolean
   fetchAllChatSaga: () => void
+  isFilter: boolean
+  filterInfo: FilterData
+  filterFinishHandler: () => void
 }
 
 const RoomListPage = ({
@@ -30,6 +34,9 @@ const RoomListPage = ({
   createLoading,
   fetchChatLoading,
   fetchAllChatSaga,
+  isFilter,
+  filterInfo,
+  filterFinishHandler,
 }: Props) => {
   const history = useHistory()
   const [navbarInside] = useNavbar()
@@ -37,15 +44,33 @@ const RoomListPage = ({
   const [allChatListFilter, setAllChatListFilter] = useState<
     ChatType[] | undefined
   >(allChatList ? allChatList : undefined)
-  useEffect(() => {
-    fetchAllChatSaga()
-    navbarInside()
-  }, [fetchAllChatSaga, navbarInside])
 
   useEffect(() => {
-    setAllChatListFilter(
-      allChatList?.filter((chat) => _.includes(chat.title, searchText))
-    )
+    !isFilter && fetchAllChatSaga()
+    navbarInside()
+  }, [isFilter, fetchAllChatSaga, navbarInside, filterFinishHandler])
+
+  useEffect(() => {
+    isFilter &&
+      setAllChatListFilter(
+        allChatList?.filter(
+          (chat) =>
+            chat.chat_type === filterInfo.chat_type ||
+            _.includes(filterInfo.purpose, chat.chat_purpose)
+        )
+      )
+  }, [filterInfo, allChatList, isFilter])
+
+  useEffect(() => {
+    _.size(searchText) > 0 && filterFinishHandler()
+    _.size(searchText) > 0 && setAllChatListFilter(allChatList)
+  }, [searchText, filterFinishHandler, allChatList])
+
+  useEffect(() => {
+    _.size(searchText) > 0 &&
+      setAllChatListFilter(
+        allChatList?.filter((chat) => _.includes(chat.title, searchText))
+      )
   }, [allChatList, searchText])
 
   return (
@@ -82,7 +107,7 @@ const RoomListPage = ({
           </div>
         </div>
 
-        {searchText.length === 0 && (
+        {searchText.length === 0 && !isFilter && (
           <div className="recommend-room">
             <span className="recommend-room__title">
               당신과 잘 맞는 방을 추천드려요!
@@ -101,7 +126,7 @@ const RoomListPage = ({
           </div>
         )}
         <div className="rest-room">
-          {searchText.length === 0 ? (
+          {searchText.length === 0 && !isFilter ? (
             <span className="rest-room__title">다른 방도 구경해보세요</span>
           ) : (
             <span className="rest-room__title">검색 결과</span>

@@ -7,16 +7,13 @@
   font-size: 18px;
   font-weight: bold;
   color: #555555;
-  margin-bottom: 30px;
+  margin-bottom: 18px;
   line-height: 25px;
-}
-.allroom-modal__body {
-  margin-bottom: 30px;
 }
 
 .allroom-modal__body--desc > span {
   display: inline-block;
-  width: 60px;
+  width: 75px;
   font-weight: bold;
 }
 .allroom-modal__body--desc > div {
@@ -53,7 +50,7 @@
   font-weight: bold;
 }
 .allroom-modal__body > div {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 .allroom-modal__button.myroom {
   display: flex;
@@ -62,4 +59,24 @@
 }
 .allroom-modal__button.myroom > button {
   width: 100%;
+}
+.allroom-modal__body--desc.last {
+  display: flex;
+}
+.allroom-modal__body--desc {
+  display: flex;
+  align-items: center;
+}
+.last--desc {
+  border: none !important;
+  width: 80%;
+}
+
+.allroom-modal__body--desc.last > div > div {
+  display: inline-block;
+  border: 2px solid var(--main-color);
+  border-radius: 20px;
+  padding: 8px 10px;
+  flex-wrap: wrap;
+  margin-right: 5px;
 }

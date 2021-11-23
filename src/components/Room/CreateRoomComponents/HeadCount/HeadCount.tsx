@@ -44,6 +44,7 @@ const HeadCount = ({ headCountState, setAtr, setIdx }: Props) => {
                 backgroundColor: "var(--main-color)",
               },
               "& .MuiSlider-valueLabel": {
+                width: "100%",
                 backgroundColor: "var(--main-color)",
               },
               "& .MuiSlider-valueLabelLabel": {

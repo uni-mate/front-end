@@ -6,6 +6,7 @@ export interface UserState {
   faculty: string
   department: string
   interest_list: string[]
+  grade: string
   mbti: {
     first_mbti: string
     second_mbti: string

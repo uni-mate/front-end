@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { ChatType } from "../../../../types/ChatTypes"
 
 import _ from "lodash"
@@ -12,9 +12,45 @@ interface Props {
 }
 
 const RoomModal = (props: Props) => {
-  const { title, description, chat_type, chat_purpose, grade, select_gender } =
-    props.chat
+  const {
+    title,
+    description,
+    chat_type,
+    chat_purpose,
+    grade,
+    select_gender,
+    chat_feature,
+  } = props.chat
   const { closeModal, isMyRoom } = props
+  const [MBTIValid, setMBTIValid] = useState(false)
+  const [interestValid, setInterestValid] = useState(false)
+  const [noMatterValid, setNoMatterValid] = useState(false)
+  const [facultyValid, setFacultyValid] = useState(false)
+  const { first_mbti, second_mbti, third_mbti, fourth_mbti } = chat_feature.mbti
+
+  useEffect(() => {
+    if (chat_feature.nomatter === true) {
+      setNoMatterValid(true)
+      setMBTIValid(false)
+      setInterestValid(false)
+      setFacultyValid(false)
+    } else if (_.size(chat_feature.interest) > 0) {
+      setNoMatterValid(false)
+      setMBTIValid(false)
+      setInterestValid(true)
+      setFacultyValid(false)
+    } else if (_.size(chat_feature.faculty) > 0) {
+      setNoMatterValid(false)
+      setMBTIValid(false)
+      setInterestValid(false)
+      setFacultyValid(true)
+    } else {
+      setNoMatterValid(false)
+      setMBTIValid(true)
+      setInterestValid(false)
+      setFacultyValid(false)
+    }
+  }, [chat_feature])
   return (
     <div className="allroom-modal">
       <div className="allroom-modal__title">
@@ -39,7 +75,9 @@ const RoomModal = (props: Props) => {
         </div>
         <div className="allroom-modal__body--desc">
           <span>학년</span>
-          <div>{grade}학년</div>
+          {grade.map((g) => (
+            <div>{g}학년</div>
+          ))}
         </div>
         <div className="allroom-modal__body--desc">
           <span>성별</span>
@@ -47,7 +85,26 @@ const RoomModal = (props: Props) => {
         </div>
         <div className="allroom-modal__body--desc">
           <span>공통점</span>
-          <div>MBTI_ESFJ</div>
+          {MBTIValid && <div>MBTI</div>}
+          {interestValid && <div>단과대</div>}
+          {noMatterValid && <div>없음</div>}
+          {facultyValid && <div>관심사</div>}
+        </div>
+        <div className="allroom-modal__body--desc last">
+          <span>공통점 상세</span>
+          {MBTIValid && (
+            <div>{`${first_mbti}${second_mbti}${third_mbti}${fourth_mbti}`}</div>
+          )}
+
+          {facultyValid && <div>{chat_feature.faculty}</div>}
+          {noMatterValid && <div>없음</div>}
+          {interestValid && (
+            <div className="last--desc">
+              {chat_feature.interest.map((atr) => (
+                <div>{atr}</div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
       <div className={`allroom-modal__button ${isMyRoom ? "myroom" : ""}`}>

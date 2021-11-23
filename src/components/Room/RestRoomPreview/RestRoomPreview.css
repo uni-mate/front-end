@@ -60,3 +60,13 @@
   height: 12px;
   margin-right: 4px;
 }
+@keyframes ModalUp {
+  0% {
+    top: 55%;
+    opacity: 0;
+  }
+  100% {
+    top: 50%;
+    opacity: 1;
+  }
+}

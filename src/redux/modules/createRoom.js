@@ -198,12 +198,11 @@ export const createRoom = createAction(CREATE_ROOM, (room_body) => room_body)
 function* createRoomSaga(action) {
   try {
     const history = yield getContext("history")
-    yield history.push("/room")
     yield put(pendingCreateRoom())
     const res = yield axios.post(`${API_URL}/all/chat/create`, action.payload)
     console.log(res.data.message)
-    yield delay(2000)
     yield put(successCreateRoom(res.data))
+    yield history.push("/room")
   } catch (error) {
     yield put(failCreateRoom(error))
   }
