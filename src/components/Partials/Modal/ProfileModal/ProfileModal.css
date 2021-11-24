@@ -1,0 +1,42 @@
+.profilemodal__container {
+  /* border: 1px solid #000; */
+  color: #555555;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.profilemodal__profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.profilemodal__profile--pic {
+  width: 35px;
+  height: 35px;
+  margin-bottom: 15px;
+}
+.profilemodal__profile--pic > img {
+  width: 100%;
+  height: 100%;
+}
+.profilemodal__profile--name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+.profilemodal__profile--faculty {
+  font-size: 12px;
+  font-weight: bold;
+}
+.profilemodal__desc {
+  margin-bottom: 28px;
+}
+.profilemodal__button > button {
+  background-color: #fff;
+  border: none;
+  color: rgba(85, 85, 85, 0.5);
+  font-size: 10px;
+}

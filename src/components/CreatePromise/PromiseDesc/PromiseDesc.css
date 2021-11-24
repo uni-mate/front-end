@@ -1,0 +1,75 @@
+.promise-desc__container {
+  width: 320px;
+  height: 100%;
+  padding: 10px;
+  text-align: center;
+}
+.promise-desc__title {
+  font-size: 18px;
+  color: #555555;
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+.promise-desc__title > div {
+}
+
+.promise-desc-input__container {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.promise-desc-input__container > textarea {
+  border-radius: 5px;
+  border: 1px solid rgba(85, 85, 85, 0.3);
+  padding: 10px;
+  text-align: left;
+  width: 320px;
+}
+.promise-desc-input__container > textarea::placeholder {
+  font-size: 12px;
+}
+.promise-desc-input__container > textarea:focus {
+  outline: none;
+}
+
+/* modal */
+.promise-modal {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.promise-modal > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  z-index: 99999;
+}
+.promise-modal > div {
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  text-align: center;
+}
+.promise-modal > div:nth-of-type(1) {
+  margin-bottom: 12px;
+  font-weight: bold;
+  font-size: 18px;
+  top: 95%;
+}
+.promise-modal > div:nth-of-type(2) {
+  font-size: 14px;
+  top: 105%;
+}

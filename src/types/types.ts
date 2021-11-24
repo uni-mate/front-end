@@ -4,6 +4,7 @@ import { ChatState, MyChatState } from "./ChatTypes"
 import { CreateRoomState } from "./CreateRoomTypes"
 import { FilterState } from "./FilterTypes"
 import { NavBarState } from "./NavbarTypes"
+import { PromiseModalType, PromiseState } from "./PromiseTypes"
 import { AuthState } from "./UserTypes"
 
 export interface RootState {
@@ -13,5 +14,7 @@ export interface RootState {
   mychat: MyChatState
   createRoom: CreateRoomState
   filter: FilterState
+  promise: PromiseState
+  promiseModal: PromiseModalType
   router: Reducer<RouterState<unknown>, AnyAction>
 }

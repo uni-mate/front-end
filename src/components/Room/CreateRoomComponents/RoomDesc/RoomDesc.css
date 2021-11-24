@@ -9,7 +9,7 @@
   color: #555555;
   text-align: center;
   margin-bottom: 40px;
-  /* font-weight: bold; */
+  font-weight: bold;
 }
 .desc__title > div:first-of-type {
   margin-bottom: 10px;

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { Fragment, useEffect, useRef, useState } from "react"
 import { useHistory } from "react-router"
 import SwipeableTemporaryDrawer from "./../../../components/Partials/SideDrawer/SideDrawer"
 import LinesEllipsis from "react-lines-ellipsis"
@@ -22,6 +22,7 @@ import { UserState } from "../../../types/UserTypes"
 import _ from "lodash"
 
 import "./CurrentRoomPage.css"
+import BasicModal from "../../../components/Partials/Modal/BasicModal"
 
 interface Props {
   currentChatPage?: ChatType
@@ -182,70 +183,72 @@ const CurrentRoomPage = ({ currentChatPage, userInfo }: Props) => {
   }, [navbarOutside])
 
   return (
-    <div className="chatting-room">
-      <div className="chatting-room__header">
-        <div className="chatting-room__header--container">
-          <div
-            className="chatting-room__prev-icon"
-            onClick={() => history.goBack()}
-          >
-            <img src={ArrowBackIcon} alt="goback" />
-          </div>
-
-          <LinesEllipsis
-            text={currentChatPage?.title}
-            maxLine="1"
-            ellipsis="..."
-            trimRight
-            basedOn="letters"
-            className="chatting-room__header--title"
-          ></LinesEllipsis>
-          <SwipeableTemporaryDrawer
-            userList={userList}
-            currentChatPage={currentChatPage}
-          >
-            <div className="chatting-room__menu-icon">
-              <img src={MenuIcon} alt="menu" />
+    <Fragment>
+      <div className="chatting-room">
+        <div className="chatting-room__header">
+          <div className="chatting-room__header--container">
+            <div
+              className="chatting-room__prev-icon"
+              onClick={() => history.goBack()}
+            >
+              <img src={ArrowBackIcon} alt="goback" />
             </div>
-          </SwipeableTemporaryDrawer>
-        </div>
-      </div>
-      <div className="chatting-room__container">
-        {chatList?.map((chat) => (
-          <div className="chatting-room__msg" ref={scrollRef}>
-            <Chat key={chat.chatid} {...chat} />
+
+            <LinesEllipsis
+              text={currentChatPage?.title}
+              maxLine="1"
+              ellipsis="..."
+              trimRight
+              basedOn="letters"
+              className="chatting-room__header--title"
+            ></LinesEllipsis>
+            <SwipeableTemporaryDrawer
+              userList={userList}
+              currentChatPage={currentChatPage}
+            >
+              <div className="chatting-room__menu-icon">
+                <img src={MenuIcon} alt="menu" />
+              </div>
+            </SwipeableTemporaryDrawer>
           </div>
-        ))}
-      </div>
-      <form
-        className="chatting-room__form"
-        onSubmit={(e) => e.preventDefault()}
-      >
-        <div className="camera">
-          <img src={Camera} alt="camera" />
         </div>
-        <input
-          ref={inputRef}
-          type="text"
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setChatMsg(e.target.value)
-          }
-          value={chatMsg}
-          placeholder="대화를 입력해보세요"
-        />
-        <button type="submit">
-          <img src={SubmitIcon} alt="submir" />
-        </button>
-        <div className="promise">
-          <img src={MakePromise} alt="promise" />
+        <div className="chatting-room__container">
+          {chatList?.map((chat) => (
+            <div className="chatting-room__msg" ref={scrollRef}>
+              <Chat key={chat.chatid} {...chat} />
+            </div>
+          ))}
         </div>
-        {_.size(chatMsg) > 0 && (
-          <div className="submit" onClick={onSubmitHandler}>
-            <img src={Submit} alt="submit" />
+        <form
+          className="chatting-room__form"
+          onSubmit={(e) => e.preventDefault()}
+        >
+          <div className="camera">
+            <img src={Camera} alt="camera" />
           </div>
-        )}
-      </form>
-    </div>
+          <input
+            ref={inputRef}
+            type="text"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setChatMsg(e.target.value)
+            }
+            value={chatMsg}
+            placeholder="대화를 입력해보세요"
+          />
+          <button type="submit">
+            <img src={SubmitIcon} alt="submir" />
+          </button>
+          <div className="promise">
+            <img src={MakePromise} alt="promise" />
+          </div>
+          {_.size(chatMsg) > 0 && (
+            <div className="submit" onClick={onSubmitHandler}>
+              <img src={Submit} alt="submit" />
+            </div>
+          )}
+        </form>
+      </div>
+    </Fragment>
   )
 }
 

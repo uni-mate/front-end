@@ -1,0 +1,60 @@
+/* indicator */
+.promise-detail__indicator {
+  width: 80%;
+  height: 20px;
+  border-radius: 10px;
+  background-color: rgba(42, 227, 38, 0.3);
+  position: absolute;
+  bottom: 20px;
+  z-index: 999;
+}
+
+.promise-detail__indicator > div {
+  height: 100%;
+  border-radius: 10px;
+  background-color: var(--main-color);
+  position: relative;
+}
+.promise-detail__indicator > .indicator_1 {
+  width: calc(100% / 5);
+}
+.promise-detail__indicator > .indicator_2 {
+  width: calc(100% / 5 * 2);
+}
+.promise-detail__indicator > .indicator_3 {
+  width: calc(100% / 5 * 3);
+}
+.promise-detail__indicator > .indicator_4 {
+  width: calc(100% / 5 * 4);
+}
+.promise-detail__indicator > .indicator_5 {
+  width: 100%;
+  height: 100px;
+  background-color: #fff;
+  z-index: 9998;
+}
+.promise-detail__indicator > div::after {
+  content: "";
+  height: 45px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: -50px;
+  left: 100%;
+  transform: translateX(-50%);
+}
+.promise-detail__indicator > .indicator_1::after {
+  background-image: url("../../assets/createRoom/progress1.png");
+  width: 30px;
+}
+.promise-detail__indicator > .indicator_2::after,
+.promise-detail__indicator > .indicator_4::after {
+  background-image: url("../../assets/createRoom/progress2.png");
+  width: 35px;
+}
+.promise-detail__indicator > .indicator_3::after {
+  background-image: url("../../assets/createRoom/progress3.png");
+  width: 30px;
+  height: 44px;
+}

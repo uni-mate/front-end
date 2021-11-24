@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import * as React from "react"
 import Box from "@mui/material/Box"
 import SwipeableDrawer from "@mui/material/SwipeableDrawer"
@@ -18,9 +18,14 @@ import PromiseInfo from "../../../assets/chattingRoom/promiseInfo.png"
 import CloseDoor from "../../../assets/chattingRoom/closeDoor.png"
 
 import { ChatType, TestUserState } from "../../../types/ChatTypes"
-import "./SideDrawer.css"
 import BasicModal from "./../Modal/BasicModal"
 import RoomModal from "../Modal/RoomModal/RoomModal"
+import PromisePageContainer from "../../../pages/Promise/PromisePageContainer"
+import { useDispatch, useSelector } from "react-redux"
+import { RootState } from "../../../types/types"
+import { openModal } from "../../../redux/modules/promiseModal"
+
+import "./SideDrawer.css"
 
 type Anchor = "right"
 
@@ -35,6 +40,13 @@ function SwipeableTemporaryDrawer({
   userList,
   currentChatPage,
 }: Props) {
+  const promiseModal = useSelector<RootState, boolean>(
+    (state) => state.promiseModal.isPromiseModalOpen
+  )
+  const dispatch = useDispatch()
+  const promiseModalOpen = useCallback(() => {
+    dispatch(openModal())
+  }, [dispatch])
   const [userProfileList, setUserProfileList] = useState(userList)
   useEffect(() => {
     userList && setUserProfileList(userList)
@@ -121,6 +133,18 @@ function SwipeableTemporaryDrawer({
           />
         </BasicModal>
       )}
+      {promiseModal && (
+        <BasicModal
+          isModalOpen={promiseModal}
+          width="100%"
+          height="100%"
+          backgroundColor="#fff"
+          boxShadow={24}
+          ani={true}
+        >
+          <PromisePageContainer />
+        </BasicModal>
+      )}
       <div className="side-drawer__title">참가자 목록</div>
       <div className="side-drawer__user">
         {userProfileList?.map((user) => (
@@ -132,7 +156,14 @@ function SwipeableTemporaryDrawer({
       </div>
       <div className="side-drawer__promiseInfo">
         <img src={PromiseInfo} alt="info" />
-        <div>약속 내용 보기</div>
+        <div
+          onClick={() => {
+            promiseModalOpen()
+            setState({ ...state, right: false })
+          }}
+        >
+          약속 등록
+        </div>
       </div>
       <div
         className="side-drawer__roomInfo"

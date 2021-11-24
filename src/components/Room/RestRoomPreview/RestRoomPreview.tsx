@@ -22,7 +22,7 @@ const RestRoomPreview = ({ chat }: Props) => {
   const closeModal = () => setIsModalOpen(false)
   const [MBTIValid, setMBTIValid] = useState(false)
   const [interestValid, setInterestValid] = useState(false)
-  const [noMatterValid, setNoMatterValid] = useState(false)
+  const [, setNoMatterValid] = useState(false)
   const [facultyValid, setFacultyValid] = useState(false)
   useEffect(() => {
     if (chat_feature.nomatter === true) {

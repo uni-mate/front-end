@@ -26,6 +26,8 @@ const SET_DESC = `${prefix}/SET_DESC`
 
 const SET_PAGE = `${prefix}/SET_PAGE`
 
+const CLEAR_CREATE_ROOM = `${prefix}/CLEAR_CREATE_ROOM`
+
 export const pendingCreateRoom = createAction(PENDING_CREATE_ROOM)
 export const successCreateRoom = createAction(
   SUCCESS_CREATE_ROOM,
@@ -49,6 +51,8 @@ export const setTitle = createAction(SET_TITLE, (title) => title)
 export const setDesc = createAction(SET_DESC, (desc) => desc)
 
 export const setPage = createAction(SET_PAGE, (idx) => idx)
+
+export const clearCreateRoom = createAction(CLEAR_CREATE_ROOM)
 
 const initialState = {
   createRoom_data: {
@@ -180,6 +184,9 @@ const reducer = handleActions(
     [SET_PAGE]: (state, action) => ({
       ...state,
       create_page: action.payload,
+    }),
+    [CLEAR_CREATE_ROOM]: (state) => ({
+      createRoom_data: initialState,
     }),
   },
   initialState

@@ -11,6 +11,7 @@
   color: #555555;
   text-align: center;
   margin-bottom: 40px;
+  font-weight: bold;
 }
 .purpose-input__container {
   display: flex;

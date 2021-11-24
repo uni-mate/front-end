@@ -8,6 +8,8 @@ import chat from "./modules/chat"
 import mychat from "./modules/mychat"
 import createRoom from "./modules/createRoom"
 import filter from "./modules/filter"
+import promise from "./modules/promise"
+import promiseModal from "./modules/promiseModal"
 
 import { persistReducer } from "redux-persist"
 import storage from "redux-persist/lib/storage"
@@ -15,8 +17,7 @@ import storage from "redux-persist/lib/storage"
 const persistConfig = {
   key: "root",
   storage,
-  whilelist: ["auth", "chat", "mychat"],
-  blacklist: ["createRoom"],
+  whilelist: ["auth"],
 }
 
 const reducer = combineReducers({
@@ -27,8 +28,10 @@ const reducer = combineReducers({
   mychat,
   createRoom,
   filter,
+  promise,
+  promiseModal,
   router: connectRouter(history),
 })
 
-export default persistReducer(persistConfig, reducer)
-// export default reducer
+// export default persistReducer(persistConfig, reducer)
+export default reducer
