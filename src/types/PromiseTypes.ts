@@ -11,6 +11,7 @@ export interface PromiseState {
   createPromise_loading: boolean
   createPromise_error: any
   createPromise_page: number
+  createPromise_success: boolean
 }
 
 export interface PromiseModalType {

@@ -1,6 +1,8 @@
 import React, { Fragment, useState } from "react"
 import BasicModal from "../Partials/Modal/BasicModal"
-import ProfileModal from "../Partials/Modal/ProfileModal/ProfileModal"
+// import ProfileModal from "../Partials/Modal/ProfileModal/ProfileModal"
+import PromiseModal from "../Partials/Modal/PromiseModal/PromiseModal"
+import { PromiseType } from "./../../types/PromiseTypes"
 
 import "./Chat.css"
 
@@ -10,9 +12,12 @@ interface Props {
   desc: string
   not_me?: boolean
   admin?: boolean
+  promise?: boolean
+  promiseDesc?: PromiseType
   time?: string
   text?: boolean
   faculty?: string
+  username?: string
 }
 
 const Chat = ({
@@ -21,8 +26,11 @@ const Chat = ({
   desc,
   not_me,
   admin,
+  promise,
+  promiseDesc,
   time,
   text,
+  username,
   faculty,
 }: Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -30,19 +38,16 @@ const Chat = ({
     <Fragment>
       {isModalOpen && (
         <BasicModal
-          isModalOpen={isModalOpen && !admin}
-          width="200px"
+          isModalOpen={true}
+          width="300px"
           backgroundColor="#fff"
           boxShadow={24}
           padding="30px 20px"
           ani={true}
         >
-          <ProfileModal
+          <PromiseModal
             closeModal={() => setIsModalOpen(false)}
-            profileImg={profileImg}
-            name={name}
-            desc={desc}
-            faculty={faculty}
+            promiseDesc={promiseDesc}
           />
         </BasicModal>
       )}
@@ -52,7 +57,25 @@ const Chat = ({
         }`}
       >
         <div className="chat__time">{time}</div>
-        <div className="chat-msg">{desc}</div>
+        {!promise ? (
+          <div className="chat-msg">{desc}</div>
+        ) : (
+          <div className="chat-msg promise">
+            <div className="chat-msg__title">{`${username}님이 약속을 등록했어요!`}</div>
+            <div className="chat-msg__content">
+              <div>{`약속 이름: ${promiseDesc.promise_title}`}</div>
+              <div>{`목적: ${promiseDesc.promise_purpose}`}</div>
+              <div>{`일시: ${promiseDesc.when_to_meet}`}</div>
+              <div>{`장소: ${promiseDesc.where_to_meet}`}</div>
+            </div>
+            <div className="chat-msg__button">
+              <button onClick={() => alert("아직 구현되지 않았습니다.")}>
+                참석할게요!
+              </button>
+              <button onClick={() => setIsModalOpen(true)}>자세히 보기</button>
+            </div>
+          </div>
+        )}
         <div className="chat-profile">
           {!text && (
             <div

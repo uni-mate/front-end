@@ -1,0 +1,70 @@
+.promise-modal__container {
+  /* border: 1px solid #000; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #555555;
+}
+.promise-modal__title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.promise-modal__detail > div {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--main-color);
+}
+.promise-modal__detail > div:first-of-type {
+  margin-bottom: 8px;
+}
+.promise-modal__detail > div:nth-of-type(2) {
+  margin-bottom: 8px;
+  font-weight: 200;
+
+  font-size: 12px;
+}
+.promise-modal__detail > div:nth-of-type(3) {
+  font-size: 12px;
+  margin-bottom: 8px;
+  font-weight: 200;
+}
+.promise-modal__desc {
+  display: flex;
+  align-items: baseline;
+  margin-top: 20px;
+}
+.promise-modal__desc > div:first-of-type {
+  width: 40px;
+  font-size: 12px;
+  font-weight: bold;
+}
+.promise-modal__desc > div:last-of-type {
+  width: 90%;
+  font-size: 12px;
+  line-height: 20px;
+}
+.promise-modal__button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.promise-modal__button > button {
+  padding: 15px 12px;
+  border-radius: 4px;
+}
+.promise-modal__button > button:first-of-type {
+  background-color: #fff;
+  color: #555555;
+  border: 1px solid rgba(85, 85, 85, 0.5);
+  width: 35%;
+}
+.promise-modal__button > button:last-of-type {
+  background-color: var(--main-color);
+  color: #fff;
+  border: 1px solid var(--main-color);
+  width: 60%;
+}

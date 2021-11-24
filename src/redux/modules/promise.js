@@ -18,6 +18,7 @@ const SET_PROMISE_DESC = `${prefix}/SET_PROMISE_DESC`
 const SET_PROMISE_PAGE = `${prefix}/SET_PROMISE_PAGE`
 
 const CLEAR_CREATE_PROMISE = `${prefix}/CLEAR_CREATE_PROMISE`
+const PROMISE_REREADY = `${prefix}/PROMISE_REREADY`
 
 export const pendingCreatePromise = createAction(PENDING_CREATE_PROMISE)
 export const successCreatePromise = createAction(
@@ -36,6 +37,7 @@ export const setPromiseDesc = createAction(SET_PROMISE_DESC, (desc) => desc)
 export const setPromisePage = createAction(SET_PROMISE_PAGE, (idx) => idx)
 
 export const clearCreatePromise = createAction(CLEAR_CREATE_PROMISE)
+export const promiseReReady = createAction(PROMISE_REREADY)
 
 const initialState = {
   createPromise_data: {
@@ -48,6 +50,7 @@ const initialState = {
   createPromise_loading: false,
   createPromise_error: null,
   createPromise_page: 1,
+  createPromise_success: false,
 }
 
 const reducer = handleActions(
@@ -61,6 +64,7 @@ const reducer = handleActions(
       ...state,
       createPromise_loading: false,
       createPromise_error: null,
+      createPromise_success: true,
     }),
     [FAIL_CREATE_PROMISE]: (state, action) => ({
       ...state,
@@ -108,6 +112,10 @@ const reducer = handleActions(
     }),
     [CLEAR_CREATE_PROMISE]: () => ({
       createPromise_data: initialState,
+    }),
+    [PROMISE_REREADY]: (state) => ({
+      ...state,
+      createPromise_success: false,
     }),
   },
   initialState

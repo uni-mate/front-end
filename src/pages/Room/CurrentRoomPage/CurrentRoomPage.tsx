@@ -18,15 +18,18 @@ import user2 from "../../../assets/user/user2.jpg"
 import Submit from "../../../assets/chattingRoom/submit.png"
 import { io, Socket } from "socket.io-client"
 import { UserState } from "../../../types/UserTypes"
+import { PromiseType } from "../../../types/PromiseTypes"
 
 import _ from "lodash"
 
 import "./CurrentRoomPage.css"
-import BasicModal from "../../../components/Partials/Modal/BasicModal"
 
 interface Props {
   currentChatPage?: ChatType
   userInfo: UserState
+  promiseInfo: PromiseType
+  isPromiseFinish: boolean
+  settingPromise: () => void
 }
 
 interface ChatInputType {
@@ -38,6 +41,9 @@ interface ChatInputType {
   not_me?: boolean
   admin?: boolean
   text?: boolean
+  promiseDesc?: PromiseType
+  promise?: boolean
+  username?: string
 }
 
 export const getTime = (hour: number, minute: number) => {
@@ -64,7 +70,13 @@ const getProfileImg = (name: string) => {
   }
 }
 
-const CurrentRoomPage = ({ currentChatPage, userInfo }: Props) => {
+const CurrentRoomPage = ({
+  currentChatPage,
+  userInfo,
+  promiseInfo,
+  isPromiseFinish,
+  settingPromise,
+}: Props) => {
   const history = useHistory()
   const [, navbarOutside] = useNavbar()
   const [chatMsg, setChatMsg] = useState("")
@@ -73,6 +85,7 @@ const CurrentRoomPage = ({ currentChatPage, userInfo }: Props) => {
   const [arrivalMessage, setArrivalMessage] = useState<ChatInputType>()
   const [chatList, setChatList] = useState<ChatInputType[]>([])
   const [userList, setUserList] = useState(currentChatPage?.user_list)
+  const [promiseText, setPromiseText] = useState<ChatInputType>()
   const socket = useRef<Socket>()
   const scrollRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>()
@@ -80,6 +93,31 @@ const CurrentRoomPage = ({ currentChatPage, userInfo }: Props) => {
   useEffect(() => {
     setUserList(currentChatPage?.user_list)
   }, [currentChatPage])
+
+  useEffect(() => {
+    setPromiseText({
+      chatid: Math.floor(Math.random() * 10000).toString(),
+      profileImg: ChatBot,
+      name: "뭉지",
+      username: userInfo.username,
+      desc: `${userInfo.username}님이 약속을 등록했어요!`,
+      promiseDesc: promiseInfo,
+      time: getTime(new Date().getHours(), new Date().getMinutes()),
+      admin: true,
+      promise: true,
+    })
+  }, [userInfo, promiseInfo])
+
+  useEffect(() => {
+    //약속 등록을 마치면
+    isPromiseFinish &&
+      setChatList((prev) => {
+        return [...prev, promiseText]
+      })
+    return () => {
+      settingPromise()
+    }
+  }, [isPromiseFinish, promiseText, settingPromise])
 
   useEffect(() => {
     scrollRef?.current?.scrollIntoView({ behavior: "smooth" })
@@ -202,6 +240,7 @@ const CurrentRoomPage = ({ currentChatPage, userInfo }: Props) => {
               basedOn="letters"
               className="chatting-room__header--title"
             ></LinesEllipsis>
+
             <SwipeableTemporaryDrawer
               userList={userList}
               currentChatPage={currentChatPage}

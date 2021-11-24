@@ -111,76 +111,77 @@ function SwipeableTemporaryDrawer({
     }
 
   const list = (anchor: Anchor) => (
-    <Box
-      sx={{ width: "100%" }}
-      role="presentation"
-      onClick={toggleDrawer(anchor, true)}
-      onKeyDown={toggleDrawer(anchor, true)}
-    >
-      {isModalOpen && (
-        <BasicModal
-          isModalOpen={isModalOpen}
-          width="300px"
-          height="500px"
-          backgroundColor="#fff"
-          boxShadow={24}
-          padding="30px 20px"
-        >
-          <RoomModal
-            chat={currentChatPage}
-            closeModal={() => setIsModalOpen(false)}
-            isMyRoom={true}
-          />
-        </BasicModal>
-      )}
-      {promiseModal && (
-        <BasicModal
-          isModalOpen={promiseModal}
-          width="100%"
-          height="100%"
-          backgroundColor="#fff"
-          boxShadow={24}
-          ani={true}
-        >
-          <PromisePageContainer />
-        </BasicModal>
-      )}
-      <div className="side-drawer__title">참가자 목록</div>
-      <div className="side-drawer__user">
-        {userProfileList?.map((user) => (
-          <div className="side-drawer__user-info" key={user.image}>
-            <img src={user.image} alt="프로필" />
-            <span>{user.name}</span>
+    <React.Fragment>
+      <Box
+        sx={{ width: "100%" }}
+        role="presentation"
+        onClick={toggleDrawer(anchor, true)}
+        onKeyDown={toggleDrawer(anchor, true)}
+      >
+        {isModalOpen && (
+          <BasicModal
+            isModalOpen={isModalOpen}
+            width="300px"
+            height="500px"
+            backgroundColor="#fff"
+            boxShadow={24}
+            padding="30px 20px"
+          >
+            <RoomModal
+              chat={currentChatPage}
+              closeModal={() => setIsModalOpen(false)}
+              isMyRoom={true}
+            />
+          </BasicModal>
+        )}
+        {promiseModal && (
+          <BasicModal
+            isModalOpen={promiseModal}
+            width="100%"
+            height="100%"
+            backgroundColor="#fff"
+            boxShadow={24}
+            ani={true}
+          >
+            <PromisePageContainer />
+          </BasicModal>
+        )}
+        <div className="side-drawer__title">참가자 목록</div>
+        <div className="side-drawer__user">
+          {userProfileList?.map((user) => (
+            <div className="side-drawer__user-info" key={user.image}>
+              <img src={user.image} alt="프로필" />
+              <span>{user.name}</span>
+            </div>
+          ))}
+        </div>
+        <div className="side-drawer__promiseInfo">
+          <img src={PromiseInfo} alt="info" />
+          <div
+            onClick={() => {
+              promiseModalOpen()
+              // toggleDrawer(anchor, false)
+            }}
+          >
+            약속 등록
           </div>
-        ))}
-      </div>
-      <div className="side-drawer__promiseInfo">
-        <img src={PromiseInfo} alt="info" />
+        </div>
         <div
-          onClick={() => {
-            promiseModalOpen()
-            setState({ ...state, right: false })
-          }}
+          className="side-drawer__roomInfo"
+          onClick={() => setIsModalOpen(true)}
         >
-          약속 등록
+          <img src={Eye} alt="info" />
+          <div>채팅방 정보 보기</div>
         </div>
-      </div>
-      <div
-        className="side-drawer__roomInfo"
-        onClick={() => setIsModalOpen(true)}
-      >
-        <img src={Eye} alt="info" />
-        <div>채팅방 정보 보기</div>
-      </div>
-      <div
-        className="side-drawer__door"
-        onClick={() => alert("구현 중입니다.")}
-      >
-        <div>
-          <img src={CloseDoor} alt="closeDoor" />
-          <div className="side-drawer__door--close">방문 닫기</div>
-        </div>
-        {/* {isDoorOpen ? (
+        <div
+          className="side-drawer__door"
+          onClick={() => alert("구현 중입니다.")}
+        >
+          <div>
+            <img src={CloseDoor} alt="closeDoor" />
+            <div className="side-drawer__door--close">방문 닫기</div>
+          </div>
+          {/* {isDoorOpen ? (
           <div onClick={() => setIsDoorOpen(false)}>
             <img src={OpenDoor} alt="openDoor" />
             <div className="side-drawer__door--open">방문 열기</div>
@@ -191,8 +192,9 @@ function SwipeableTemporaryDrawer({
             <div className="side-drawer__door--close">방문 닫기</div>
           </div>
         )} */}
-      </div>
-    </Box>
+        </div>
+      </Box>
+    </React.Fragment>
   )
 
   return (

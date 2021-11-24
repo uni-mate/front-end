@@ -1,5 +1,5 @@
 .promise-when__container {
-  width: 240px;
+  width: 280px;
   height: 100%;
   padding: 10px;
   text-align: center;
@@ -21,10 +21,10 @@
   align-items: center;
 }
 .promise-when-input__container > input {
+  width: 300px;
   border-radius: 5px;
   border: 1px solid rgba(85, 85, 85, 0.3);
   padding: 10px;
-  text-align: left;
 }
 .promise-when-input__container > input::placeholder {
   text-align: center;
