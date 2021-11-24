@@ -26,3 +26,169 @@
   width: 100%;
   color: #555555;
 }
+/* body */
+.profileedit__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 25px;
+}
+.profileimg__container {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.profileimg__img {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  position: relative;
+}
+.profileimg__img > div > img {
+  width: 100%;
+  height: 100%;
+}
+
+.profileimg__img > .broweye,
+.profileimg__img > .eye,
+.profileimg__img > .mouse {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 48%;
+}
+.profileimg__img > .broweye {
+  top: 28%;
+  /* background-color: red; */
+  width: 30px;
+  height: 5px;
+}
+.profileimg__img > .eye {
+  top: 38%;
+  /* background-color: purple; */
+  width: 26px;
+  height: 8px;
+}
+.profileimg__img > .mouse {
+  top: 52%;
+  /* background-color: purple; */
+  width: 24px;
+  height: 14px;
+}
+.profileimg__img > img {
+  width: 100%;
+  height: 100%;
+}
+.profileimg__color {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.profileimg__color > div {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.profileimg__color > div:nth-of-type(1) {
+  background-color: #3fa9f5;
+}
+.profileimg__color > div:nth-of-type(2) {
+  background-color: #ff7bac;
+}
+.profileimg__color > div:nth-of-type(3) {
+  background-color: #39b54a;
+}
+.profileimg__color > div:nth-of-type(4) {
+  background-color: #f1db15;
+}
+.profileimg__color > div:nth-of-type(5) {
+  background-color: #555555;
+}
+
+.profilecustom__container {
+  border-top: 1px solid rgba(85, 85, 85, 0.5);
+  width: 100vw;
+  height: 300px;
+}
+.profilecustom__container input {
+  display: none;
+}
+.profilecustom__list {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+.profilecustom__list label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.profilecustom__list label > img {
+  margin-bottom: 12px;
+}
+.profilecustom__list label > span {
+  font-size: 12px;
+}
+.profilecustom__list label:nth-of-type(1) > img {
+  width: 30px;
+  height: 5px;
+}
+.profilecustom__list label:nth-of-type(2) > img {
+  width: 30px;
+  height: 5px;
+}
+.profilecustom__list label:nth-of-type(3) > img {
+  width: 30px;
+  height: 5px;
+}
+.profilecustom__list input:checked + label > img {
+  color: var(--main-color);
+  filter: opacity(0.5) drop-shadow(0 0 0 var(--main-color));
+}
+.profilecustom__list input:checked + label > span {
+  color: var(--main-color);
+}
+.profilecustom__atr {
+  margin-top: 20px;
+}
+.custom__atr-1,
+.custom__atr-2,
+.custom__atr-3 {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.custom__atr-1 > div,
+.custom__atr-2 > div,
+.custom__atr-3 > div {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  border: 1px solid rgba(85, 85, 85, 0.4);
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+.custom__atr-1 > div > img,
+.custom__atr-2 > div > img,
+.custom__atr-3 > div > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.4);
+}
+.custom__atr-1 > div.selected,
+.custom__atr-2 > div.selected,
+.custom__atr-3 > div.selected {
+  border: 2px solid var(--main-color);
+}

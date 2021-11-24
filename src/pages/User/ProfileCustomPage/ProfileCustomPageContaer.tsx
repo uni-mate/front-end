@@ -7,7 +7,7 @@ const ProfileCustomPageContaer = () => {
   const username = useSelector<RootState, string>(
     (state) => state.auth.user_data.username
   )
-  console.log()
+
   return <ProfileCustomPage username={username} />
 }
 

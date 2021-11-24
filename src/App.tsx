@@ -4,7 +4,6 @@ import { ConnectedRouter } from "connected-react-router"
 
 // User
 import ProfilePageContainer from "./pages/User/ProfilePage/ProfilePageContainer"
-import ProfileCustomPageConatiner from "./pages/User/ProfileCustomPage/ProfileCustomPage"
 
 // Main
 import RoomListPageContainer from "./pages/Room/RoomListPage/RoomListPageContainer"
@@ -39,6 +38,7 @@ import history from "./history"
 import Error404 from "./pages/Error/Error404"
 
 import "./App.css"
+import ProfileCustomPageContaer from "./pages/User/ProfileCustomPage/ProfileCustomPageContaer"
 
 function App() {
   const navbarState = useSelector<RootState, NavBarState>(
@@ -88,7 +88,7 @@ function App() {
         <AuthRoute
           exact
           path="/profile/custom"
-          RenderComponent={ProfileCustomPageConatiner}
+          RenderComponent={ProfileCustomPageContaer}
         />
         {/* 프로필 보기 */}
         <AuthRoute

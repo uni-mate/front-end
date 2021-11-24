@@ -17,7 +17,17 @@ import storage from "redux-persist/lib/storage"
 const persistConfig = {
   key: "root",
   storage,
-  whilelist: ["auth"],
+  whilelist: ["auth", "signIn"],
+  blacklist: [
+    "navbar",
+    "chat",
+    "mychat",
+    "createRoom",
+    "createRoom",
+    "filter",
+    "promise",
+    "promiseModal",
+  ],
 }
 
 const reducer = combineReducers({
@@ -33,5 +43,5 @@ const reducer = combineReducers({
   router: connectRouter(history),
 })
 
-// export default persistReducer(persistConfig, reducer)
-export default reducer
+export default persistReducer(persistConfig, reducer)
+// export default reducer
