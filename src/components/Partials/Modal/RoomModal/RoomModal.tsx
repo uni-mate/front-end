@@ -86,9 +86,9 @@ const RoomModal = (props: Props) => {
         <div className="allroom-modal__body--desc">
           <span>공통점</span>
           {MBTIValid && <div>MBTI</div>}
-          {interestValid && <div>단과대</div>}
+          {facultyValid && <div>단과대</div>}
           {noMatterValid && <div>없음</div>}
-          {facultyValid && <div>관심사</div>}
+          {interestValid && <div>관심사</div>}
         </div>
         <div className="allroom-modal__body--desc last">
           <span>공통점 상세</span>

@@ -75,8 +75,8 @@ const RestRoomPreview = ({ chat }: Props) => {
             </CustomHash>
             {chat.chat_purpose && <CustomHash>{chat.chat_purpose}</CustomHash>}
             {MBTIValid && <CustomHash>MBTI</CustomHash>}
-            {interestValid && <CustomHash>단과대</CustomHash>}
-            {facultyValid && <CustomHash>관심사</CustomHash>}
+            {facultyValid && <CustomHash>단과대</CustomHash>}
+            {interestValid && <CustomHash>관심사</CustomHash>}
           </div>
           <div className="restroom-preview__meet">
             <div className="restroom-preview__meet-status">

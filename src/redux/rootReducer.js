@@ -16,6 +16,7 @@ const persistConfig = {
   key: "root",
   storage,
   whilelist: ["auth", "chat", "mychat"],
+  blacklist: ["createRoom"],
 }
 
 const reducer = combineReducers({

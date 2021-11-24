@@ -12,9 +12,6 @@ import { FilterData } from "./../../../types/FilterTypes"
 import RecommendRoomPreviewSK from "./../../../components/Room/RecommendRoomPreview/RecommendRoomPreviewSK"
 import RestRoomPreviewSK from "../../../components/Room/RestRoomPreview/RestRoomPreviewSK"
 
-import BasicModal from "../../../components/Partials/Modal/BasicModal"
-import CreateRoomModal from "../../../components/Partials/Modal/CreateRoomModal/CreateRoomModal"
-
 import _ from "lodash"
 
 import "./RoomListPage.css"
@@ -22,7 +19,6 @@ import "./RoomListPage.css"
 interface Props {
   allChatList?: ChatType[] | undefined
   fetchChatLoading: boolean
-  createLoading: boolean
   fetchAllChatSaga: () => void
   isFilter: boolean
   filterInfo: FilterData
@@ -31,7 +27,6 @@ interface Props {
 
 const RoomListPage = ({
   allChatList,
-  createLoading,
   fetchChatLoading,
   fetchAllChatSaga,
   isFilter,
@@ -55,7 +50,33 @@ const RoomListPage = ({
       setAllChatListFilter(
         allChatList?.filter(
           (chat) =>
+            // chat type 필터
             chat.chat_type === filterInfo.chat_type ||
+            // grade 필터
+            (!_.includes(filterInfo.grade, "no") &&
+              _.includes(chat.grade, filterInfo.grade)) ||
+            // gender 필터
+            (!_.includes(filterInfo.gender, "nogender") &&
+              chat.select_gender === filterInfo.gender) ||
+            // 공통점 필터
+            (!_.includes(filterInfo.chat_feature, "nocommon") &&
+              // interest가 0보다 크면서
+              _.size(chat.chat_feature.interest) > 0 &&
+              // 필터가 interest인 경우
+              _.includes(filterInfo.chat_feature, "interest")) ||
+            (!_.includes(filterInfo.chat_feature, "nocommon") &&
+              //단과대가 0보다 크면서
+              _.size(chat.chat_feature.faculty) > 0 &&
+              //   // 필터가 interest인 경우
+              _.includes(filterInfo.chat_feature, "faculty")) ||
+            (!_.includes(filterInfo.chat_feature, "nocommon") &&
+              // mbti가 있으면서
+              _.size(chat.chat_feature.mbti.first_mbti) > 0 &&
+              _.size(chat.chat_feature.mbti.first_mbti) > 0 &&
+              _.size(chat.chat_feature.mbti.first_mbti) > 0 &&
+              _.size(chat.chat_feature.mbti.first_mbti) > 0 &&
+              // 필터가 mbti인 경우
+              _.includes(filterInfo.chat_feature, "mbti")) ||
             _.includes(filterInfo.purpose, chat.chat_purpose)
         )
       )
@@ -75,16 +96,6 @@ const RoomListPage = ({
 
   return (
     <Fragment>
-      <BasicModal
-        isModalOpen={createLoading}
-        width="0px"
-        height="0px"
-        backgroundColor="transparent"
-        boxShadow={0}
-        padding="0px"
-      >
-        <CreateRoomModal />
-      </BasicModal>
       <div className="roomlist">
         <div className="roomlist-header">
           <span className="roomlist-header__title">방 목록</span>

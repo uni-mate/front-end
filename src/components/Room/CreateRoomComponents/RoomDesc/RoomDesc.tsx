@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { Fragment, useEffect, useState } from "react"
 import {
   CreateRoomData,
   CreateRoomState,
@@ -8,14 +8,19 @@ import CustomButton from "../../../Partials/CustomButton/CustomButton"
 import _ from "lodash"
 
 import "./RoomDesc.css"
+import { useHistory } from "react-router"
+import BasicModal from "../../../Partials/Modal/BasicModal"
+import CreateRoomModal from "../../../Partials/Modal/CreateRoomModal/CreateRoomModal"
 
 interface Props {
+  userId: string
   blockHandler: () => void
   descState: string
   totalState: CreateRoomState
   setAtr: (type: string) => void
   setIdx: (idx: number) => void
   setNewRoom: (body: CreateRoomData) => void
+  createLoading: boolean
 }
 
 const mbtiSt = {
@@ -26,12 +31,14 @@ const mbtiSt = {
 }
 
 const RoomDesc = ({
+  userId,
   blockHandler,
   descState,
   totalState,
   setAtr,
   setIdx,
   setNewRoom,
+  createLoading,
 }: Props) => {
   const { chat_type, chat_purpose, grade, gender, title, desc, chat_feature } =
     totalState.createRoom_data
@@ -65,6 +72,7 @@ const RoomDesc = ({
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDetDesc(e.target.value)
   }
+
   const handleCreateRoom = () => {
     setNewRoom(totalState.createRoom_data)
     blockHandler()
@@ -74,31 +82,43 @@ const RoomDesc = ({
     setAtr(detDesc)
   }, [setIdx, setAtr, detDesc])
   return (
-    <div className="desc__container">
-      <div className="desc__title">
-        <div>메이트들에게</div>
-        <div>자유롭게 한 마디!</div>
+    <Fragment>
+      <BasicModal
+        isModalOpen={createLoading}
+        width="0px"
+        height="0px"
+        backgroundColor="transparent"
+        boxShadow={0}
+        padding="0px"
+      >
+        <CreateRoomModal />
+      </BasicModal>
+      <div className="desc__container">
+        <div className="desc__title">
+          <div>메이트들에게</div>
+          <div>자유롭게 한 마디!</div>
+        </div>
+        <div className="desc-input__container">
+          <input
+            type="input"
+            name="desc"
+            value={detDesc}
+            onChange={handleChange}
+            placeholder="ex) 방에 대한 간단한 설명"
+          ></input>
+        </div>
+        <div className="desc__button">
+          <CustomButton
+            width="85%"
+            onClick={handleCreateRoom}
+            inverse={submitValid}
+            isDisabled={!submitValid}
+          >
+            완료하기
+          </CustomButton>
+        </div>
       </div>
-      <div className="desc-input__container">
-        <input
-          type="input"
-          name="desc"
-          value={detDesc}
-          onChange={handleChange}
-          placeholder="ex) 방에 대한 간단한 설명"
-        ></input>
-      </div>
-      <div className="desc__button">
-        <CustomButton
-          width="85%"
-          onClick={handleCreateRoom}
-          inverse={submitValid}
-          isDisabled={!submitValid}
-        >
-          완료하기
-        </CustomButton>
-      </div>
-    </div>
+    </Fragment>
   )
 }
 

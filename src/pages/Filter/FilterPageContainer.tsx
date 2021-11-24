@@ -4,7 +4,11 @@ import FilterPage from "./FilterPage"
 import { RootState } from "./../../types/types"
 import { UserState } from "./../../types/UserTypes"
 import { FilterData } from "./../../types/FilterTypes"
-import { filterIng, successFilter } from "../../redux/modules/filter"
+import {
+  filterFinish,
+  filterIng,
+  successFilter,
+} from "../../redux/modules/filter"
 
 const FilterPageContainer = () => {
   const dispatch = useDispatch()
@@ -23,12 +27,16 @@ const FilterPageContainer = () => {
   const filterStart = useCallback(() => {
     dispatch(filterIng())
   }, [dispatch])
+  const filterEnd = useCallback(() => {
+    dispatch(filterFinish())
+  }, [dispatch])
   return (
     <FilterPage
       userInfo={user}
       filterInfo={filterInfo}
       setFilterHandler={setFilterHandler}
       filterStart={filterStart}
+      filterEnd={filterEnd}
     />
   )
 }

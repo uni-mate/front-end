@@ -95,9 +95,8 @@ const reducer = handleActions(
       createRoom_loading: true,
       createRoom_error: null,
     }),
-    [SUCCESS_CREATE_ROOM]: (state, action) => ({
+    [SUCCESS_CREATE_ROOM]: (state) => ({
       ...state,
-      createRoom_data: action.payload,
       createRoom_loading: false,
       createRoom_error: null,
     }),
@@ -198,10 +197,11 @@ function* createRoomSaga(action) {
   try {
     const history = yield getContext("history")
     yield put(pendingCreateRoom())
+    yield delay(3000)
+    yield history.replace("/room/gon123/c_08")
     const res = yield axios.post(`${API_URL}/all/chat/create`, action.payload)
     console.log(res.data.message)
-    yield put(successCreateRoom(res.data))
-    yield history.push("/room")
+    yield put(successCreateRoom())
   } catch (error) {
     yield put(failCreateRoom(error))
   }

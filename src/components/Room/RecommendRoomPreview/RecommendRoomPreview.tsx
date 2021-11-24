@@ -93,8 +93,8 @@ const RecommendRoomPreview = ({ chat }: Props) => {
             </CustomHash>
             {chat.chat_purpose && <CustomHash>{chat.chat_purpose}</CustomHash>}
             {MBTIValid && <CustomHash>MBTI</CustomHash>}
-            {interestValid && <CustomHash>단과대</CustomHash>}
-            {facultyValid && <CustomHash>관심사</CustomHash>}
+            {facultyValid && <CustomHash>단과대</CustomHash>}
+            {interestValid && <CustomHash>관심사</CustomHash>}
           </div>
         </div>
         <div className="recroom-preview__body">

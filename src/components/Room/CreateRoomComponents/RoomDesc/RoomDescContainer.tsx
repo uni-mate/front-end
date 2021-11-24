@@ -21,6 +21,12 @@ const RoomDescContainer = ({ blockHandler }: Props) => {
   const totalState = useSelector<RootState, CreateRoomState>(
     (state) => state.createRoom
   )
+  const userId = useSelector<RootState, string>(
+    (state) => state.auth.user_data.user_id
+  )
+  const createLoading = useSelector<RootState, boolean>(
+    (state) => state.createRoom.createRoom_loading
+  )
   const dispatch = useDispatch()
   const setIdx = useCallback(
     (idx) => {
@@ -42,12 +48,14 @@ const RoomDescContainer = ({ blockHandler }: Props) => {
   )
   return (
     <RoomDesc
+      userId={userId}
       blockHandler={blockHandler}
       descState={descState}
       totalState={totalState}
       setAtr={setAtr}
       setIdx={setIdx}
       setNewRoom={setNewRoom}
+      createLoading={createLoading}
     />
   )
 }

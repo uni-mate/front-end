@@ -1,6 +1,6 @@
 export interface FilterData {
   chat_type: string
-  grade: string[]
+  grade: string
   gender: string
   chat_feature: string
   purpose: string[]

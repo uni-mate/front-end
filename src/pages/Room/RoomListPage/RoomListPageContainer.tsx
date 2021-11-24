@@ -15,9 +15,6 @@ const RoomListPageContainer = () => {
   const fetchChatLoading = useSelector<RootState, boolean>(
     (state) => state.chat.chat_loading
   )
-  const createLoading = useSelector<RootState, boolean>(
-    (state) => state.createRoom.createRoom_loading
-  )
   const isFilter = useSelector<RootState, boolean>(
     (state) => state.filter.isfilter
   )
@@ -34,7 +31,6 @@ const RoomListPageContainer = () => {
     <RoomListPage
       fetchAllChatSaga={fetchAllChatSaga}
       fetchChatLoading={fetchChatLoading}
-      createLoading={createLoading}
       allChatList={allChatList}
       isFilter={isFilter}
       filterInfo={filterInfo}

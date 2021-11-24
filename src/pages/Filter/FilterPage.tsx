@@ -16,6 +16,7 @@ interface Props {
   filterInfo: FilterData
   setFilterHandler: (req: FilterData) => void
   filterStart: () => void
+  filterEnd: () => void
 }
 
 const FilterPage = ({
@@ -23,9 +24,10 @@ const FilterPage = ({
   filterInfo,
   setFilterHandler,
   filterStart,
+  filterEnd,
 }: Props) => {
   const [filterChatType, setFilterChatType] = useState("")
-  const [filterGrade, setFilterGrade] = useState<string[]>()
+  const [filterGrade, setFilterGrade] = useState<string>()
   const [filterGender, setFilterGender] = useState("")
   const [filterCommon, setFilterCommon] = useState("")
   const [filterPurpose, setfilterPurpose] = useState<string[]>([])
@@ -60,6 +62,7 @@ const FilterPage = ({
   }, [navbarOutside])
 
   const prevPageHandler = () => {
+    filterEnd()
     history.goBack()
     navbarInside()
   }
@@ -107,7 +110,7 @@ const FilterPage = ({
               value="no"
               id="no"
               checked={_.includes(filterGrade, "no")}
-              onChange={() => setFilterGrade(["no"])}
+              onChange={() => setFilterGrade("no")}
             />
             <label htmlFor="no">제한 없음</label>
             <input
@@ -116,7 +119,7 @@ const FilterPage = ({
               value="my"
               id="my"
               checked={_.includes(filterGrade, `${userInfo.grade}`)}
-              onChange={() => setFilterGrade([`${userInfo.grade}`])}
+              onChange={() => setFilterGrade(`${userInfo.grade}`)}
             />
             <label htmlFor="my">제한 있음(내 학년 포함)</label>
           </div>
