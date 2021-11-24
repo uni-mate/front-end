@@ -2,7 +2,6 @@
   width: 100%;
   height: calc(100vh + 60px);
   background-color: #f0f0f0;
-  /* border: 1px solid #000; */
   padding-bottom: 60px;
 }
 .profile__header {
@@ -24,20 +23,18 @@
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 10px;
-  /* border: 1px solid #000; */
 }
 .profile__info--image {
   width: 120px;
   height: 120px;
-  border-radius: 50%;
-  background-color: #c4c4c4;
   margin-right: 10px;
+  overflow: hidden;
 }
-.profile__image {
-  /* image */
+.profile__info--image > img {
+  width: 100%;
+  height: 100%;
 }
 .profile__info--desc {
-  /* border: 1px solid #000; */
   display: flex;
   flex-direction: column;
   justify-content: center;

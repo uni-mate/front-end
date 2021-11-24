@@ -12,9 +12,9 @@ import MakePromise from "../../../assets/icons/attr/make_promise.png"
 import Chat from "../../../components/Chat/Chat"
 import ChatBot from "../../../assets/chatBot/chatBot.png"
 import { ChatType } from "../../../types/ChatTypes"
-import me from "../../../assets/me/me.jpg"
-import user1 from "../../../assets/user/user1.jpg"
-import user2 from "../../../assets/user/user2.jpg"
+import p1 from "../../../assets/profileImage/p1.png"
+import p2 from "../../../assets/profileImage/p2.png"
+import p3 from "../../../assets/profileImage/p3.png"
 import Submit from "../../../assets/chattingRoom/submit.png"
 import { io, Socket } from "socket.io-client"
 import { UserState } from "../../../types/UserTypes"
@@ -62,11 +62,11 @@ export const getTime = (hour: number, minute: number) => {
 
 const getProfileImg = (name: string) => {
   if (name === "고니") {
-    return me
+    return p1
   } else if (name === "아이유") {
-    return user1
+    return p2
   } else if (name === "조이") {
-    return user2
+    return p3
   }
 }
 

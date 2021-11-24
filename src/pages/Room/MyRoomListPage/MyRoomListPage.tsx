@@ -21,9 +21,6 @@ const MyRoomListPage = ({
   fetchMyChatHandler2,
   fetchMyChatHandler3,
 }: Props) => {
-  // useEffect(() => {
-  //   console.log("userName: ", userName)
-  // }, [userName])
   const [navbarInside] = useNavbar()
   useEffect(() => {
     if (userName === "고니") {

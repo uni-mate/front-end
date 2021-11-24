@@ -4,7 +4,7 @@ import { ConnectedRouter } from "connected-react-router"
 
 // User
 import ProfilePageContainer from "./pages/User/ProfilePage/ProfilePageContainer"
-import ProfileEditPage from "./pages/User/ProfileEditPage/ProfileEditPage"
+import ProfileCustomPageConatiner from "./pages/User/ProfileCustomPage/ProfileCustomPage"
 
 // Main
 import RoomListPageContainer from "./pages/Room/RoomListPage/RoomListPageContainer"
@@ -19,7 +19,6 @@ import HomePage from "./pages/Home/HomePage"
 import LoginPageContainer from "./pages/User/LoginPage/LoginPageContainer"
 import RegisterPageContainer from "./pages/User/RegisterPage/RegisterPageContainer"
 import SignOutPage from "./pages/User/SignOutPage/SignOutPage"
-import ProfileCustomPage from "./pages/User/ProfileCustomPage/ProfileCustomPage"
 import WelcomePage from "./pages/Welcome/WelcomePage"
 
 // Admin
@@ -89,12 +88,7 @@ function App() {
         <AuthRoute
           exact
           path="/profile/custom"
-          RenderComponent={ProfileCustomPage}
-        />
-        <AuthRoute
-          exact
-          path="/profile/:id"
-          RenderComponent={ProfileEditPage}
+          RenderComponent={ProfileCustomPageConatiner}
         />
         {/* 프로필 보기 */}
         <AuthRoute

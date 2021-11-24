@@ -1,74 +1,28 @@
-.custom-container {
+.profileedit-container {
+  height: 100vh;
   width: 100%;
-  height: 100%;
   background-color: #fff;
+  color: #555555;
 }
-.custom__header {
+.profileedit__header {
   padding: 20px;
   padding-right: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.custom__header--icon {
+.profileedit__header--icon {
   width: 20px;
   height: 20px;
   margin-right: 10px;
 }
-.custom__header--icon > img {
+.profileedit__header--icon > img {
   width: 100%;
   height: 100%;
 }
-.custom__header--title {
+.profileedit__header--title {
   font-size: 16px;
   font-weight: bold;
   width: 100%;
-}
-/* body */
-.custom__body {
-  padding: 40px 10px;
-  background-color: #fff;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-.custom__body-img {
-  border: 1px solid #000;
-  margin: 0 auto;
-}
-.custom__body-image {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background-color: black;
-}
-.custom__body-color {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #000;
-}
-.custom__body-color1,
-.custom__body-color2,
-.custom__body-color3,
-.custom__body-color4,
-.custom__body-color5 {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: gray;
-  margin: 10px 0px;
-}
-.custom__body-color2 {
-  background-color: rgb(129, 101, 101);
-}
-.custom__body-color3 {
-  background-color: rgb(131, 84, 84);
-}
-.custom__body-color4 {
-  background-color: rgb(134, 67, 67);
-}
-.custom__body-color5 {
-  background-color: rgb(129, 43, 43);
+  color: #555555;
 }

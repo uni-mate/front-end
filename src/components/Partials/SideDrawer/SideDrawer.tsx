@@ -4,13 +4,9 @@ import Box from "@mui/material/Box"
 import SwipeableDrawer from "@mui/material/SwipeableDrawer"
 import Button from "@mui/material/Button"
 
-import user1 from "../../../assets/user/user1.jpg"
-import user2 from "../../../assets/user/user2.jpg"
-import user3 from "../../../assets/user/user3.png"
-import user4 from "../../../assets/user/user4.png"
-import user5 from "../../../assets/user/user5.jpg"
-import user6 from "../../../assets/user/user6.jpeg"
-import me from "../../../assets/me/me.jpg"
+import user1 from "../../../assets/profileImage/p1.png"
+import user2 from "../../../assets/profileImage/p2.png"
+import user3 from "../../../assets/profileImage/p3.png"
 
 import Eye from "../../../assets/chattingRoom/eye.png"
 import PromiseInfo from "../../../assets/chattingRoom/promiseInfo.png"
@@ -59,25 +55,13 @@ function SwipeableTemporaryDrawer({
           let image
           switch (userInfo.name) {
             case "고니":
-              image = me
-              break
-            case "아이유":
               image = user1
               break
-            case "박보검":
-              image = user3
-              break
-            case "조이":
+            case "아이유":
               image = user2
               break
-            case "아구몬":
-              image = user5
-              break
-            case "짱구":
-              image = user6
-              break
-            case "라이언":
-              image = user4
+            case "조이":
+              image = user3
               break
           }
           return {
@@ -149,7 +133,7 @@ function SwipeableTemporaryDrawer({
         <div className="side-drawer__title">참가자 목록</div>
         <div className="side-drawer__user">
           {userProfileList?.map((user) => (
-            <div className="side-drawer__user-info" key={user.image}>
+            <div className="side-drawer__user-info" key={user.name}>
               <img src={user.image} alt="프로필" />
               <span>{user.name}</span>
             </div>

@@ -100,14 +100,6 @@ const Register2 = ({
         placeholder="비밀번호를 확인해주세요"
         onChange={onChange}
       ></CustomInput>
-
-      <CustomButton
-        width="210px"
-        inverse={registerValid ? true : false}
-        isDisabled={registerValid ? true : false}
-      >
-        다음
-      </CustomButton>
     </div>
   )
 }

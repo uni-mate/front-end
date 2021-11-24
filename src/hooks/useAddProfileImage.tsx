@@ -1,13 +1,9 @@
 import { useEffect, useState } from "react"
 import { TestUserState } from "../types/ChatTypes"
 
-import user1 from "../assets/user/user1.jpg"
-import user2 from "../assets/user/user2.jpg"
-import user3 from "../assets/user/user3.png"
-import user4 from "../assets/user/user4.png"
-import user5 from "../assets/user/user5.jpg"
-import user6 from "../assets/user/user6.jpeg"
-import me from "../assets/me/me.jpg"
+import user1 from "../assets/profileImage/p1.png"
+import user2 from "../assets/profileImage/p2.png"
+import user3 from "../assets/profileImage/p3.png"
 
 export const useAdddProfileImages = (defaultArray?: TestUserState[]) => {
   const [newArray, setNewArray] = useState<TestUserState[]>()
@@ -18,25 +14,13 @@ export const useAdddProfileImages = (defaultArray?: TestUserState[]) => {
         let image
         switch (userInfo.name) {
           case "고니":
-            image = me
-            break
-          case "아이유":
             image = user1
             break
-          case "박보검":
-            image = user3
-            break
-          case "조이":
+          case "아이유":
             image = user2
             break
-          case "아구몬":
-            image = user5
-            break
-          case "짱구":
-            image = user6
-            break
-          case "라이언":
-            image = user4
+          case "조이":
+            image = user3
             break
         }
         return {

@@ -49,8 +49,8 @@ const RegisterPage = ({ registerSaga }: Props) => {
           autoPlay={false}
           animation={"fade"}
           cycleNavigation={false}
-          swipe={false}
-          navButtonsAlwaysInvisible={true}
+          // swipe={false}
+          // navButtonsAlwaysInvisible={true}
           timeout={300}
           indicators={true}
           className="register__components--carousel"
@@ -62,6 +62,12 @@ const RegisterPage = ({ registerSaga }: Props) => {
             style: {
               pointerEvents: "none",
             },
+          }}
+          navButtonsWrapperProps={{
+            className: "register-navbutton__button-wrapper",
+          }}
+          navButtonsProps={{
+            className: "register-navbutton__button",
           }}
           activeIndicatorIconButtonProps={{
             className: "register-indicator__button-active",

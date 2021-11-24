@@ -1,46 +1,54 @@
-import React, { Fragment, useEffect } from "react"
+import React, { Fragment, useEffect, useState } from "react"
 import { UserState } from "../../../types/UserTypes"
 
 import Menu from "../../../assets/icons/createroom/arrow.png"
+import me from "../../../assets/me/me.jpg"
+import useNavbar from "../../../hooks/useNavbar"
+
+import p1 from "../../../assets/profileImage/p1.png"
+import p2 from "../../../assets/profileImage/p2.png"
+import p3 from "../../../assets/profileImage/p3.png"
 
 import "./ProfilePage.css"
-import useNavbar from "../../../hooks/useNavbar"
-// import BasicModal from "../../../components/Partials/Modal/BasicModal"
+import { useHistory } from "react-router"
 
 interface Props {
   currentUser: UserState
   logouthandler: () => void
 }
 
+const getProfileImg = (name: string) => {
+  if (name === "고니") {
+    return p1
+  } else if (name === "아이유") {
+    return p2
+  } else if (name === "조이") {
+    return p3
+  }
+}
+
 const ProfilePage = ({ currentUser, logouthandler }: Props) => {
-  // const [isModalOpen, setIsModalOpen] = useState(false)
+  const [image, setImage] = useState<string>()
+  useEffect(() => {
+    setImage(getProfileImg(currentUser.username))
+  }, [currentUser.username])
   const [navbarInSide] = useNavbar()
+  const history = useHistory()
   useEffect(() => {
     navbarInSide()
   }, [navbarInSide])
   return (
     <Fragment>
-      {/* {isModalOpen && (
-        <BasicModal
-          isModalOpen={isModalOpen}
-          width="300px"
-          height="500px"
-          backgroundColor="#fff"
-          boxShadow={24}
-          padding="30px 20px"
-        >
-          <RoomModal chat={chat} closeModal={closeModal} />
-        </BasicModal>
-      )} */}
       <div className="profile-container">
         <div className="profile__header">
           <span className="profile__header--title">내 정보</span>
         </div>
         <div className="profile__info">
-          <div className="profile__info--image">
-            {/* 예시 */}
-            <div className="profile__image"></div>
-            {/* <img src="" alt="" /> */}
+          <div
+            className="profile__info--image"
+            onClick={() => history.push("profile/custom")}
+          >
+            <img src={image} alt="profile" />
           </div>
           <div className="profile__info--desc">
             <span className="profile__info--username">

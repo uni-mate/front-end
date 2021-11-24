@@ -57,7 +57,6 @@ const Register1 = () => {
           )}
         </div>
       </div>
-      <CustomButton width="210px">다음</CustomButton>
     </div>
   )
 }
