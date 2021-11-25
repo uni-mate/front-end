@@ -41,6 +41,10 @@ const RoomListPage = ({
   >(allChatList ? allChatList : undefined)
 
   useEffect(() => {
+    setAllChatListFilter(allChatList)
+  }, [])
+
+  useEffect(() => {
     !isFilter && fetchAllChatSaga()
     navbarInside()
   }, [isFilter, fetchAllChatSaga, navbarInside, filterFinishHandler])

@@ -8,7 +8,6 @@ import CustomButton from "../../../Partials/CustomButton/CustomButton"
 import _ from "lodash"
 
 import "./RoomDesc.css"
-import { useHistory } from "react-router"
 import BasicModal from "../../../Partials/Modal/BasicModal"
 import CreateRoomModal from "../../../Partials/Modal/CreateRoomModal/CreateRoomModal"
 

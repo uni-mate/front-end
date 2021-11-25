@@ -2,7 +2,6 @@ import React, { Fragment, useEffect, useState } from "react"
 import { UserState } from "../../../types/UserTypes"
 
 import Menu from "../../../assets/icons/createroom/arrow.png"
-import me from "../../../assets/me/me.jpg"
 import useNavbar from "../../../hooks/useNavbar"
 
 import p1 from "../../../assets/profileImage/p1.png"
