@@ -56,7 +56,7 @@ const getProfileImg = (name: string) => {
 const ProfileCustomPage = ({ username }: Props) => {
   const [detEyeBrow, setDetEyeBrow] = useState<string>(eyebrow3)
   const [detEye, setDetEye] = useState<string>(eye1)
-  const [detMouse, setDetMouse] = useState<string>(mouse5)
+  const [detMouse, setDetMouse] = useState<string>(mouse4)
   const [page, setPage] = useState<number>(1)
   const [image, setImage] = useState<string>()
   const [color, setColor] = useState<string>(background3)
