@@ -17,9 +17,13 @@ const PromiseModal = ({ closeModal, promiseDesc }: Props) => {
         <div>{promiseDesc.when_to_meet}</div>
         <div>{promiseDesc.where_to_meet}</div>
       </div>
-      <div className="promise-modal__desc">
+      <div className="promise-modal__desc first">
         <div>설명</div>
         <div>{promiseDesc.promise_desc}</div>
+      </div>
+      <div className="promise-modal__desc">
+        <div>참가자</div>
+        <div>고니, 아이유, 조이</div>
       </div>
       <div className="promise-modal__button">
         <button onClick={closeModal}>설명창 닫기</button>

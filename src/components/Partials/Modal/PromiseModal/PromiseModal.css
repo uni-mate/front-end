@@ -34,6 +34,9 @@
   align-items: baseline;
   margin-top: 20px;
 }
+.promise-modal__desc.first {
+  margin-bottom: -10px;
+}
 .promise-modal__desc > div:first-of-type {
   width: 40px;
   font-size: 12px;

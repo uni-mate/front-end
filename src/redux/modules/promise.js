@@ -133,7 +133,7 @@ function* createPromiseSaga(action) {
   try {
     yield put(pendingCreatePromise())
     yield delay(2000)
-    const res = yield axios.post(`${API_URL}/promise`, action.payload)
+    const res = yield axios.post(`${API_URL}/api/promise`, action.payload)
     console.log(res.data.message)
     yield put(closeModal())
     yield put(successCreatePromise())
