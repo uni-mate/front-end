@@ -19,16 +19,17 @@
 
 .text > .chat-msg {
   text-align: center;
-
   width: 100%;
   height: 100%;
   font-size: 12px;
-  /* color: var(--main-color); */
 }
 
 .chat-detail.admin,
 .chat-detail.not--me {
+  display: flex;
   flex-direction: row-reverse;
+
+  align-items: center;
 }
 
 .chat-detail > .chat-msg {
@@ -85,7 +86,8 @@
 .chat-detail.admin .chat-profile {
   margin-right: 10px;
 }
-.chat-detail.me .chat-profile {
+
+.chat-detail.not--admin.me .chat-profile {
   margin-left: 10px;
 }
 .chat-profile__name {

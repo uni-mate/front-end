@@ -52,9 +52,9 @@ const Chat = ({
         </BasicModal>
       )}
       <div
-        className={`${text ? "text" : "chat-detail"} ${admin ? "admin" : ""} ${
-          not_me ? "not--me" : "me"
-        }`}
+        className={`${text ? "text" : "chat-detail"} ${
+          admin ? "admin" : "not--admin"
+        } ${not_me ? "not--me" : "me"}`}
       >
         <div className="chat__time">{time}</div>
         {!promise ? (
