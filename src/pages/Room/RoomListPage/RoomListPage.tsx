@@ -41,10 +41,6 @@ const RoomListPage = ({
   >(allChatList ? allChatList : undefined)
 
   useEffect(() => {
-    setAllChatListFilter(allChatList)
-  }, [])
-
-  useEffect(() => {
     !isFilter && fetchAllChatSaga()
     navbarInside()
   }, [isFilter, fetchAllChatSaga, navbarInside, filterFinishHandler])
@@ -88,7 +84,6 @@ const RoomListPage = ({
 
   useEffect(() => {
     _.size(searchText) > 0 && filterFinishHandler()
-    _.size(searchText) > 0 && setAllChatListFilter(allChatList)
   }, [searchText, filterFinishHandler, allChatList])
 
   useEffect(() => {
@@ -97,6 +92,12 @@ const RoomListPage = ({
         allChatList?.filter((chat) => _.includes(chat.title, searchText))
       )
   }, [allChatList, searchText])
+
+  useEffect(() => {
+    console.log("allChatList", allChatList)
+    console.log("isFilter: ", isFilter)
+    console.log(searchText.length === 0 && !isFilter)
+  }, [allChatList, isFilter, searchText])
 
   return (
     <Fragment>
@@ -153,9 +154,13 @@ const RoomListPage = ({
                 .fill(1)
                 .map((_, idx) => <RestRoomPreviewSK key={idx} />)}
             {!fetchChatLoading &&
-              allChatListFilter?.map((chat) => (
-                <RestRoomPreview key={chat.chat_id} chat={chat} />
-              ))}
+              (!isFilter && searchText.length === 0
+                ? allChatList?.map((chat) => (
+                    <RestRoomPreview key={chat.chat_id} chat={chat} />
+                  ))
+                : allChatListFilter.map((chat) => (
+                    <RestRoomPreview key={chat.chat_id} chat={chat} />
+                  )))}
           </div>
         </div>
       </div>
