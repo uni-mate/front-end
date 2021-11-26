@@ -2,7 +2,11 @@ import React, { useEffect } from "react"
 import Carousel from "react-material-ui-carousel"
 import { useHistory } from "react-router"
 
-import hello from "../../assets/createRoom/ready.png"
+import welcome1 from "../../assets/welcome/welcome1.png"
+import welcome2 from "../../assets/welcome/welcome2.png"
+import welcome3 from "../../assets/welcome/welcome3.png"
+import welcome4 from "../../assets/welcome/welcome4.png"
+
 import useNavbar from "./../../hooks/useNavbar"
 
 import "./WelcomePage.css"
@@ -15,56 +19,92 @@ const WelcomePage = () => {
   }, [navbarOutside])
   return (
     <div className="welcome__container">
-      <div className="welcome__img">
-        <img src={hello} alt="" />
-      </div>
       <Carousel
+        fullHeightHover={false}
         className="welcome__desc"
         autoPlay={false}
         animation={"fade"}
         cycleNavigation={false}
+        navButtonsAlwaysVisible={true}
         swipe={true}
-        navButtonsAlwaysInvisible={true}
         timeout={300}
         indicators={true}
+        NextIcon="next" // Change the "inside" of the next button to "next"
+        PrevIcon="prev"
         indicatorContainerProps={{
           style: {
+            display: "inline",
             position: "absolute",
-            bottom: "0",
+            width: "150px",
+            bottom: "40px",
+            left: "50%",
+            transform: "translateX(-50%)",
           },
         }}
         indicatorIconButtonProps={{
           style: {
-            color: "rgba(220,220,220)",
+            backgroundColor: "rgba(220,220,220)",
             pointerEvents: "none",
-            padding: "0px 5px",
+            marginRight: "10px",
+            width: "10px",
+            height: "10px",
           },
         }}
         activeIndicatorIconButtonProps={{
           style: {
-            color: "var(--main-color)",
+            backgroundColor: "var(--main-color)",
+            padding: "0px 10px",
+            borderRadius: "4px",
+          },
+        }}
+        navButtonsWrapperProps={{
+          style: {
+            bottom: "0",
+            top: "unset",
+          },
+        }}
+        navButtonsProps={{
+          style: {
+            position: "absolute",
+            bottom: "0px",
+            backgroundColor: "#fff",
           },
         }}
       >
-        <div className="welcome__carousel">
-          <div className="welcome__title">안녕하세요</div>
-          <span>유니메이트에 오신걸 환영합니다.</span>
+        <div className="welcome__carousel-1">
+          <img src={welcome1} alt="welcome" />
+          <div>
+            <div className="welcome__title">안녕, 나는 몽지에요!</div>
+            <span style={{ display: "block" }}>오랫동안 열리지 않던</span>
+            <span>문틈의 먼지가 쌓여 탄생했어요.</span>
+          </div>
         </div>
-        <div className="welcome__carousel">
-          <div className="welcome__title">대학교 친구를 사귀어보세요!</div>
-          <span>곧 대면 학기가 시작되는데 학교에 친구가 없다구요?</span>
-          <span>유니메이트에서 마음 맞는 친구를 찾아보세요</span>
+        <div className="welcome__carousel-2">
+          <img src={welcome2} alt="welcome" />
+          <div>
+            <div className="welcome__title">
+              문안에는 대학생이 살고 있나 봐요!
+            </div>
+            <span>아직 친구가 없는 모양인데...</span>
+          </div>
         </div>
-        <div className="welcome__carousel">
-          <div className="welcome__title">부담없이 대화를 나눠보세요!</div>
-          <span>채팅방에서는 챗봇이 주제를 던져줄 거에요</span>
-          <span>주제에 따라 즐겁고 부담없는 대화를 나누어보세요</span>
-
-          <span></span>
+        <div className="welcome__carousel-3">
+          <img src={welcome3} alt="welcome" />
+          <div>
+            <div className="welcome__title" style={{ marginBottom: "10px" }}>
+              자기랑 잘 맞는 친구만이
+            </div>
+            <div className="welcome__title">문을 열 수 있다나 뭐라나~</div>
+          </div>
         </div>
-        <div className="welcome__carousel last">
-          <div className="welcome__title">친구를 사귈 준비가 되었나요?</div>
-          <span>그렇다면 우리 함께 친구를 사귀러 가보아요~</span>
+        <div className="welcome__carousel-4">
+          <img src={welcome4} alt="welcome" />
+          <div>
+            <div className="welcome__title">
+              아무튼, 몽지는 문 안이 궁금해요!
+            </div>
+            <span>당신이라면... 문을 열 수 있을지도...?</span>
+          </div>
           <div className="app__start" onClick={() => history.push("/room")}>
             유니메이트 시작하기
           </div>
