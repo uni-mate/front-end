@@ -190,7 +190,7 @@ function SwipeableTemporaryDrawer({
             anchor={anchor}
             open={state[anchor]}
             onClose={toggleDrawer(anchor, false)}
-            onOpen={toggleDrawer(anchor, true)}
+            onOpen={toggleDrawer(anchor, false)}
           >
             {list(anchor)}
           </SwipeableDrawer>

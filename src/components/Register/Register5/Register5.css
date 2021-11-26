@@ -53,3 +53,7 @@
   border-radius: 50%;
   background-color: rgba(85, 85, 85, 0.7);
 }
+.register5__container > button {
+  padding: 10px;
+  color: var(--main-color);
+}

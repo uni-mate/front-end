@@ -15,18 +15,19 @@ const useStyles = makeStyles(() => ({
       height: "35px",
       fontSize: "12px",
       color: "#8d8d8d",
-      justifyContent: "center",
     },
     "& .MuiOutlinedInput-notchedOutline ": {
       border: "none",
     },
     "& .MuiSelect-select": {
       padding: "15px 10px",
+      width: "100%",
     },
   },
   select: {
     width: "auto",
     fontSize: "12px",
+    textAlign: "left",
     "&:focus": {
       backgroundColor: "transparent",
     },
@@ -89,7 +90,7 @@ const DropDown = ({ value, handleChange, itemList }: Props) => {
         MenuProps={MenuProps}
         renderValue={(selected) => {
           if (selected === "") {
-            return <span style={{ color: "#8d8d8d" }}>학년을 입력해주세요</span>
+            return <span style={{ color: "#8d8d8d" }}>학년을 선택해주세요</span>
           }
 
           return `${selected}학년`

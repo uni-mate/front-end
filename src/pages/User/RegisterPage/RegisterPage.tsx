@@ -83,43 +83,51 @@ const RegisterPage = ({ registerSaga }: Props) => {
         </BasicModal>
       )}
       <div className="register-container">
-        {/* <div className="register__header">
-        <div
-        className="register__header--icon"
-        onClick={() => history.push("/")}
-        >
-          <img src={GoBackArrow} alt="뒤로가기" />
-          </div>
-          <span>회원가입</span>
-        </div> */}
         <div className="register__body">
           <Carousel
+            fullHeightHover={false}
             autoPlay={false}
             animation={"fade"}
             cycleNavigation={false}
             // swipe={false}
-            // navButtonsAlwaysInvisible={true}
             timeout={300}
             indicators={true}
+            navButtonsAlwaysVisible={false}
+            // NextIcon="next" // Change the "inside" of the next button to "next"
+            // PrevIcon="prev"
             className="register__components--carousel"
             indicatorContainerProps={{
               className: "register-indicator__container",
             }}
             indicatorIconButtonProps={{
               className: "register-indicator__button",
-              // style: {
-              //   pointerEvents: "none",
-              // },
-            }}
-            navButtonsWrapperProps={{
-              className: "register-navbutton__button-wrapper",
-            }}
-            navButtonsProps={{
-              className: "register-navbutton__button",
+              style: {
+                pointerEvents: "none",
+              },
             }}
             activeIndicatorIconButtonProps={{
               className: "register-indicator__button-active",
             }}
+            // navButtonsWrapperProps={{
+            //   style: {
+            //     bottom: "0px",
+            //     top: "unset",
+            //     width: "100px",
+            //   },
+            // }}
+            // navButtonsProps={{
+            //   style: {
+            //     position: "absolute",
+            //     bottom: "0px",
+            //     backgroundColor: "transparent",
+            //     width: "20px",
+            //     height: "20px",
+            //     borderRadius: "4px",
+            //     padding: "20px 40px",
+            //     fontSize: "14px",
+            //     border: "1px solid var(--main-color)",
+            //   },
+            // }}
           >
             <Register1Container />
             <Register2Container />

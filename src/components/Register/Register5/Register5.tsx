@@ -4,6 +4,9 @@ import CustomInput from "../../Partials/CustomInput/CustomInput"
 
 import "./Register5.css"
 import { RegisterData } from "../../../types/RegisterTypes"
+import CustomButton from "../../Partials/CustomButton/CustomButton"
+
+import _ from "lodash"
 
 interface Props {
   registerInfo: RegisterData
@@ -51,6 +54,31 @@ const Register5 = ({
     introducing,
     gender,
   ])
+  const [registerValid, setRegisterValid] = useState(true)
+  const [mbtiValid, setMbtiValid] = useState(false)
+  useEffect(() => {
+    _.size(registerInfo.mbti.first_mbti) > 0 &&
+      _.size(registerInfo.mbti.second_mbti) > 0 &&
+      _.size(registerInfo.mbti.third_mbti) > 0 &&
+      _.size(registerInfo.mbti.fourth_mbti) > 0 &&
+      setMbtiValid(true)
+  }, [registerInfo.mbti])
+  useEffect(() => {
+    _.size(registerInfo.user_name) > 0 && _.size(registerInfo.birdh_of_date)
+    _.size(registerInfo.introducing) > 0 &&
+      _.size(registerInfo.user_nickname) > 0 &&
+      _.size(registerInfo.user_id) > 0 &&
+      _.size(registerInfo.school) > 0 &&
+      _.size(registerInfo.password) > 0 &&
+      mbtiValid &&
+      _.size(registerInfo.interest) > 0 &&
+      _.size(registerInfo.grade) > 0 &&
+      _.size(registerInfo.grade) > 0 &&
+      _.size(registerInfo.email) > 0 &&
+      _.size(registerInfo.department) > 0 &&
+      _.size(registerInfo.birdh_of_date) > 0 &&
+      setRegisterValid(true)
+  }, [registerInfo, mbtiValid])
   return (
     <div className="register5__container">
       <CustomInput
@@ -118,6 +146,13 @@ const Register5 = ({
         />
         <label htmlFor="women">여자에요</label>
       </div>
+      <CustomButton
+        width="180px"
+        inverse={registerValid}
+        isDisabled={registerValid}
+      >
+        완료
+      </CustomButton>
     </div>
   )
 }
