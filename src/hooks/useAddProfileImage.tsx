@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { TestUserState } from "../types/ChatTypes"
 
 import user1 from "../assets/profileImage/p1.png"
@@ -8,7 +8,7 @@ import user3 from "../assets/profileImage/p3.png"
 export const useAdddProfileImages = (defaultArray?: TestUserState[]) => {
   const [newArray, setNewArray] = useState<TestUserState[]>()
 
-  useEffect(() => {
+  useState(() => {
     setNewArray(
       defaultArray?.map((userInfo) => {
         let image
@@ -29,7 +29,7 @@ export const useAdddProfileImages = (defaultArray?: TestUserState[]) => {
         }
       })
     )
-  }, [])
+  })
 
   return [newArray]
 }

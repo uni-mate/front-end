@@ -1,0 +1,46 @@
+.userInfo-modal {
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.userInfo__title {
+  font-size: 18px;
+  color: #555555;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.userInfo__container {
+  width: 210px;
+  /* border: 1px solid #000; */
+}
+.userInfo__button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.userInfo__button > button {
+  height: 50px;
+  font-size: 12px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+.userInfo__button > button:first-of-type {
+  width: 30%;
+  color: #555555;
+  border: 1px solid rgba(85, 85, 85, 0.4);
+  background-color: #fff;
+}
+.userInfo__button > button:last-of-type {
+  width: 60%;
+  color: #fff;
+  background-color: var(--main-color);
+}

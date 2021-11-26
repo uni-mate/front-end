@@ -8,7 +8,6 @@ import BasicModal from "../../Partials/Modal/BasicModal"
 import promiseFinish from "../../../assets/promise/promise-finish.png"
 
 import "./PromiseDesc.css"
-import { successCreatePromise } from "../../../redux/modules/promise"
 
 interface Props {
   blockHandler: () => void
@@ -59,6 +58,7 @@ const PromiseDesc = ({
   useEffect(() => {
     _.size(promise_desc) > 0 &&
     _.size(where_to_meet) > 0 &&
+    _.size(when_to_meet) > 0 &&
     _.size(promise_purpose) > 0 &&
     _.size(promise_title) > 0
       ? setSubmitValid(true)
@@ -66,6 +66,7 @@ const PromiseDesc = ({
   }, [
     promise_desc,
     where_to_meet,
+    when_to_meet,
     promise_purpose,
     promise_title,
     setSubmitValid,

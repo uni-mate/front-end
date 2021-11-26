@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
 import useInput from "../../../hooks/useInput"
-import CustomButton from "../../Partials/CustomButton/CustomButton"
 import CustomInput from "./../../Partials/CustomInput/CustomInput"
 
 import "./Register2.css"
@@ -18,7 +17,7 @@ const Register2 = ({
   emailHandler,
   passwordHandler,
 }: Props) => {
-  const [registerValid, setRegisterValid] = useState(false)
+  const [, setRegisterValid] = useState(false)
   const [pwdConfirmValid, setPwdConfirmValid] = useState(false)
   const [{ userId, nickname, email, password, passwordConfirm }, onChange] =
     useInput({

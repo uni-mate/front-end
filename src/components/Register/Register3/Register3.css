@@ -1,0 +1,84 @@
+.mbti__header {
+  text-align: center;
+  font-size: 14px;
+  color: #555555;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+.mbti__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.mbti--first,
+.mbti--second,
+.mbti--third,
+.mbti--fourth {
+  border: 1px solid rgba(85, 85, 85, 0.5);
+  width: 135px;
+  height: 32px;
+  position: relative;
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+.mbti--first.checked,
+.mbti--second.checked,
+.mbti--third.checked,
+.mbti--fourth.checked {
+  border: 1px solid var(--main-color) !important;
+}
+.mbti--first > input,
+.mbti--second > input,
+.mbti--third > input,
+.mbti--fourth > input {
+  display: none;
+}
+.mbti--first > input:checked + label,
+.mbti--second > input:checked + label,
+.mbti--third > input:checked + label,
+.mbti--fourth > input:checked + label {
+  background-color: var(--main-color);
+}
+.mbti--first > label,
+.mbti--second > label,
+.mbti--third > label,
+.mbti--fourth > label {
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  line-height: 24px;
+  border-radius: 50%;
+  color: #fff;
+  background-color: #cccccc;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.mbti--first > label:first-of-type,
+.mbti--second > label:first-of-type,
+.mbti--third > label:first-of-type,
+.mbti--fourth > label:first-of-type {
+  position: absolute;
+  left: 3%;
+}
+.mbti--first > label:last-of-type,
+.mbti--second > label:last-of-type,
+.mbti--third > label:last-of-type,
+.mbti--fourth > label:last-of-type {
+  position: absolute;
+  right: 3%;
+}
+.mbti--no {
+  border: 1px solid rgba(85, 85, 85, 0.5);
+  border-radius: 20px;
+  width: 135px;
+  height: 33px;
+  text-align: center;
+  line-height: 33px;
+  color: #555555;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+.mbti--no.checked {
+  border: 1px solid var(--main-color);
+}

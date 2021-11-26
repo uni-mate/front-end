@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react"
 
-import DatePicker, { registerLocale } from "react-datepicker"
-import ko from "date-fns/locale/ko"
-import "react-datepicker/dist/react-datepicker.css"
+// import DatePicker, { registerLocale } from "react-datepicker"
+// import ko from "date-fns/locale/ko"
+// import "react-datepicker/dist/react-datepicker.css"
+// registerLocale("ko", ko)
 
 import "./PromiseWhen.css"
-registerLocale("ko", ko)
 
 interface Props {
   setIdx: (idx: number) => void

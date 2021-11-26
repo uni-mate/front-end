@@ -1,3 +1,6 @@
+.register2__container {
+  padding: 0px 75px;
+}
 .register2__container > input {
   margin-bottom: 12px;
 }

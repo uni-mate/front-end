@@ -1,0 +1,55 @@
+.register5__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 75px;
+}
+.register5__container > input {
+  margin-bottom: 10px;
+}
+.birth__container {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.register5__gender {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.register5__gender > input {
+  display: none;
+}
+.register5__gender > label {
+  color: #8d8d8d;
+  position: relative;
+  padding-left: 20px;
+  font-size: 12px;
+}
+.register5__gender > label::before {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  content: "";
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid rgba(85, 85, 85, 0.7);
+  background-color: #fff;
+}
+.register5__gender > input:checked + label::after {
+  position: absolute;
+  left: 4.5%;
+  top: 50%;
+  transform: translateY(-50%);
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(85, 85, 85, 0.7);
+}
