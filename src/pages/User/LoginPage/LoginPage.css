@@ -2,7 +2,6 @@
   background-color: #fff;
   height: 100vh;
   width: 100%;
-  border: 1px solid #000;
 }
 .login__header {
   padding: 20px;
@@ -72,13 +71,9 @@
   margin: 5px;
 }
 .login-to-register {
-  border: 1px solid #000;
   width: 100%;
+  margin-top: 150px;
   text-align: center;
-  position: fixed;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
 }
 .login-to-register > div {
   margin-bottom: 12px;
