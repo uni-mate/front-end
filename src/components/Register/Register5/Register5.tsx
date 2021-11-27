@@ -9,6 +9,7 @@ import CustomButton from "../../Partials/CustomButton/CustomButton"
 import _ from "lodash"
 
 interface Props {
+  registerHandler: () => void
   registerInfo: RegisterData
   setAtr1: (req: String) => void
   setAtr2: (req: String) => void
@@ -17,6 +18,7 @@ interface Props {
 }
 
 const Register5 = ({
+  registerHandler,
   registerInfo,
   setAtr1,
   setAtr2,
@@ -57,27 +59,32 @@ const Register5 = ({
   const [registerValid, setRegisterValid] = useState(true)
   const [mbtiValid, setMbtiValid] = useState(false)
   useEffect(() => {
+    console.log(registerValid)
+  }, [registerValid])
+  useEffect(() => {
     _.size(registerInfo.mbti.first_mbti) > 0 &&
-      _.size(registerInfo.mbti.second_mbti) > 0 &&
-      _.size(registerInfo.mbti.third_mbti) > 0 &&
-      _.size(registerInfo.mbti.fourth_mbti) > 0 &&
-      setMbtiValid(true)
+    _.size(registerInfo.mbti.second_mbti) > 0 &&
+    _.size(registerInfo.mbti.third_mbti) > 0 &&
+    _.size(registerInfo.mbti.fourth_mbti) > 0
+      ? setMbtiValid(true)
+      : setMbtiValid(false)
   }, [registerInfo.mbti])
   useEffect(() => {
     _.size(registerInfo.user_name) > 0 && _.size(registerInfo.birdh_of_date)
     _.size(registerInfo.introducing) > 0 &&
-      _.size(registerInfo.user_nickname) > 0 &&
-      _.size(registerInfo.user_id) > 0 &&
-      _.size(registerInfo.school) > 0 &&
-      _.size(registerInfo.password) > 0 &&
-      mbtiValid &&
-      _.size(registerInfo.interest) > 0 &&
-      _.size(registerInfo.grade) > 0 &&
-      _.size(registerInfo.grade) > 0 &&
-      _.size(registerInfo.email) > 0 &&
-      _.size(registerInfo.department) > 0 &&
-      _.size(registerInfo.birdh_of_date) > 0 &&
-      setRegisterValid(true)
+    _.size(registerInfo.user_nickname) > 0 &&
+    _.size(registerInfo.user_id) > 0 &&
+    _.size(registerInfo.school) > 0 &&
+    _.size(registerInfo.password) > 0 &&
+    mbtiValid &&
+    _.size(registerInfo.interest) > 0 &&
+    _.size(registerInfo.grade) > 0 &&
+    _.size(registerInfo.grade) > 0 &&
+    _.size(registerInfo.email) > 0 &&
+    _.size(registerInfo.department) > 0 &&
+    _.size(registerInfo.birdh_of_date) > 0
+      ? setRegisterValid(true)
+      : setRegisterValid(false)
   }, [registerInfo, mbtiValid])
   return (
     <div className="register5__container">
@@ -147,9 +154,11 @@ const Register5 = ({
         <label htmlFor="women">여자에요</label>
       </div>
       <CustomButton
+        onClick={registerHandler}
+        type="button"
         width="180px"
         inverse={registerValid}
-        isDisabled={registerValid}
+        isDisabled={!registerValid}
       >
         완료
       </CustomButton>

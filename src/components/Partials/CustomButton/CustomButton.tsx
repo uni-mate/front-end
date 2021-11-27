@@ -20,10 +20,12 @@ const CustomButton = ({
   width,
   height,
   isDisabled,
+  onClick,
   ...props
 }: Props) => {
   return (
     <button
+      onClick={onClick}
       className={`auth-btn__container ${inverse ? "inverse" : ""}`}
       style={{ width: width, height: height }}
       {...props}

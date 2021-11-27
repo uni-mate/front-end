@@ -8,6 +8,7 @@ import {
   setIntroducing,
   setUserBirth,
   setUserName,
+  register,
 } from "./../../../redux/modules/signIn"
 
 const Register5Container = () => {
@@ -39,8 +40,12 @@ const Register5Container = () => {
     },
     [dispatch]
   )
+  const registerHandler = useCallback(() => {
+    dispatch(register())
+  }, [dispatch])
   return (
     <Register5
+      registerHandler={registerHandler}
       registerInfo={registerInfo}
       setAtr1={setAtr1}
       setAtr2={setAtr2}

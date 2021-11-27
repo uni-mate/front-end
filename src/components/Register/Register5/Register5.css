@@ -56,4 +56,5 @@
 .register5__container > button {
   padding: 10px;
   color: var(--main-color);
+  z-index: 9999;
 }
