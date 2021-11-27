@@ -27,6 +27,7 @@ const persistConfig = {
     "filter",
     "promise",
     "promiseModal",
+    "signIn",
   ],
 }
 
@@ -43,5 +44,5 @@ const reducer = combineReducers({
   router: connectRouter(history),
 })
 
-export default persistReducer(persistConfig, reducer)
-// export default reducer
+// export default persistReducer(persistConfig, reducer)
+export default reducer
